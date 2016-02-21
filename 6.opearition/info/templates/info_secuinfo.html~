@@ -1,0 +1,75 @@
+{% extends "info_layout.html" %}
+{% import "macro/qts_macro_input.html" as qts_forms %}
+{% import "macro/qts_macro_datagrid.html" as qts_dg %}
+{% block body %}
+
+    {#  ajax url set  #}
+    {% set addurl_s = 'info._insert_secuinfos' %}
+    {% set upurl_s = 'info._update_secuinfos' %}
+    {% set geturl_s = 'info.get_secuinfos' %}
+
+    {% set addurl_d = 'info._insert_secuinfod' %}
+    {% set upurl_d = 'info._update_secuinfod' %}
+    {% set geturl_d = 'info.get_secuinfod' %}
+
+    {% set app_type_url = 'data/qts_app_type.json'%}
+
+    <div class="easyui-tabs" style="width:auto;height:auto">
+
+        <div title="{{ reses['secuinfos'] }}" style="padding:10px">
+             
+            {{ qts_dg.qts_dg_table("dgs","dgs_tb",fields,texts,reses,colsize,hoptions=hoptions,upurl=upurl_s,geturl=geturl_s,
+                                    title="Row Editing in DataGrid",style="width:auto;height:auto",
+                                    toptions="
+                                    iconCls: 'icon-edit',
+                                    singleSelect: true,
+                                    method: 'get',
+                                    pagination:true,
+                                    pageSize:10,
+                                    remoteSort:false,
+                                    multiSort:true")
+            }}
+
+            <script type="text/javascript">
+                function onTypeFormatter(value,row){
+                    return get_json_value(value,get_app_types(),"id","text");
+                }
+
+                function onTypeLoadSuccess(){
+                   onComboboxLoadSuccess($(this));
+                }
+
+            </script>
+        </div>
+
+        <div title="{{ reses['secuinfod'] }}" style="padding:10px">
+             
+            {{ qts_dg.qts_dg_table("dgd","dgd_tb",fields,texts,reses,colsize,hoptions=hoptions,upurl=upurl_d,geturl=geturl_d,
+                                    title="Row Editing in DataGrid",style="width:auto;height:auto",
+                                    toptions="
+                                    iconCls: 'icon-edit',
+                                    singleSelect: true,
+                                    method: 'get',
+                                    pagination:true,
+                                    pageSize:10,
+                                    remoteSort:false,
+                                    multiSort:true")
+            }}
+
+            <script type="text/javascript">
+                function onTypeFormatter(value,row){
+                    return get_json_value(value,get_app_types(),"id","text");
+                }
+
+                function onTypeLoadSuccess(){
+                   onComboboxLoadSuccess($(this));
+                }
+            </script>
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}

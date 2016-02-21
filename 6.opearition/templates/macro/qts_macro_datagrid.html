@@ -1,0 +1,132 @@
+{###########################################################################################################}
+{#
+function: create datagrid view
+parameter:
+    dg                  datagrid id
+    tb                  toolbar id for datagrid
+    fields              head list of datagrid
+    names               head text list of datagrid
+    reses               resource list
+    size                head size of datagride
+    title               display label for datagrid
+    toptions            options for datagrid
+    hoptions            options for head of datagrid
+    style               datagrid style
+    geturl              get data from url
+    upurl               update data from url
+#}
+{% macro qts_dg_table(dg,tb,fields,names,reses,size,title='',toptions='',hoptions={},style='',geturl='',upurl='') -%}
+    {%- if geturl != '' %}
+        {%- set ioption = "url:'" + url_for(geturl) + "'," + toptions + ',onClickCell:' + dg + '_onClickCell' + ",toolbar: '#" + tb + "'" %}
+    {%- else %}
+        {% set ioption = toptions + ',onClickCell:' + dg + '_onClickCell' + ",toolbar: '#" + tb + "'" %}
+    {%- endif %}
+    <table id="{{ dg }}" class="easyui-datagrid" title="{{ title }}" style=" {{ style|safe }}"
+            data-options="{{ ioption|safe }}">
+        <thead>
+            <tr>
+                {% for index in range(0,size) -%}
+                    {%- if fields[index] in hoptions %}
+                        {%- set hoption = hoptions[fields[index]] %}
+                    {%- else %}
+                        {%- set hoption = "width:80,align:'right'" %}
+                    {%- endif %}
+                    <th data-options="field:'{{ fields[index] }}',{{ hoption|safe }}">{{ names[index] }}</th>
+                {%- endfor %}
+            </tr>
+        </thead>
+    </table>
+
+    <div id="{{ tb }}" style="height:auto">
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="{{ dg }}_append()">{{ reses['append'] }}</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="{{ dg }}_removeit()">{{ reses['remove'] }}</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="{{ dg }}_accept()">{{ reses['accept'] }}</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="{{ dg }}_reject()">{{ reses['reject'] }}</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="{{ dg }}_getChanges()">{{ reses['getchanges'] }}</a>
+    </div>
+
+    <script type="text/javascript">
+        var editIndex = undefined;
+        function {{ dg }}_endEditing(){
+            if (editIndex == undefined){return true}
+            if ($('#{{ dg }}').datagrid('validateRow', editIndex)){
+                $('#{{ dg }}').datagrid('endEdit', editIndex);
+                editIndex = undefined;
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function {{ dg }}_onClickCell(index, field){
+            if (editIndex != index){
+                if ({{ dg }}_endEditing()){
+                    $('#{{ dg }}').datagrid('selectRow', index)
+                            .datagrid('beginEdit', index);
+                    var ed =  $('#{{ dg }}').datagrid('getEditor',{index:index,field:field});
+                    if(ed){
+                        ($(ed.target).data('textbox') ? $(ed.target).textbox('textbox') :  $(ed.target)).focus();
+                    }
+                    editIndex = index;
+                } else {
+                    setTimeout(function(){
+                        $('#{{ dg }}').datagrid('selectRow', editIndex);
+                       },0);
+                }
+            }
+        }
+
+        function {{ dg }}_append(){
+            if ({{ dg }}_endEditing()){
+                editIndex = $('#{{ dg }}').datagrid('getRows').length-1;
+                $('#{{ dg }}').datagrid('selectRow', editIndex)
+                        .datagrid('beginEdit', editIndex);
+            }
+        }
+
+        function {{ dg }}_removeit(){
+            if (editIndex == undefined){return}
+            $('#{{ dg }}').datagrid('cancelEdit', editIndex)
+                    .datagrid('deleteRow', editIndex);
+            editIndex = undefined;
+        }
+
+        function {{ dg }}_accept(){
+            if ({{ dg }}_endEditing()){
+                if($('#{{ dg }}').datagrid('getChanges').length){
+                    var inserted = $('#{{ dg }}').datagrid('getChanges',"inserted");
+                    var deleted = $('#{{ dg }}').datagrid('getChanges',"deleted");
+                    var updated = $('#{{ dg }}').datagrid('getChanges',"updated");
+                    var effectRow = new Object();
+                    if(inserted.length){
+                        effectRow["inserted"] = JSON.stringify(inserted);
+                    }
+                    if(deleted.length){
+                        effectRow["deleted"] = JSON.stringify(deleted);
+                    }
+                    if(updated.length){
+                        effectRow["updated"] = JSON.stringify(updated);
+                    }
+                    $.post('{{ url_for(upurl) }}', effectRow, function(rsp){
+                        if(rsp.status){
+                            $.messager.alert('info','success!');
+                        }
+                    });
+                }
+                $('#{{ dg }}').datagrid('acceptChanges');
+            }
+        }
+
+        function {{ dg }}_reject(){
+            $('#{{ dg }}').datagrid('rejectChanges');
+            editIndex = undefined;
+        }
+
+        function {{ dg }}_getChanges(){
+            var rows = $('#{{ dg }}').datagrid('getChanges');
+            alert(rows.length+' rows are changed!');
+        }
+    </script>
+{%- endmacro %}
+
+{###########################################################################################################}

@@ -1,0 +1,37 @@
+{% extends "monitor_layout.html" %}
+{% import "macro/qts_macro_treegrid.html" as qts_tg %}
+
+{% block body %}
+
+    {% set geturl = 'monitor.get_record' %}
+
+    <div class="easyui-tabs" style="width:auto;height:auto">
+        <div title="{{ reses['gwrecord'] }}" style="padding:10px">
+            {{ qts_tg.qts_tg_table("gwtg",fields,texts,colsize,treeindex=0,geturl=geturl,dbname='qts_gw_backup',
+                                    title="record",style="width:auto;height:auto",
+                                    toptions="
+                                        rownumbers: true,
+                                        animate: true,
+                                        collapsible: true,
+                                        fitColumns: true,
+                                        method: 'get',
+                                        idField: 'id',
+                                        pagination: true")
+            }}
+        </div>
+
+        <div title="{{ reses['ssrecord'] }}" style="padding:10px">
+            {{ qts_tg.qts_tg_table("sstg",fields,texts,colsize,treeindex=0,geturl=geturl,dbname='qts_ss_backup',
+                                    title="record",style="width:auto;height:auto",
+                                    toptions="
+                                        rownumbers: true,
+                                        animate: true,
+                                        collapsible: true,
+                                        fitColumns: true,
+                                        method: 'get',
+                                        idField: 'id',
+                                        pagination: true")
+            }}
+        </div>
+    </div>
+{% endblock %}

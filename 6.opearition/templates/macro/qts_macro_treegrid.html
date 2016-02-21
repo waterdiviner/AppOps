@@ -1,0 +1,52 @@
+{###########################################################################################################}
+{#
+function: create treegrid view
+parameter:
+    tg                  treegrid id
+    fields              head list of treegrid
+    names               head text list of treegrid
+    size                head size of treegrid
+    title               display label for treegrid
+    toptions            options for treegrid
+    hoptions            options for head of treegrid
+    style               treegrid style
+    geturl              get data from url
+    treeindex           build parent and child filed index
+    dbname              database name
+#}
+{% macro qts_tg_table(tg,fields,names,size,treeindex=-1,toptions={},hoptions={},geturl='',style='',title='',dbname='') -%}
+    {%- if (geturl != '') and (treeindex >= 0) %}
+        {% if dbname != '' %}
+            {%- set ioption = "url:'" + url_for(geturl,dbname=dbname) + "'," + toptions + ",treeField:'" + fields[treeindex] + "'" %}
+        {% else %}
+            {%- set ioption = "url:'" + url_for(geturl) + "'," + toptions + ",treeField:'" + fields[treeindex] + "'" %}
+        {% endif %}
+    {%- elif geturl != '' %}
+        {% if dbname != '' %}
+            {%- set ioption = "url:'" + url_for(geturl,dbname=dbname) + "'," + toptions %}
+        {% else %}
+            {%- set ioption = "url:'" + url_for(geturl) + "'," + toptions %}
+        {% endif %}
+    {%- elif treeindex >= 0 %}
+        {%- set ioption = toptions + ",treeField:'" + fields[treeindex] + "'" %}
+    {%- else %}
+        {% set ioption = toptions %}
+    {%- endif %}
+	<table id="{{ tg }}" title="{{ title }}" class="easyui-treegrid" style="{{ style|safe }}"
+			data-options="{{ ioption|safe }}">
+		<thead>
+            <tr>
+                {% for index in range(0,size) -%}
+                    {%- if fields[index] in hoptions %}
+                        {%- set hoption = hoptions[fields[index]] %}
+                    {%- else %}
+                        {%- set hoption = "width:400" %}
+                    {%- endif %}
+                    <th data-options="field:'{{ fields[index] }}',{{ hoption|safe }}">{{ names[index] }}</th>
+                {%- endfor %}
+			</tr>
+		</thead>
+	</table>
+{%- endmacro %}
+
+{###########################################################################################################}

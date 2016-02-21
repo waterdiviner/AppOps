@@ -1,0 +1,14 @@
+import($[QTS_ENV_FILE_PATH]/main.qts)
+
+QTS_ENTRY_FUN = OnucaRunByCmd
+
+windows{ 
+	QTS_ENTRY_LIB = QtsSS.dll 
+	QTS_ENTRY_CFG=--cfg=entry_server/qtsss,CreateConfig,QtsPythonCfg.dll  $[QTS_TRACE_CTRL]
+}
+
+linux{ 
+	QTS_ENTRY_LIB = libQtsSS.so 
+	QTS_ENTRY_CFG = --cfg=entry_server/qtsss,CreateConfig,libQtsPythonCfg.so  $[QTS_TRACE_CTRL]
+}
+

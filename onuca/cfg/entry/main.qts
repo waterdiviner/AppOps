@@ -1,0 +1,132 @@
+############################################
+#这个文件能由QGOnuca应用程序起动应用，以命令参数输入
+#形式：--envfile=main_*.qts
+#QTS_REPLAY_PATH			回放路径
+#QTS_BASE_PATH				系统根目录
+#QTS_THIRDPART_PATH			引用的第三方路径
+#QTDIR						QT系统目录
+#QTS_ENTRY_CFG				程序入参数
+#QTS_PYTHON_PATH			python路径
+#QTS_ENTRY_LIB				入口的库
+#QTS_LIB_PATH				库目录
+#QTS_GUI_PLUGIN_PATH		GUI的插件目录
+#QTS_LIB_NAME				库系统变量名称
+#QTS_LIB_PATH_VALUE			要加入系统库变量的值
+#PYTHONPATH					python环境变量
+#QTS_RABBITMQ_PATH			rabbitmq库目录
+#QTS_SQLITE_PATH			sqlite库目录
+#QTS_BOOST_PATH				boost库目录
+############################################
+
+#指写当前的程序版本,可以是Debug、Release或.
+#QTS_VERSION = Debug
+#打印控制
+#para list: --bg=true(false)      run in background
+#			--tracemessage=true(false)
+#			--tracedebug=true(false)
+#			--traceerror=true(false)
+#			--tracewarning=true(false)
+#			--logmessage=true(false)
+#			--logdebug=true(false)
+#			--logerror=true(false)
+#			--logwarning=true(false)
+QTS_TRACE_CTRL = --tracemessage=false --tracedebug=false
+
+#****************************************************************************************************
+#windows 特有的配置
+windows{
+	QTS_REPLAY_PATH= ../../market
+	QTS_BASE_PATH = ..
+	QTS_PYTHON_PATH = C:/Python27
+	
+	QTS_QT_PATH =  $[QTS_BASE_PATH]/thirdpart/Qtlib
+	QTS_LIB_PATH = $[QTS_BASE_PATH]/lib/$[QTS_VERSION] 
+	QTS_GUI_PLUGIN_PATH = $[QTS_BASE_PATH]/gui/$[QTS_VERSION] 
+	QTS_LIB_NAME = Path 
+	QTS_LIB_PATH_VALUE = 
+	
+	#Python库
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/dlls
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/libs
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/site-packages/pika-0.9.14-py2.7.egg
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/site-packages/protobuf-2.6.0-py2.7.egg
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/site-packages/setuptools-0.6c11-py2.7.egg
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/site-packages/PyQt5
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/sip/PyQt5
+	
+}
+#****************************************************************************************************
+
+#****************************************************************************************************
+#linux 特有的配置
+linux{
+	QTS_REPLAY_PATH= /home/jack/Develop/market
+	QTS_BASE_PATH = .. 
+	QTS_PYTHON_PATH = /usr
+	
+	QTS_QT_PATH = /opt/Qt5.3.2/5.3/gcc_64
+	QTS_LIB_PATH = $[QTS_BASE_PATH]/lib 
+	QTS_GUI_PLUGIN_PATH = $[QTS_BASE_PATH]/gui
+	QTS_LIB_NAME = LD_LIBRARY_PATH 
+	QTS_LIB_PATH_VALUE = /lib:/usr/lib:/usr/local/lib:/usr/lib/compiz
+	
+	#Python库
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/python2.7
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/python2.7/plat-x86_64-linux-gnu
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/python2.7/lib-tk
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/python2.7/lib-old
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/python2.7/lib-dynload
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/python2.7/dist-packages
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/python2.7/dist-packages/PILcompat
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/python2.7/dist-packages/gtk-2.0
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/lib/python2.7/dist-packages/ubuntu-sso-client	
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/local/lib/python2.7/dist-packages/
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/local/lib/python2.7/dist-packages/protobuf-2.6.1-py2.7.egg
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/local/lib/python2.7/dist-packages/setuptools-11.3-py2.7.egg
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/local/lib/python2.7/dist-packages/PyQt5
+	QTS_PYTHON_PY_PATH += $[QTS_PYTHON_PATH]/local/lib/python2.7/dist-packages/sip/PyQt5
+
+}
+#****************************************************************************************************
+
+#****************************************************************************************************
+#语言支持路径
+QTS_ONUCA_GUI_QM_PATH=$[QTS_BASE_PATH]/language/zh
+
+#第三库路径
+QTS_THIRDPART_PATH = $[QTS_BASE_PATH]/thirdpart
+QTS_BOOST_PATH= $[QTS_THIRDPART_PATH]/boost
+QTS_RABBITMQ_PATH = $[QTS_THIRDPART_PATH]/rabbitmq
+QTS_SQLITE_PATH = $[QTS_THIRDPART_PATH]/sqlite
+QTS_MYSQL_PATH = $[QTS_THIRDPART_PATH]/mysql
+
+#QT库
+QT_BIN_PATH=$[QTS_QT_PATH]/bin
+QT_PLUGIN_PATH=$[QTS_QT_PATH]/plugins
+
+#动态库路径
+$[QTS_LIB_NAME] += $[QTS_LIB_PATH]
+$[QTS_LIB_NAME] += $[QTS_LIB_PATH_VALUE]
+$[QTS_LIB_NAME] +=  $[QTS_PYTHON_PY_PATH]
+$[QTS_LIB_NAME] += $[QTS_GUI_PLUGIN_PATH]
+$[QTS_LIB_NAME] += $[QT_BIN_PATH]
+$[QTS_LIB_NAME] += $[QTS_RABBITMQ_PATH]
+$[QTS_LIB_NAME] += $[QTS_SQLITE_PATH]
+$[QTS_LIB_NAME] += $[QTS_BOOST_PATH]
+$[QTS_LIB_NAME] += $[QTS_MYSQL_PATH]
+$[QTS_LIB_NAME] += $[QTS_PYTHON_PATH]
+
+#python 环境路径
+PYTHONPATH +=  $[QTS_THIRDPART_PATH]/python
+PYTHONPATH +=  $[QTS_LIB_PATH]
+PYTHONPATH +=  $[QTS_PYTHON_PY_PATH]
+PYTHONPATH +=  $[QTS_BASE_PATH]/cfg/$[QTS_CFG_APP_FOLDER]/entry
+PYTHONPATH +=  $[QTS_BASE_PATH]/cfg/$[QTS_CFG_APP_FOLDER]/console/gui
+PYTHONPATH +=  $[QTS_BASE_PATH]/cfg/$[QTS_CFG_APP_FOLDER]/server/ss
+PYTHONPATH +=  $[QTS_BASE_PATH]/cfg/$[QTS_CFG_APP_FOLDER]/server/ds
+PYTHONPATH +=  $[QTS_BASE_PATH]/cfg/$[QTS_CFG_APP_FOLDER]/server/gw
+PYTHONPATH +=  $[QTS_BASE_PATH]/pylib/utility
+PYTHONPATH +=  $[QTS_BASE_PATH]/pylib/strategy
+PYTHONPATH +=  $[QTS_BASE_PATH]/pylib/monitor
+#****************************************************************************************************

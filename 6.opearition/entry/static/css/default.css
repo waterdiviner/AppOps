@@ -1,0 +1,28 @@
+
+.footer{text-align:center;color:#15428B; margin:0px; padding:0px;line-height:23px; font-weight:bold;}
+
+.icon{ background:url(../images/tabicons.png) no-repeat;width:18px; line-height:18px; display:inline-block;}
+.icon-sys{ background-position:0px -200px;}
+.icon-set{ background-position:-380px -200px;}
+.icon-add{background-position: -20px 0px;}
+.icon-add1{background:url('icon/edit_add.png') no-repeat;}
+.icon-nav{background-position: -100px -20px; }
+.icon-users{background-position: -100px -480px;}
+.icon-role{background-position: -360px -200px;}
+.icon-set{background-position: -380px -200px;}
+.icon-log{background-position: -380px -80px;}
+.icon-delete16{background:url('icon/delete.gif') no-repeat;width:18px; line-height:18px; display:inline-block;}
+.icon-delete{ background-position:-140px -120px;}
+.icon-edit{ background-position:-380px -320px;}
+.icon-magic{ background-position:0px -500px;}
+.icon-database{ background-position:-20px -140px;}
+.icon-expand{ background:url('/images/coll2.gif') no-repeat;}
+.icon-collapse{ background:url('/images/coll3.gif') no-repeat;}
+.icon-server { background-position:-180px -360px;}
+.icon-client { background-position:-360px -260px;}
+.icon-config { background-position:0px -220px;}
+.icon-monitor { background-position:-360px -200px;}
+.icon-server-node { background-position:-160px -100px;}
+.icon-client-node { background-position:-160px -480px;}
+
+

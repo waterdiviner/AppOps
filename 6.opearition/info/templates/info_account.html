@@ -1,0 +1,121 @@
+{% extends "info_layout.html" %}
+{% block body %}
+
+	<div class="easyui-layout" style="width:700px;height:350px;">
+		<div data-options="region:'west',split:true" title="East" style="width:100px;">
+			<ul id="tt" class="easyui-tree" data-options="
+					url: '',
+					method: 'get',
+					animate: true,
+					onContextMenu: function(e,node){
+						e.preventDefault();
+						$(this).tree('select',node.target);
+						$('#mm').menu('show',{
+							left: e.pageX,
+							top: e.pageY
+						});
+					}
+				"></ul>
+
+			<div id="mm" class="easyui-menu" style="width:120px;">
+				<div onclick="append()" data-options="iconCls:'icon-add'">Append</div>
+				<div onclick="removeit()" data-options="iconCls:'icon-remove'">Remove</div>
+				<div class="menu-sep"></div>
+				<div onclick="expand()">Expand</div>
+				<div onclick="collapse()">Collapse</div>
+			</div>
+		</div>
+		<div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">
+			<div class="easyui-tabs" style="width:700px;height:auto">
+
+				<div title="主帐户信息" style="padding:10px">
+						<table cellpadding="5">
+							<tr>
+								<td>市场:</td><td>	<select class="easyui-combobox" name="language">
+									<option value="ar">Arabic</option>
+									<option value="bg">Bulgarian</option>
+									<option value="ca">Catalan</option>
+									<option value="zh-cht">Chinese Traditional</option>
+									<option value="cs">Czech</option>
+								</select></td>
+							</tr>
+							<tr><td>Name:</td><td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td></tr>
+							<tr><td>Email:</td><td><input class="easyui-textbox" type="text" name="email" data-options="required:true,validType:'email'"></input></td></tr>
+							<tr><td>Subject:</td><td><input class="easyui-textbox" type="text" name="subject" data-options="required:true"></input></td>	</tr>
+							<tr><td>Message:</td><td><input class="easyui-textbox" name="message" data-options="multiline:true" style="height:60px"></input></td></tr>
+
+						</table>
+				</div>
+
+				<div title="子帐户信息" style="padding:10px">
+
+				</div>
+
+				<div title="用户信息" style="padding:10px">
+					<form id="ff" method="post">
+
+					</form>
+				</div>
+
+				<div title="信息查寻" style="padding:10px">
+					<table class="easyui-datagrid" title="DataGrid Complex Toolbar" style="width:700px;height:250px"
+							data-options="rownumbers:true,singleSelect:true,url:'',method:'get',toolbar:'#tb',footer:'#ft'">
+						<thead>
+							<tr>
+								<th data-options="field:'itemid',width:80">Item ID</th>
+								<th data-options="field:'productid',width:100">Product</th>
+								<th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+								<th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+								<th data-options="field:'attr1',width:240">Attribute</th>
+								<th data-options="field:'status',width:60,align:'center'">Status</th>
+							</tr>
+						</thead>
+					</table>
+
+					<div id="tb" style="padding:2px 5px;">
+						Date From: <input class="easyui-datebox" style="width:110px">
+						To: <input class="easyui-datebox" style="width:110px">
+						Language:
+						<select class="easyui-combobox" panelHeight="auto" style="width:100px">
+							<option value="java">Java</option>
+							<option value="c">C</option>
+							<option value="basic">Basic</option>
+							<option value="perl">Perl</option>
+							<option value="python">Python</option>
+						</select>
+						<a href="#" class="easyui-linkbutton" iconCls="icon-search">Search</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function append(){
+			var t = $('#tt');
+			var node = t.tree('getSelected');
+			t.tree('append', {
+				parent: (node?node.target:null),
+				data: [{
+					text: 'new item1'
+				},{
+					text: 'new item2'
+				}]
+			});
+		}
+
+		function removeit(){
+			var node = $('#tt').tree('getSelected');
+			$('#tt').tree('remove', node.target);
+		}
+		function collapse(){
+			var node = $('#tt').tree('getSelected');
+			$('#tt').tree('collapse',node.target);
+		}
+		function expand(){
+			var node = $('#tt').tree('getSelected');
+			$('#tt').tree('expand',node.target);
+		}
+	</script>
+
+{% endblock %}

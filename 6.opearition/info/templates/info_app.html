@@ -1,0 +1,76 @@
+{% extends "info_layout.html" %}
+{% import "macro/qts_macro_input.html" as qts_forms %}
+{% import "macro/qts_macro_datagrid.html" as qts_dg %}
+{% block body %}
+
+    {#  ajax url set  #}
+    {% set addurl = 'info._insert_app' %}
+    {% set upurl = 'info._update_app' %}
+    {% set geturl = 'info.get_app' %}
+    {% set getmurl = 'info.get_app_machineid'%}
+    {% set app_type_url = 'data/qts_app_type.json'%}
+    {{ qts_forms.qts_input_for_data("machine_ids",machine_ids) }}
+    {{ qts_forms.qts_input_for_data("app_types",app_types) }}
+
+    <div class="easyui-tabs" style="width:auto;height:auto">
+
+        <div title="{{ reses['operator'] }}" style="padding:10px">
+            {% set styles = {fields[7]:"height:60px"} %}
+            {% set classes = {fields[3]:"easyui-combobox",fields[5]:"easyui-combobox"} %}
+            {% set options = {fields[7]:"multiline:true",fields[3]:"url:'" + url_for('static',filename=app_type_url) + "',method:'get',valueField:'id',textField:'text',panelHeight:'auto',onLoadSuccess:onTypeLoadSuccess",
+                                fields[5]:"url:'" + url_for(getmurl) + "',method:'get',valueField:'" + fields[1]  + "',textField:'" + fields[2] + "',panelHeight:'auto',onLoadSuccess:onMachineLoadSuccess"} %}
+            {{ qts_forms.qts_form_table("ff",fields,texts,reses,colsize,addurl=addurl,options=options,styles=styles,classes=classes,types=types) }}
+        </div>
+
+        <div title="{{ reses['display'] }}" style="padding:10px">
+            {%
+                set hoptions={
+                                fields[0]:"width:80,align:'right',sortable:'true'",
+                                fields[1]:"width:80,align:'right',editor:'numberbox',sortable:'true'",
+                                fields[2]:"width:80,align:'right',editor:'text',sortable:'true'",
+                                fields[3]:"width:80,align:'right',
+                                            formatter:onTypeFormatter,
+                                            editor:{type:'combobox',options:{valueField:'id',textField:'text',method:'get',url:'" +
+                                            url_for('static',filename=app_type_url) + "',required:true}}",
+                                fields[4]:"width:80,align:'right',editor:'text'",
+                                fields[5]:"width:80,align:'right',
+                                            formatter:onMachineFormatter,
+                                            editor:{type:'combobox',options:{valueField:'" + fields[1] + "',textField:'" + fields[2] + "',method:'get',url:'" +
+                                            url_for(getmurl) + "',required:true}}",
+                                fields[6]:"width:80,align:'right',editor:'text'",
+                                fields[7]:"width:80,align:'right',editor:'text'"
+                            }
+            %}
+            {{ qts_dg.qts_dg_table("dg","dg_tb",fields,texts,reses,colsize,hoptions=hoptions,upurl=upurl,geturl=geturl,
+                                    title="Row Editing in DataGrid",style="width:auto;height:auto",
+                                    toptions="
+                                    iconCls: 'icon-edit',
+                                    singleSelect: true,
+                                    method: 'get',
+                                    pagination:true,
+                                    pageSize:10,
+                                    remoteSort:false,
+                                    multiSort:true")
+            }}
+
+            <script type="text/javascript">
+                function onTypeFormatter(value,row){
+                    return get_json_value(value,get_app_types(),"id","text");
+                }
+
+                function onMachineFormatter(value,row){
+                    return get_json_value(value,get_machine_ids(),'{{ fields[1] }}', '{{ fields[2] }}');
+                }
+
+                function onTypeLoadSuccess(){
+                   onComboboxLoadSuccess($(this));
+                }
+
+                function onMachineLoadSuccess(){
+                   onComboboxLoadSuccess($(this));
+                }
+            </script>
+        </div>
+    </div>
+
+{% endblock %}

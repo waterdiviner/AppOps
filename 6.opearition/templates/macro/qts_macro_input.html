@@ -1,0 +1,166 @@
+{###########################################################################################################}
+{#
+function: create input form
+parameter:
+    fields              field list of input
+    names               label text list of input
+    index               index of input
+    class               class for input
+    type                type for input
+    options             options for input
+    style               input style
+    value               input value
+#}
+{% macro qts_input_for_row(fields,names,index,class='easyui-textbox',type='text',options='required:true',value='',style='') -%}
+    <tr>
+        <td>{{ names[index] }}:</td>
+        <td><input class="{{ class }}" type="{{ type }}" name="{{ fields[index] }}" value="{{ value }}" style="{{ style|safe }}" data-options="{{ options|safe }}" /></td>
+    </tr>
+{%- endmacro %}
+
+{###########################################################################################################}
+{#
+function: create combobox form
+parameter:
+    fields              field list of input
+    names               label text list of input
+    index               index of input
+    dataurl             get data from url
+    options             options for input
+    style               input style
+#}
+{% macro qts_combobox_for_row(fields,names,index,options='',style='',dataurl='') -%}
+    <tr>
+        <td>{{ names[index] }}:</td>
+        <td>
+            {% if dataurl != '' %}
+                <input class="easyui-combobox" name="{{ fields[index] }}" style="{{ style }}" data-options="url:'{{ url_for(dataurl) }}',{{ options|safe }}" />
+            {% else %}
+                <input class="easyui-combobox" name="{{ fields[index] }}" style="{{ style }}" data-options="{{ options|safe }}" />
+            {% endif %}
+        </td>
+    </tr>
+{%- endmacro %}
+
+{###########################################################################################################}
+{#
+function: create form
+parameter:
+    id                  form id
+    fields              field list of input
+    names               label text list of input
+    reses               resource
+    colsize             size of field
+    classes             class list for input
+    types               type list for input
+    options             options list for input
+    styles              style list for input
+    values              input list value
+    addurl              insert from url
+#}
+{% macro qts_form_table(id,fields,names,reses,colsize,classes={},options={},styles={},types={},values={},style='',addurl='') -%}
+    <form id="{{ id }}" method="post" action="{{ url_for(addurl) }}" style="{{ style|safe }}">
+        <table cellpadding="5">
+            {%- for index in range(1,colsize) %}
+                {% if fields[index] in classes -%}
+                    {%- set iclass = classes[fields[index]] %}
+                {%- else %}
+                    {%- set iclass = 'easyui-textbox' %}
+                {%- endif %}
+                {%- if fields[index] in styles %}
+                    {%- set istyle = styles[fields[index]] %}
+                {%- else %}
+                    {%- set istyle = '' %}
+                {%- endif %}
+                {%- if fields[index] in values %}
+                    {% set ivalue = values[fields[index]] %}
+                {%- else %}
+                    {%- set ivalue = '' %}
+                {%- endif %}
+                {%- if fields[index] in options %}
+                    {%- set ioption = options[fields[index]] %}
+                {%- else %}
+                    {%- set ioption = 'required:true' %}
+                {%- endif %}
+                {%- if iclass == 'easyui-combobox' %}
+                    {%- set itype = '' %}
+                {%- else %}
+                    {%- if fields[index] in types %}
+                        {%- set itype = types[fields[index]] %}
+                    {%- else %}
+                        {%- set itype = 'text' %}
+                    {%- endif %}
+                {%- endif %}
+                 <tr>
+                    <td>{{ names[index] }}:</td>
+                    {%- if itype != '' and ivalue != '' %}
+                        <td><input class="{{ iclass }}" type="{{ itype }}" name="{{ fields[index] }}" value="{{ ivalue }}" style="{{ istyle|safe }}" data-options="{{ ioption|safe }}" /></td>
+                    {%- elif itype != ''%}
+                        <td><input class="{{ iclass }}" type="{{ itype }}" name="{{ fields[index] }}" style="{{ istyle|safe }}" data-options="{{ ioption|safe }}" /></td>
+                    {%- elif ivalue != ''%}
+                        <td><input class="{{ iclass }}" name="{{ fields[index] }}" value="{{ ivalue }}" style="{{ istyle|safe }}" data-options="{{ ioption|safe }}" /></td>
+                    {%- else %}
+                        <td><input class="{{ iclass }}" name="{{ fields[index] }}" style="{{ istyle|safe }}" data-options="{{ ioption|safe }}" /></td>
+                    {%- endif %}
+                </tr>
+            {%- endfor %}
+            <tr>
+                <td><a href="javascript:void(0)" class="easyui-linkbutton" onclick="__submitForm()">{{ reses['submit'] }}</a></td>
+                <td><a href="javascript:void(0)" class="easyui-linkbutton" onclick="__clearForm()">{{ reses['clear'] }}</a></td>
+            </tr>
+        </table>
+     </form>
+    <script>
+        function __submitForm(){
+            $('#{{ id }}').form('submit');
+        }
+
+        function __clearForm(){
+            $('#{{ id }}').form('clear');
+        }
+    </script>
+{%- endmacro %}
+
+{###########################################################################################################}
+{#
+function: create submit button
+parameter:
+    form                form id
+    reses               resource
+#}
+{% macro qts_submit_clear(form,reses) -%}
+    <tr>
+        <td><a href="javascript:void(0)" class="easyui-linkbutton" onclick="__submitForm()">{{ reses['submit'] }}</a></td>
+        <td><a href="javascript:void(0)" class="easyui-linkbutton" onclick="__clearForm()">{{ reses['clear'] }}</a></td>
+    </tr>
+    <script>
+        function __submitForm(){
+            $('#{{ form }}').form('submit');
+        }
+
+        function __clearForm(){
+            $('#{{ form }}').form('clear');
+        }
+    </script>
+{%- endmacro %}
+
+{###########################################################################################################}
+{#
+function: create hide data
+parameter:
+    name                hide data name
+    data                data for hide
+#}
+{% macro qts_input_for_data(name,data) -%}
+    <div style="display:none">
+        <input class="easyui-textbox" id="{{ name }}" type="hidden" value="{{ data|safe }}">
+    </div>
+
+    <script type="text/javascript">
+        function get_{{ name }}(){
+            return $('#{{ name }}').textbox('getValue');
+        }
+    </script>
+{%- endmacro %}
+
+{###########################################################################################################}

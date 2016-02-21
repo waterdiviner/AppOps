@@ -1,0 +1,13 @@
+from qtscommon import *
+from qtsriskerr import *
+#///////////////////////////////////////////////////////////////////////////////////
+QTS_SENDCHECK_ITEMS = 'QTS_FutureSendCheck_Items'
+QTS_SENDCHECK_ITEM_IFFUTURE = 'QTS_FutureSendCheck_Item_IFFuture'
+
+#///////////////////////////////////////////////////////////////////////////////////
+CreateCheck(QTS_SENDCHECK_ITEMS)
+AppendCheck(QTS_SENDCHECK_ITEMS,'QTS_EtfHedgeCheckItem_3',QTS_SENDCHECK_ITEM_IFFUTURE)
+
+CreateCheck(QTS_SENDCHECK_ITEM_IFFUTURE)
+AppendCheck(QTS_SENDCHECK_ITEM_IFFUTURE,'maxopenvolume',[[ZJ_MARKET,IF_CATEGORY],GetRiskErrorCode(QTS_GPROTO_ERROR_RISK_MAX_OPEN_VOLUME),3,check_on,0])
+AppendCheck(QTS_SENDCHECK_ITEM_IFFUTURE,'maxopensize',[[ZJ_MARKET,IF_CATEGORY],GetRiskErrorCode(QTS_GPROTO_ERROR_RISK_MAX_OPEN_SIZE),3,check_on,1])

@@ -1,0 +1,20 @@
+#coding=utf-8
+from qtscommon import *
+
+CreateUserPluginForCStrategy(2,ALL_MARKET,'','qtsblocktradecfg','QtsBlockTrade','CreateBlockTrade')
+SetPluginNameForPyStrategy(2,'BlockTrade')
+AppendPropertyForStrategy(2,QTS_CFG_KEY_TASK,2)
+AppendPropertyForStrategy(2,QTS_CFG_KEY_ACCOUNT,BuildAccount(55550000456))
+AppendPropertyForStrategy(2,QTS_CFG_KEY_MINORDERID,BuildOrderId(2,0))
+AppendPropertyForStrategy(2,QTS_CFG_KEY_MAXORDERID,BuildOrderId(2,99999999))
+AppendPropertyForStrategy(2,QTS_CFG_KEY_ORDERIDSTEP,1)
+AppendPropertyForStrategy(2,QTS_CFG_KEY_STATUS,3)
+AppendPropertyForStrategy(2,QTS_CFG_KEY_PARAMETERSAVE,QTS_TRUE)
+SetParameterForStrategy(2,'BlockTrade')
+AppendPropertyForStrategy(2,QTS_CFG_KEY_CHECKS,[GetPluginIdForCheck(999)])
+AppendPropertyForStrategy(2,QTS_CFG_KEY_CALCULATES,[GetPluginIdForCalculate(1)])
+AppendPropertyForStrategy(2,QTS_CFG_KEY_ALGOES,[GetPluginIdForAlgo(2)])
+#AppendPropertyForStrategy(2,QTS_CFG_KEY_LOGMESSAGE,QTS_TRUE)
+#AppendPropertyForStrategy(2,QTS_CFG_KEY_LOGDEBUG,QTS_TRUE)
+#AppendPropertyForStrategy(2,QTS_CFG_KEY_LOGERROR,QTS_TRUE)
+#AppendPropertyForStrategy(2,QTS_CFG_KEY_LOGWARNING,QTS_TRUE)		

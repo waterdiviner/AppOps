@@ -1,0 +1,17 @@
+###############################################################
+#qts_account						int64					参位所在的帐户
+#qts_market							ushort					标的所在的市场
+#qts_category						ushort					标的所在的品种
+#qts_code							uint					标的的证券代码
+#qts_type						enum					仓位类型，0是长仓，1是短仓
+#qts_level						enum					仓位级别，0是子仓位，1是总仓位
+#qts_totalvol						int64					总的仓位
+#qts_avlvol							int64					可用仓位
+#qts_workingvol						int64					在途仓位
+#qts_toalcost						int64					总的费用
+#qts_date						int64					仓位日期
+#qts_avlcredempvol					int64					可申赎仓位
+#qts_todayvol						int64					今日仓位
+###############################################################
+qts_account,       qts_market, qts_category, qts_code,   qts_qtstype,   qts_level, qts_totalvol,  qts_avlvol,  qts_workingvol,  qts_toalcost, qts_date ,   qts_avlcredempvol, qts_todayvol
+3,             2,      1,        510300,        0,     		1,	   		1000,     1000,     0,           0,        20130910,    0,             0

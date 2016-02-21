@@ -1,0 +1,1082 @@
+package QTS.ProtoBuf;
+
+///////////////////////////////////////////////////////////////////
+enum EQtsGProtoSource {
+	QTS_GPROTO_SOURCE_UNKNOWN = 0;
+	QTS_GPROTO_SOURCE_SS_UNKNOWN = 1;
+	QTS_GPROTO_SOURCE_GW_UNKNOWN = 2;
+	QTS_GPROTO_SOURCE_DS_UNKNOWN = 3;
+	QTS_GPROTO_SOURCE_GUI_UNKNOWN = 4;
+	QTS_GPROTO_SOURCE_SS_INNER = 5;
+	QTS_GPROTO_SOURCE_SS_ALGO = 6;
+	QTS_GPROTO_SOURCE_SS_CHECK = 7;
+	QTS_GPROTO_SOURCE_GW_INNER = 8;
+	QTS_GPROTO_SOURCE_GW_ALGO = 9;
+	QTS_GPROTO_SOURCE_GW_CHECK = 10;
+	QTS_GPROTO_SOURCE_GW_EXCHANGE = 11;
+}
+
+enum EQtsGProtoProtocolType {
+	QTS_GPROTO_PROTOCOL_TYPE_UNKNOWN = 0;
+	QTS_GPROTO_PROTOCOL_TYPE_OWNER = 1;
+	QTS_GPROTO_PROTOCOL_TYPE_PROBUFF = 2;
+	QTS_GPROTO_PROTOCOL_TYPE_FIX = 3;
+	QTS_GPROTO_PROTOCOL_TYPE_CSV = 4;
+	QTS_GPROTO_PROTOCOL_TYPE_XML = 5;
+	QTS_GPROTO_PROTOCOL_TYPE_SQL = 6;
+}
+
+/**
+brief:请求数据的类型
+*/
+enum EQtsGProtoRequstDataType {
+	QTS_REQUEST_DATA_TYPE_STRATEGY = 0;			//策略数据
+	QTS_REQUEST_DATA_TYPE_ACCOUNT = 1;			//帐户数据
+	QTS_REQUEST_DATA_TYPE_POSITION = 2;			//仓位数据
+	QTS_REQUEST_DATA_TYPE_RECORD = 3;			//订单记录
+	QTS_REQUEST_DATA_TYPE_PNL = 4;				//盈亏数据
+	QTS_REQUEST_DATA_TYPE_BOOK = 5;				//订单本数据
+	QTS_REQUEST_DATA_TYPE_REMOTE = 6;			//远程信息数据
+}
+
+/**
+brief:订单方向类型
+*/
+enum EQtsGProtoOrderDir {
+	QTS_GPROTO_ORDER_DIR_UNKNOWN = 0;			//未知类型
+	QTS_GPROTO_ORDER_DIR_OPEN = 1;				//开仓
+	QTS_GPROTO_ORDER_DIR_CLOSE = 2;				//平仓
+	QTS_GPROTO_ORDER_DIR_CLOSE_LAST = 3;		//平昨仓
+	QTS_GPROTO_ORDER_DIR_CLOSE_TODAY = 4;		//平今仓
+}
+
+/**
+brief:事件类型
+*/
+enum EQtsGProtoEventType {
+	QTS_GPROTO_EVENT_TYPE_STRATEGYINFO = 0;			//策略信息事件
+	QTS_GPROTO_EVENT_TYPE_PARAMETER = 1;			//策略参数事件
+	QTS_GPROTO_EVENT_TYPE_CONTROL = 2;				//策略控制事件
+	QTS_GPROTO_EVENT_TYPE_ACCOUNT = 3;				//帐户事件
+	QTS_GPROTO_EVENT_TYPE_POSITION = 4;				//仓位事件
+	QTS_GPROTO_EVENT_TYPE_RECORD = 5;				//订单事件
+	QTS_GPROTO_EVENT_TYPE_WORKING = 6;				//在途信息事件
+	QTS_GPROTO_EVENT_TYPE_BOOK = 7;					//订单本事件
+	QTS_GPROTO_EVENT_TYPE_PNL = 8;					//盈亏事件
+	QTS_GPROTO_EVENT_TYPE_MESSAGE = 9;				//消息事件
+	QTS_GPROTO_EVENT_TYPE_REMOTE = 10;				//远程信息事件
+	QTS_GPROTO_EVENT_TYPE_DATA = 11;				//行情数据事件
+	QTS_GPROTO_EVENT_TYPE_STRATEGY_START = 12;		//策略启动事件
+	QTS_GPROTO_EVENT_TYPE_STRATEGY_PAUSE = 13;		//策略暂停事件
+	QTS_GPROTO_EVENT_TYPE_STRATEGY_WATCH = 14;		//策略观察事件
+	QTS_GPROTO_EVENT_TYPE_STRATEGY_STOP = 15;		//策略停止事件
+	QTS_GPROTO_EVENT_TYPE_ERROR = 16;				//错误事件
+	QTS_GPROTO_EVENT_TYPE_RETURN = 17;				//回报事件
+	QTS_GPROTO_EVENT_TYPE_EVENT = 18;				//用户事件
+	QTS_GPROTO_EVENT_TYPE_CYCLING = 19;				//策略循环开始事件
+	QTS_GPROTO_EVENT_TYPE_CYCLED = 20;				//策略循环结束事件
+	QTS_GPROTO_EVENT_TYPE_COMMITING = 21;			//提交订单前事件
+	QTS_GPROTO_EVENT_TYPE_COMMITED = 22;			//提交订单后事件
+	QTS_GPROTO_EVENT_TYPE_ORDER = 23;				//下单事件
+	QTS_GPROTO_EVENT_TYPE_CANCEL = 24;				//去消订单事件
+	QTS_GPROTO_EVENT_TYPE_REG = 25;					//注册事件
+	QTS_GPROTO_EVENT_TYPE_UNREG = 26;				//注消事件
+	QTS_GPROTO_EVENT_TYPE_DATAS = 27;				//行情数据事件
+	QTS_GPROTO_EVENT_TYPE_RETURNS = 28;				//回报事件
+	QTS_GPROTO_EVENT_TYPE_UPDATING = 29;			//更新前事件
+	QTS_GPROTO_EVENT_TYPE_UPDATED = 30;				//更新后事件
+	QTS_GPROTO_EVENT_TYPE_QUERY = 31;				//查询事件
+	QTS_GPROTO_EVENT_TYPE_CLEAR = 255;				//清空事件
+	QTS_GPROTO_EVENT_TYPE_INIT = 256;				//初始化事件
+	QTS_GPROTO_EVENT_TYPE_READKEY = 257;			//读键值事件
+	QTS_GPROTO_EVENT_TYPE_READANY_BYKEY = 258;		//通过键值读值事件
+	QTS_GPROTO_EVENT_TYPE_READANY_BYDICT = 259;		//通过字典读值事件
+}
+
+/**
+brief:交易标的类型
+*/
+enum EQtsGProtoCodeType {
+	QTS_GPROTO_CODE_TYPE_UNKNOWN = 0;			//未知类型
+	QTS_GPROTO_CODE_TYPE_TRADE = 1;				//交易标的
+	QTS_GPROTO_CODE_TYPE_SIGNAL = 2;			//信号
+	QTS_GPROTO_CODE_TYPE_BASKET = 3;			//篮子
+	QTS_GPROTO_CODE_TYPE_INDEX = 4;				//指数
+	QTS_GPROTO_CODE_TYPE_OWNER = 5;				//自定义
+}
+
+/**
+brief:订单记录类型
+*/
+enum EQtsGProtoRecordMode {
+	QTS_GPROTO_RECORD_MODE_ORDER = 0;			//在途订单
+	QTS_GPROTO_RECORD_MODE_RECORD = 1;			//以结订单
+}
+
+
+/**
+brief:交易行为
+*/
+enum EQtsGProtoOrderAction {
+	QTS_GPROTO_ORDER_ACTION_BUY = 0;			//买
+	QTS_GPROTO_ORDER_ACTION_SELL = 1;			//卖
+}
+
+/**
+brief:仓位类型
+*/
+enum EQtsGProtoPositionType {
+	QTS_GPROTO_POSITION_TYPE_LONG = 0;			//长仓
+	QTS_GPROTO_POSITION_TYPE_SHORT = 1;			//短仓
+	QTS_GPROTO_POSITION_TYPE_UNKNOWN = 2;		//未知
+}
+
+/**
+brief:策略状态
+*/
+enum EQtsGProtoStrategyStatus {
+	QTS_GPROTO_STRATEGY_STATUS_START = 0;			//运行状态
+	QTS_GPROTO_STRATEGY_STATUS_PAUSE = 1;			//暂停状态
+	QTS_GPROTO_STRATEGY_STATUS_WATCH = 2;			//观察状态
+	QTS_GPROTO_STRATEGY_STATUS_STOP = 3;			//停止状态
+}
+
+/**
+brief:策略参数类型
+*/
+enum EQtsGProtoParameterType {
+	QTS_GPROTO_STRATEGY_ARG_TYPE_UNKNOWN = 0;				//未知参数
+	QTS_GPROTO_STRATEGY_ARG_TYPE_INSTRUMENT = 1;			//交易标的
+	QTS_GPROTO_STRATEGY_ARG_TYPE_PARAMETER = 2;				//可变参数
+	QTS_GPROTO_STRATEGY_ARG_TYPE_COMMENT = 3;				//静态参数
+	QTS_GPROTO_STRATEGY_ARG_TYPE_COMMAND = 4;				//命令参数
+}
+
+/**
+brief:交易标的向远端发送信息的类型，是否向GUI发送相应的数据
+*/
+enum EQtsGProtoInstrumentMode  {
+	QTS_GPROTO_INSTRUMENT_MODE_NONE = 0;			//未知
+	QTS_GPROTO_INSTRUMENT_MODE_ALL = 1;				//所有信息都发
+	QTS_GPROTO_INSTRUMENT_MODE_PNL = 2;				//仅发盈亏信息
+	QTS_GPROTO_INSTRUMENT_MODE_BOOK = 3;			//仅发订单本信息
+	QTS_GPROTO_INSTRUMENT_MODE_WORKING = 4;			//仅发在途信息
+	QTS_GPROTO_INSTRUMENT_MODE_BP = 5;				//发订单和盈亏信息
+	QTS_GPROTO_INSTRUMENT_MODE_BW = 6;				//发订单和在途信息
+	QTS_GPROTO_INSTRUMENT_MODE_PW = 7;				//发盈亏和在途信息
+}
+
+/**
+brief:交易标的在远端的状态，标志在GUI上是否显示
+*/
+enum EQtsGProtoInstrumentStatus  {	
+	QTS_GPROTO_INSTRUMENT_STATUS_HIDE = 0;			//交易标的隐藏
+	QTS_GPROTO_INSTRUMENT_STATUS_DISPLAY = 1;		//交易标的显示
+}
+
+/**
+brief:订单状态，策略处理的状态
+*/
+enum EQtsGProtoOrderStatus {
+	QTS_GPROTO_ORDER_STATUS_INVALID = 0;						//无效
+	QTS_GPROTO_ORDER_STATUS_INIT = 1;							//未报
+	QTS_GPROTO_ORDER_STATUS_WAIT_SEND = 2;						//待报
+	QTS_GPROTO_ORDER_STATUS_SEND = 3;							//己报
+	QTS_GPROTO_ORDER_STATUS_SEND_WAIT_CANCEL = 4;				//己报待撤
+	QTS_GPROTO_ORDER_STATUS_PART_WAIT_CANCEL = 5;				//部成待撤
+	QTS_GPROTO_ORDER_STATUS_PART_CANCELED = 6;					//部撤   最终状态
+	QTS_GPROTO_ORDER_STATUS_CANCELED = 7;						//己撤   最终状态
+	QTS_GPROTO_ORDER_STATUS_PART_DEALED = 8;					//部成
+	QTS_GPROTO_ORDER_STATUS_DEALED = 9;							//全成   最终状态
+	QTS_GPROTO_ORDER_STATUS_DISCARDED	= 10;					//拒单   最终状态
+}
+
+/**
+brief:订单状态，这个只有开发通道插件的用户才会用到
+*/
+enum EQtsGProtoGWOrderStatus {
+	QTS_GPROTO_GW_ORDER_STATUS_INIT = 0;								//GW确认
+	QTS_GPROTO_GW_ORDER_STATUS_SEND_PICK = 1;							//挂单
+	QTS_GPROTO_GW_ORDER_STATUS_SEND_CONFIRM = 2;						//确认
+	QTS_GPROTO_GW_ORDER_STATUS_CANCEL = 3;								//撤单
+	QTS_GPROTO_GW_ORDER_STATUS_INNER_CANCEL = 4;						//内部撤单
+	QTS_GPROTO_GW_ORDER_STATUS_ALL_DEALED = 5;							//全成
+	QTS_GPROTO_GW_ORDER_STATUS_PART_DEALED = 6;							//部成
+	QTS_GPROTO_GW_ORDER_STATUS_CANCEL_DEALED = 7;						//全撤
+	QTS_GPROTO_GW_ORDER_STATUS_MATCH_EENLED	= 8;						//拒单
+	QTS_GPROTO_GW_ORDER_STATUS_INVALID = 255;							//无效
+}
+	
+/**
+brief:日志类型
+*/	
+enum EQtsGProtoLogType {
+	QTS_GPROTO_LOG_TYPE_MESSAGE = 0;			//消息类型
+	QTS_GPROTO_LOG_TYPE_DEBUG = 1;				//调试类型
+	QTS_GPROTO_LOG_TYPE_WARNING = 2;			//警告类型
+	QTS_GPROTO_LOG_TYPE_ERROR = 3;				//错误类型
+}
+
+/**
+brief:日志级别
+*/
+enum EQtsGProtoLogLevel {	
+	QTS_GPROTO_LOG_LEVEL_0 = 0;				//0级
+	QTS_GPROTO_LOG_LEVEL_1 = 1;				//1级
+	QTS_GPROTO_LOG_LEVEL_2 = 2;				//2级
+	QTS_GPROTO_LOG_LEVEL_3 = 3;				//3级
+	QTS_GPROTO_LOG_LEVEL_4 = 4;				//4级
+	QTS_GPROTO_LOG_LEVEL_5 = 5;				//5级
+	QTS_GPROTO_LOG_LEVEL_6 = 6;				//6级
+}
+
+/**
+brief:标的停牌类型
+*/
+enum EQtsGProtoSuspensionType {
+	QTS_GPROTO_SUSPENSION_TYPE_LAST = 0;					//昨日停牌
+	QTS_GPROTO_SUSPENSION_TYPE_TODAY = 1;					//今日停牌
+	QTS_GPROTO_SUSPENSION_TYPE_CONTINUE = 2;				//未停牌
+	QTS_GPROTO_SUSPENSION_TYPE_UNKNOWN = 3;					//未知
+}
+
+/**
+brief:标的交易类型，是否是T+0交易或T+N交易
+*/
+enum EQtsGProtoTradeTnType {
+	QTS_GPROTO_TRADE_TN_TYPE_0 = 0;						//T+0类型
+	QTS_GPROTO_TRADE_TN_TYPE_1 = 1;						//T+1类型
+	QTS_GPROTO_TRADE_TN_TYPE_2 = 2;						//T+2类型
+	QTS_GPROTO_TRADE_TN_TYPE_UNKNOWN = 3;				//未知
+}
+
+/**
+brief:仓位的模式，是单向仓或是双向仓
+*/
+enum EQtsGProtoPositionMode {
+	QTS_GPROTO_POSITION_MODE_LONG = 0;				//长仓模式
+	QTS_GPROTO_POSITION_MODE_SHORT = 1;				//短仓模式
+	QTS_GPROTO_POSITION_MODE_BOTH = 2;				//长短仓模式
+	QTS_GPROTO_POSITION_MODE_UNKNOWN = 3;			//未知
+}
+
+/**
+brief:变量数据类型
+*/
+enum EQtsGProtoVariableType {
+	QTS_GPROTO_VARIABLE_TYPE_UNKNOWN = 0;			//未知
+	QTS_GPROTO_VARIABLE_TYPE_INT8 = 1;				//一个字节有符号整数
+	QTS_GPROTO_VARIABLE_TYPE_UINT8 = 2;				//一个字节无符号整数
+	QTS_GPROTO_VARIABLE_TYPE_INT16 = 3;				//二个字节有符号整数
+	QTS_GPROTO_VARIABLE_TYPE_UINT16 = 4;			//二个字节无符号整数
+	QTS_GPROTO_VARIABLE_TYPE_INT32 = 5;				//四个字节有符号整数
+	QTS_GPROTO_VARIABLE_TYPE_UINT32 = 6;			//四个字节无符号整数
+	QTS_GPROTO_VARIABLE_TYPE_INT64 = 7;				//八个字节有符号整数
+	QTS_GPROTO_VARIABLE_TYPE_UINT64 = 8;			//八个字节无符号整数
+	QTS_GPROTO_VARIABLE_TYPE_DOUBLE = 9;			//双精度数
+	QTS_GPROTO_VARIABLE_TYPE_FLOAT = 10;			//单精度数
+	QTS_GPROTO_VARIABLE_TYPE_BOOL = 11;				//布尔
+	QTS_GPROTO_VARIABLE_TYPE_STRING = 12;			//字符串
+	QTS_GPROTO_VARIABLE_TYPE_LIST = 13;				//链表
+}
+
+/**
+brief:策略参数状态
+*/
+enum EQtsGProtoParameterStatus {
+	QTS_GPROTO_PARAMETER_STATUS_DISABLE = 0;		//不显示
+	QTS_GPROTO_PARAMETER_STATUS_ENABLE = 1;			//显示
+}
+
+/**
+brief:策略参数控件类型，指定GUI显示的控件类型
+*/
+enum EQtsGProtoComponentMode {
+	QTS_GPROTO_COMPONENT_MODE_TEXTBOX = 0;			//文本框
+	QTS_GPROTO_COMPONENT_MODE_COMBOX = 1;			//下拉选择框
+	QTS_GPROTO_COMPONENT_MODE_BUTTON = 2;			//一般按钮
+	QTS_GPROTO_COMPONENT_MODE_ACKBUTTON = 3;		//确认按钮
+	QTS_GPROTO_COMPONENT_MODE_LABEL = 4;			//显示标签
+}
+
+/**
+brief:策略指定单的成交模式，主要用来测试策略
+*/
+enum EQtsGProtoTestOrderMode {
+	QTS_GPROTO_TEST_ORDER_MODE_COMMON = 0;				//一般成交模式
+	QTS_GPROTO_TEST_ORDER_MODE_NOACK = 1;				//无回应成交模式
+	QTS_GPROTO_TEST_ORDER_MODE_ACK = 2;					//仅回应成交模式
+	QTS_GPROTO_TEST_ORDER_MODE_PART_DEALED = 3;			//部分成交模式
+	QTS_GPROTO_TEST_ORDER_MODE_DEALED = 4;				//合成模式
+	QTS_GPROTO_TEST_ORDER_MODE_DENLED = 5;				//拒单模式
+}
+
+/**
+brief:交易标的的类型
+*/
+enum EQtsGProtoTradeCodeType {
+	QTS_GPROTO_TRADE_CODE_TYPE_UNKNOWN = 0;				//未知
+	QTS_GPROTO_TRADE_CODE_TYPE_INNERCOD = 1;			//交易标的
+	QTS_GPROTO_TRADE_CODE_TYPE_SIGNAL = 2;				//信号
+	QTS_GPROTO_TRADE_CODE_TYPE_BASKET = 3;				//篮子
+	QTS_GPROTO_TRADE_CODE_TYPE_INDEX = 4;				//指数
+	QTS_GPROTO_TRADE_CODE_TYPE_OWNER = 5;				//自定义
+}
+
+/**
+brief:插件类型
+*/
+enum EQtsGProtoPluginInMode  {
+	QTS_GPROTO_PLUGIN_IN_MODE_UNKNOWN = 0;				//未知
+	QTS_GPROTO_PLUGIN_IN_MODE_LOCAL = 1;				//本地
+	QTS_GPROTO_PLUGIN_IN_MODE_REMOTE = 2;				//远程
+}
+
+/**
+brief:远端状态
+*/
+enum EQtsGProtoRemoteStatus  {
+	QTS_GPROTO_REMOTE_STATUS_UNKNOWN = 0;			//未知
+	QTS_GPROTO_REMOTE_STATUS_CONNECT = 1;			//连接
+	QTS_GPROTO_REMOTE_STATUS_DISCONNECT = 2;		//断开
+}
+
+/**
+brief:帐户级别
+*/
+enum EQtsGProtoAccountLevel {
+	QTS_GPROTO_ACCOUNT_LEVEL_TOTAL = 0;				//总帐户
+	QTS_GPROTO_ACCOUNT_LEVEL_SUB = 1;				//子帐户
+}
+
+/**
+brief:仓位级别
+*/
+enum EQtsGProtoPositionLevel {
+	QTS_GPROTO_POSITION_LEVEL_TOTAL = 0;			//总仓位
+	QTS_GPROTO_POSITION_LEVEL_SUB = 1;				//子仓位
+}
+
+/**
+brief:远端类型
+*/
+enum EQtsGProtoRemoteType {
+	QTS_GPROTO_REMOTE_TYPE_UNKNOWN = 0;					//未知
+	QTS_GPROTO_REMOTE_TYPE_REMOTE_CLIENT = 1;			//远程客户端
+	QTS_GPROTO_REMOTE_TYPE_REMOTE_SERVER = 2;			//远程服务端
+	QTS_GPROTO_REMOTE_TYPE_LOCAL_CLIENT = 3;			//本地客户端
+	QTS_GPROTO_REMOTE_TYPE_LOCAL_SERVER = 4;			//本地服务端
+}
+
+/**
+brief:业务错误码
+*/
+enum EQtsGProtoBZError {
+	QTS_GPROTO_ERROR_BZ_ORDER_INVALID_STATUS = 1;				//不合法的订单状态
+	QTS_GPROTO_ERROR_BZ_ORDER_NOEXIST_GATEWAY = 2;				//不存在的网关
+	QTS_GPROTO_ERROR_BZ_ORDER_INVALID_PRICE = 3;				//不合法的价格
+	QTS_GPROTO_ERROR_BZ_ORDER_INVALID_QUANTITY = 4;				//不合法的下单量
+	QTS_GPROTO_ERROR_BZ_ORDER_INVALID_ACTION = 5;				//不合法的订单动作
+	QTS_GPROTO_ERROR_BZ_ORDER_NOEXIST_ACCOUNT_IN_STRATEGY = 6;	//帐户在策略中不存在
+	QTS_GPROTO_ERROR_BZ_ORDER_INVALID_ACCOUNT_IN_ACCOUNT = 7;	//帐户在帐户系统中不存在
+}
+
+/**
+brief:风控错误码
+*/
+enum EQtsGProtoRiskError {
+	QTS_GPROTO_ERROR_RISK_MAX_ORDER = 1;					//单只标的超过单笔订单最大下单量
+	QTS_GPROTO_ERROR_RISK_MAX_POSITION = 2;					//单只标的超过仓位最大限制
+	QTS_GPROTO_ERROR_RISK_MAX_BUY_QTY = 3;					//单只标的超过当天的交易买入量限制
+	QTS_GPROTO_ERROR_RISK_MAX_BUY_COUNT = 4;				//单只标的超过当天的交易买入次数限制
+	QTS_GPROTO_ERROR_RISK_MAX_SELL_QTY = 5;					//单只标的超过当天的交易卖出量限制
+	QTS_GPROTO_ERROR_RISK_MAX_SELL_COUNT = 6;				//单只标的超过当天的交易卖出次数限制
+	QTS_GPROTO_ERROR_RISK_MAX_CANCEL_COUNT = 7;				//单只标的超过当天的撤单次数
+	QTS_GPROTO_ERROR_RISK_MAX_UNACKED = 8;					//单只标的超过当天的交易所未确认订单数目
+	QTS_GPROTO_ERROR_RISK_MAX_WORKING_QTY = 9;				//单只标的超过在途订单量
+	QTS_GPROTO_ERROR_RISK_MAX_WORKING_COUNT = 10;			//单只标的超过在途订单笔数
+	QTS_GPROTO_ERROR_RISK_MAX_UNHEDGE_QTY = 11;				//单只标的超过未对冲量
+	QTS_GPROTO_ERROR_RISK_MAX_LOSS_AMOUNT = 12;				//单只标的超过最大亏损资金
+	QTS_GPROTO_ERROR_RISK_MAX_DRAWDOWN_AMOUNT = 13;			//单只标的超过最大回撤资金
+	QTS_GPROTO_ERROR_RISK_MAX_THROTTLE_ONE	= 14;			//超过最大下单每1秒流量
+	QTS_GPROTO_ERROR_RISK_MAX_THROTTLE_FIVE = 15;			//超过最大下单每5秒流量
+	QTS_GPROTO_ERROR_RISK_MAX_THROTTLE_TWENTY = 16;			//超过最大下单每20秒流量
+	QTS_GPROTO_ERROR_RISK_MAX_CONSECUTIVE_LOSS = 17;		//单只标的超过连续亏损次数
+	QTS_GPROTO_ERROR_RISK_ENOUGH_POSITION = 18;				//单只标没有足够的仓位
+	QTS_GPROTO_ERROR_RISK_ENOUGH_ACCOUNT = 19;				//没有足够的资金
+	QTS_GPROTO_ERROR_RISK_OVER_UPPER_PRICE = 20;			//订单价格超过涨停价
+	QTS_GPROTO_ERROR_RISK_OVER_LOWER_PRICE = 21;			//订单价格超过跌停价
+	QTS_GPROTO_ERROR_RISK_INVALID_QUANTITY = 22;			//不合法的订单量
+}
+
+/**
+brief:下单提交类型
+*/
+enum EQtsGProtoOrderCommitType {
+	QTS_GPROTO_ORDER_COMMIT_TYPE_NONE = 0;				//策略所有状态都可下单
+	QTS_GPROTO_ORDER_COMMIT_TYPE_PAUSE = 1;				//策略运行和暂停状态都可下单
+	QTS_GPROTO_ORDER_COMMIT_TYPE_WATCH = 2;				//策略运行和观察状态都可下单
+	QTS_GPROTO_ORDER_COMMIT_TYPE_STOP = 3;				//策略运行和停止状态都可下单
+}
+
+/**
+brief:下单控制
+*/
+enum EQtsGProtoOrderControlType {
+	QTS_GPROTO_ORDER_CONTROL_TYPE_NONE = 0;				//策略服务器所有状态都可下单
+	QTS_GPROTO_ORDER_CONTROL_TYPE_NO_GW_ERROR = 1;		//不抛出交易网关不存在的错误单
+	QTS_GPROTO_ORDER_CONTROL_TYPE_NO_CHECK = 2;			//不进行风控检查
+}
+
+enum EQtsGProtoVarMode {
+	QTS_GPROTO_VAR_MODE_NONE = 0; 				//无效模式
+	QTS_GPROTO_VAR_MODE_SAVE = 1;				//存储变量
+	QTS_GPROTO_VAR_MODE_NET = 2;				//变量可以发送到网络中
+	QTS_GPROTO_VAR_MODE_BOTH = 3;				//存储变量并变量可以发送到网络中
+}
+
+enum EQtsGProtoLogMode {
+	QTS_GPROTO_LOG_MODE_NONE = 0;				//无效模式
+	QTS_GPROTO_LOG_MODE_CONSOLE = 1;			//打印到屏幕
+	QTS_GPROTO_LOG_MODE_NET = 2;				//打印到网络
+	QTS_GPROTO_LOG_MODE_BOTH = 3;				//打印到屏幕和网络
+}
+
+enum EQtsGProtoRegDataMode {
+	QTS_GOROTO_REG_DATA_MODE_CODE = 0;					//注册一个代码
+	QTS_GOROTO_REG_DATA_MODE_CATEGORY = 1;				//注册一个市场下的品种
+	QTS_GOROTO_REG_DATA_MODE_MARKET = 2;				//注册一个市场
+	QTS_GOROTO_REG_DATA_MODE_ALL = 3;					//注册一个全市场
+}
+
+enum EQtsGProtoPnlType {
+	QTS_GPROTO_PNL_TYPE_CODE = 0;						//一个代码的盈亏
+	QTS_GPROTO_PNL_TYPE_ACCOUNT = 1;					//一个账户的盈亏
+	QTS_GPROTO_PNL_TYPE_ALL = 2;						//全盈亏
+}
+
+///////////////////////////////////////////////////////////////////////////	
+/**
+brief:字符串链表
+*/
+message QtsGProtoStringVector {
+	repeated string items = 1;			//字符集
+}
+
+/**
+brief:64位无符号整数链表
+*/
+message QtsGProtoIntVector {
+	repeated int64 items = 1;			//有符号整数集
+}
+
+/**
+brief:万能数据类型
+*/
+message QtsGProtoVariable {
+	required EQtsGProtoVariableType type = 1 [default = QTS_GPROTO_VARIABLE_TYPE_INT32];			//数据类型
+	optional uint32 key = 2   [default = 0];														//键值
+	optional string name = 3    [default = ''];														//变量名
+	optional EQtsGProtoVarMode mode = 4 [default = QTS_GPROTO_VAR_MODE_NONE];						//变量模式
+	optional uint32 index = 5 [default = 0];														//占位序号
+	optional int32 	value_int8 = 6  [default = 0];													//一个字节有符号整数
+	optional uint32 value_uint8 = 7  [default = 0];													//一个字节无符号整数
+	optional int32 	value_int16 = 8  [default = 0];													//二个字节有符号整数
+	optional uint32 value_uint16 = 9  [default = 0];												//二个字节无符号整数
+	optional int32 	value_int32 = 10  [default = 0];												//四个字节有符号整数
+	optional uint32 value_uint32 = 11  [default = 0];												//四个字节无符号整数
+	optional int64 	value_int64 = 12  [default = 0];												//八个字节有符号整数
+	optional uint64 value_uint64 = 13  [default = 0];												//八个字节无符号整数
+	optional float 	value_float = 14  [default = 0];												//单精度数
+	optional double value_double = 15  [default = 0];												//双精度数
+	optional bool 	value_bool = 16  [default = false];												//布尔
+	optional string value_string = 17  [default = ""];												//字符串
+	repeated QtsGProtoVariable value_list = 18;														//链表
+}
+
+/**
+brief:万能数据类型集
+*/
+message QtsGProtoVariables {
+	optional uint32 type = 1 [default = 0];					//数据集类型
+	optional uint32 index = 2 [default = 0];				//数据占位序号
+	repeated QtsGProtoVariable items = 3;					//万能数据集
+}
+
+/**
+brief:用户数据集，主要用来策略和GUI属性页事件用
+*/
+message QtsGProtoUserData {
+	optional uint32 strategyid = 1 [default = 0];			//策略ID
+	optional uint32 type = 2 [default = 0];					//用户数据类型
+	optional string name = 3 [default = ''];				//用户数据名称
+	repeated QtsGProtoVariables items = 4;					//用户数据集
+}
+
+/**
+brief:策略信息
+*/
+message QtsGProtoStrategyInfo {
+	required uint32 strategyid = 1;					//策略ID
+	required string name = 2;						//策略名称
+	repeated uint64 account = 3;					//策略帐户集
+	required uint64 minorderid = 4;					//策略开始订单ID
+	required uint64 maxorderid = 5;					//策略结束订单ID
+	required uint64 currorderid = 6;				//策略当前订单ID
+	required uint64 orderidstep = 7;				//策略订单ID步进
+	required EQtsGProtoStrategyStatus status = 8 [default = QTS_GPROTO_STRATEGY_STATUS_STOP];		//策略当前状态
+	required uint32 threadid = 9;			//策略绑定线程
+	required uint64 cycle = 10;				//策略当前运行周期
+	required uint64 tradecycle = 11;		//策略当前交易周期
+	required bool ismanual = 12;			//是否支持手动下单
+}
+
+/**
+brief:策略信息集
+*/
+message QtsGProtoStrategyInfoes {
+	repeated QtsGProtoStrategyInfo infoes = 1;			//策略信息集
+}
+
+/**
+brief:策略交易标的集
+*/
+message QtsGProtoCodes {
+	required uint32 strategyid = 1;			//策略ID
+	repeated uint64 codes = 2;				//交易标的集
+}
+
+/**
+brief:配置信息
+*/
+message QtsGProtoConfig {	
+	required string value = 1;				//配置的值
+	optional uint32 strategyid = 2;			//策略ID
+}
+
+/**
+brief:策略参数
+*/
+message QtsGProtoParameter {	
+	required uint32 strategyid = 1;								//策略ID
+	required uint32 key = 2;									//参数键值
+	required string name = 3;									//参数名称
+	required int64 value = 4;									//参数的值
+	required EQtsGProtoParameterType type = 5;					//参数类型
+	required uint32 level = 6;									//参数级别
+	required uint32 decimal = 7;								//参数小数位数
+	required uint32 status = 8;									//参数状态
+	required uint32 mode = 9;									//参数控件类型
+	required string style = 10;									//参数样式
+	required string component = 11;								//参数组件内容
+	required uint32 index = 12;									//参数序号
+	repeated QtsGProtoVariable vars = 13;						//万能参数
+}
+
+/**
+brief:参数集
+*/
+message QtsGProtoParameters {
+	repeated QtsGProtoParameter parameters = 1;			//参数集
+}
+
+/**
+brief:策略控制
+*/
+message QtsGProtoControl { 
+	required uint32 strategyid = 1;				//策略ID
+	required uint32 key = 2;					//控制键值
+	required EQtsGProtoStrategyStatus type = 3 [default = QTS_GPROTO_STRATEGY_STATUS_STOP];			//控制类型
+	required EQtsGProtoStrategyStatus status = 4 [default = QTS_GPROTO_STRATEGY_STATUS_STOP];		//控制状态
+}
+
+/**
+brief:帐户信息
+*/
+message QtsGProtoAccount {	
+	required uint64 secuid = 1;						//证券ID
+	required uint64 account = 2;					//帐号
+	required int64 totalamount = 3;					//总资金
+	required int64 avlamount = 4;					//可用资金
+	required int64 freezeamount = 5;				//冻结资金
+	required uint64 date = 6;						//日期
+	required uint32 currency = 7;					//币种
+	required uint32 user = 8;						//用户
+	required uint32 sharetag = 9;					//共享标志
+	required EQtsGProtoAccountLevel level = 10 [default = QTS_GPROTO_ACCOUNT_LEVEL_SUB];		//级别
+	required uint64 viraccount = 11;						//总帐户（虚拟）
+	repeated QtsGProtoVariable vars = 12;					//万能参数
+	optional int64 buyfreezeamount = 13 [default = 0];		//买冻结资金
+	optional int64 sellfreezeamount = 14 [default = 0];		//卖冻结资金
+	optional int64 buymarginamount = 15 [default = 0];		//买保证金
+	optional int64 sellmarginamount = 16 [default = 0];		//卖保证金
+	optional int64 totalmarginamount = 17 [default = 0];	//总保证金
+}
+
+/**
+brief:帐户信息集
+*/
+message QtsGProtoAccounts {
+	repeated QtsGProtoAccount accounts = 1;			//帐户信息集
+}
+
+/**
+brief:仓位信息
+*/
+message QtsGProtoPosition {	
+	required uint64 secuid = 1;					//证券ID
+	required uint64 account = 2;				//帐号
+	required uint64 code = 3;					//交易标的
+	required EQtsGProtoPositionType type = 4 [default = QTS_GPROTO_POSITION_TYPE_UNKNOWN];	//仓位类型
+	required uint64 date = 5;					//日期
+	required int64 totalvol = 6;				//总仓位量
+	required int64 avlvol = 7;					//可用仓位量
+	required int64 workingvol = 8;				//在途仓位量
+	required int64 totalcost = 9;				//总费用
+	required EQtsGProtoPositionLevel level = 10 [default = QTS_GPROTO_POSITION_LEVEL_SUB];	//仓位级别
+	optional int64 avlcredempvol = 11 [default = 0];			//可申赎量
+	optional int64 todayvol = 12 [default = 0];					//今仓
+	repeated QtsGProtoVariable vars = 13;						//万能参数
+}
+
+/**
+brief:仓位信息集
+*/
+message QtsGProtoPositions {
+	repeated QtsGProtoPosition positions = 1;			//仓位集
+}
+
+
+/**
+brief:订单信息
+*/
+message QtsGProtoRecord {
+	required uint64 secuid = 1;				//证券ID
+	required uint64 account = 2;			//帐号
+	required uint32 strategyid = 3;			//策略ID
+	required uint64 algoid = 4;				//算法ID
+	required uint64 algoindex = 5;			//算法订单ID
+	required uint64 orderid = 6;			//订单ID
+	required uint64 parentid = 7;			//父订单ID
+	required uint64 code = 8;				//交易标的
+	required EQtsGProtoOrderAction action = 9 [default = QTS_GPROTO_ORDER_ACTION_BUY];				//订单行为
+	required EQtsGProtoOrderAction paction = 10 [default = QTS_GPROTO_ORDER_ACTION_BUY];			//父订单行为
+	required EQtsGProtoOrderStatus status = 11 [default = QTS_GPROTO_ORDER_STATUS_INVALID];			//订单当前状态
+	required EQtsGProtoOrderStatus prevstatus = 12 [default = QTS_GPROTO_ORDER_STATUS_INVALID];		//订单前一个状态
+	required int64 oprice = 13;				//下单价格
+	required int64 iprice = 14;				//成交均价
+	required int64 ovolume = 15;			//下单量
+	required int64 ivolume = 16;			//成交量
+	required uint64 otime = 17;				//下单时间 
+	required uint64 itime = 18;				//成交时间
+	required uint32 property = 19;			//订单属性
+	required bool canceled = 20;			//是否撤单
+	required uint32 userid = 21;			//用户ID
+	required uint64 refid = 22;				//引用ID
+	required uint32 sessionid = 23;			//生命ID
+	required uint32 direction = 24;			//订单方向
+	required uint32 channel = 25;			//下单通道
+	repeated QtsGProtoVariable vars = 26;	//万能参数
+	optional EQtsGProtoTestOrderMode testmode = 27 [default = QTS_GPROTO_TEST_ORDER_MODE_COMMON];	//测试模式
+	optional uint32 testdelay = 28 [default = 0];		//测试延时
+	optional uint32 testcount = 29 [default = 0];		//测试成交次数
+	optional uint32 source = 30;
+}
+
+/**
+brief:订单信息集
+*/
+message QtsGProtoRecords {
+	repeated QtsGProtoRecord records = 1;			//订单集
+}
+
+/**
+brief:在途信息
+*/
+message QtsGProtoWorking {	
+	required uint64 secuid = 1;					//证券ID
+	required uint32 strategyid = 2;				//策略ID
+	required uint64 algoid = 3;					//算法ID
+	required uint64 code = 4;					//交易标的
+	required EQtsGProtoOrderAction action = 5 [default = QTS_GPROTO_ORDER_ACTION_BUY];		//交易行为
+	required int64 workingvol = 6;				//在途交易途量
+	required uint32 workingsize = 7;			//在途交易次数
+	required int64 cancelingvol = 8;			//在途撤单量
+	required uint32 cancelingsize = 9;			//在途撤单次数		
+	required int64 ordervol = 10;				//成交交易量
+	required uint32 ordersize = 11;				//成交交易次数
+	required int64 cancelvol = 12;				//撤单量
+	required uint32 cancelsize = 13;			//撤单次数
+	required int64 unackedvol = 14;				//未确认量
+	required uint32 unackedsize = 15;			//未确认次数
+	required int64 avprice = 16;				//成交均价
+	required int64 amount = 17;					//成交资金
+	repeated QtsGProtoVariable vars = 18;		//万能参数
+}
+
+/**
+brief:在途信息集
+*/
+message QtsGProtoWorkings {
+	repeated QtsGProtoWorking workings = 1;			//在途信息集
+}
+
+/**
+brief:订单本信息
+*/
+message QtsGProtoBook {
+	required uint64 secuid = 1;					//证券ID
+	required uint32 strategyid = 2;				//策略ID
+	required uint64 algoid = 3;					//算法ID
+	required uint64 code = 4;					//交易标的
+	required int64 price = 5;					//在途交易价格
+	required int64 volume = 6;					//在途交易量
+	required int64 buyvol = 7;					//买入量
+	required uint32 buysize = 8;				//买入次数
+	required int64 sellvol = 9;					//卖出量
+	required uint32 sellsize = 10;				//卖出次数
+	repeated QtsGProtoVariable vars = 11;		//万能参数
+}
+
+/**
+brief:订单本信息集
+*/
+message QtsGProtoBooks {
+	repeated QtsGProtoBook books = 1;		//订单本集
+}
+
+/**
+brief:盈亏信息
+*/
+message QtsGProtoPnl {
+	required uint64 secuid = 1;				//证券ID
+	required uint64 account = 2;			//帐号
+	required uint64 code = 3;				//交易标的
+	required int64	pospnl = 4;				//仓位盈亏
+	required int64	todaypospnl = 5;		//今仓盈亏
+	required int64	lastpospnl = 6;			//昨仓盈亏
+	required int64	tradepnl = 7;			//交易盈亏
+	required int64	todaytradepnl = 8;		//今日交易盈亏
+	required int64	lasttradepnl = 9;		//昨日交易盈亏
+	required int64	tradefee = 10;			//交易费用
+	required int64	position = 11;			//仓位
+	required int64	todaypos = 12;			//今仓
+	required int64	lastpos = 13;			//昨仓
+	required int64	lastprice = 14;			//收盘价
+	required int64	marketprice = 15;		//市场价
+	required int64	maxpospnl = 16;				//最大的盈亏
+	required int64	avbuyprice = 17;			//平均买入价格
+	required int64	avsellprice = 18;			//平均买出价格
+	required EQtsGProtoPnlType type = 19 [default = QTS_GPROTO_PNL_TYPE_CODE];
+	repeated QtsGProtoVariable vars = 20;		//万能参数
+}
+
+/**
+brief:盈亏信息集
+*/
+message QtsGProtoPnls {
+	repeated QtsGProtoPnl pnls = 1;		//盈亏集
+}
+
+/**
+brief:消息
+*/
+message QtsGProtoMessage {	
+	required int32 id = 1;			//消息ID
+	required EQtsGProtoLogType type = 2 [default = QTS_GPROTO_LOG_TYPE_MESSAGE];		//消息类型
+	required EQtsGProtoLogLevel level = 3 [default = QTS_GPROTO_LOG_LEVEL_0];			//消息级别
+	required string msg = 4;		//消息字符串
+	optional uint32 source = 5;
+}
+
+/**
+brief:远程信息
+*/
+message QtsGProtoRemote {
+	required uint32 key = 1;					//插件ID
+	required uint64 localid = 2;				//本地ID
+	required uint64 localport = 3;				//本地端口
+	required uint64 remoteid = 4;				//远程ID
+	required uint64 remoteport = 5;				//远程端口
+	required uint64 appid = 6;					//应用ID
+	required uint32 apptype = 7;				//应用类型
+	required string name = 8;					//应用名称
+	required string version = 9;				//应用版本
+	required EQtsGProtoPluginInMode mode = 10 [default = QTS_GPROTO_PLUGIN_IN_MODE_UNKNOWN];			//远程模式
+	required EQtsGProtoRemoteStatus status = 11 [default = QTS_GPROTO_REMOTE_STATUS_UNKNOWN];		//远程状态
+	required uint32 group = 12;					//远程所在组
+	required EQtsGProtoRemoteType type = 13 [default = QTS_GPROTO_REMOTE_TYPE_UNKNOWN];   //远程类型
+}
+
+/**
+brief:远程信息集
+*/
+message QtsGProtoRemotes {
+	repeated QtsGProtoRemote remotes = 1;		//远程信息集
+}
+
+/**
+brief:行情信息
+*/
+message QtsGProtoData {
+	required uint64 secuid = 1;				//证券ID
+	required uint64 index = 2;				//数据序号
+	required uint32 type = 3;				//数据主类型
+	required uint32 subtype = 4;			//数据次类型
+	required uint64 code = 5;				//交易标的
+	required uint32 level = 6;				//数据层数
+	repeated int64 askprice = 7;			//卖价集合
+	repeated int64 askvol = 8;				//卖量集合
+	required uint32 asklevel = 9;			//卖价层数
+	repeated int64 bidprice = 10;			//买价集合
+	repeated int64 bidvol = 11;				//买量集合
+	required uint32 bidlevel = 12;			//买价层数
+	required int64 lolimitprice = 13;		//跌停价
+	required int64 uplimitprice = 14;		//涨停价
+	required int64 lastprice = 15;			//最新价
+	required int64 openprice = 16;			//今日开盘价
+	required int64 presettlementprice = 17;	//昨日结算价
+	required int64 precloseprice = 18;		//昨日收盘价
+	required int64 marketprice = 19;		//市场成交价
+	required int64 marketvol = 20;			//市场成交量
+	required int64 totalvol = 21;			//总的成交量
+	required int64 totalamount = 22;		//总的成交资金
+	required uint64 timestamp = 23;			//时间戳
+	required uint64 receivetime = 24;		//接收时间
+	required EQtsGProtoSuspensionType suspension = 25 [default = QTS_GPROTO_SUSPENSION_TYPE_CONTINUE];	//停牌类型
+	required uint32 channel = 26;			//行情通道
+	repeated QtsGProtoVariable vars = 27;	//万能参数
+	optional uint32 source = 28;
+}
+
+/**
+brief:行情信息集
+*/
+message QtsGProtoDatas {
+	repeated QtsGProtoData datas = 1;		//行情信息集
+}
+
+/**
+brief:属性
+*/
+message QtsGProtoProperty {
+	required uint32 type = 1;		//属性类型
+	required int32 value = 2;		//属性值
+}
+
+/**
+brief:订单信息
+*/
+message QtsGProtoOrder {
+	required uint32 strategyid = 1;			//策略ID
+	required uint64 algoid = 2;				//算法ID
+	required uint32 market = 3;				//市场
+	required uint32 category = 4;			//品种
+	required uint32 code = 5;				//证券代码
+	required uint64 account = 6;			//帐号
+	required int64 price = 7;				//下单价格
+	required int64 quantity = 8;			//下单量
+	required EQtsGProtoOrderAction action = 9 [default = QTS_GPROTO_ORDER_ACTION_BUY];		//交易行为
+	required uint32 property = 10;			//交易属性
+	required uint64 refid = 11;				//引用ID
+	required uint32 sessionid = 12;			//生命ID
+	required uint32 direction = 13;			//交易方向
+	repeated QtsGProtoProperty commit = 14;	//提交类型
+	repeated QtsGProtoProperty control = 15; //控制类型
+	repeated QtsGProtoVariable vars = 16;	//万能参数
+	optional uint64 orderid = 17;			//订单ID
+	required uint32 channel = 18;			//下单通道
+	optional EQtsGProtoTestOrderMode testmode = 19 [default = QTS_GPROTO_TEST_ORDER_MODE_COMMON];		//测试模式
+	optional uint32 testdelay = 20 [default = 0];			//测试延时
+	optional uint32 testcount = 21 [default = 0];			//成交交易次数
+	optional uint64 testtime = 22 [default = 0];			//性能测试
+	optional uint32 source = 23;
+}
+
+/**
+brief:订单信息集
+*/
+message QtsGProtoOrders {
+	repeated QtsGProtoOrder orders = 1;		//订单集
+}
+
+/**
+brief:撤单信息
+*/
+message QtsGProtoCancel {
+	required uint64 orderid = 1;		//订单ID
+}
+
+/**
+brief:日志信息
+*/
+message QtsGProtoLog {
+	required string key = 1;			//日志键值
+	required EQtsGProtoLogType type = 2 [default = QTS_GPROTO_LOG_TYPE_MESSAGE];		//日志类型
+	required EQtsGProtoLogLevel level = 3 [default = QTS_GPROTO_LOG_LEVEL_0];			//日志级别
+	required string msg = 4;			//日志字符串
+	optional EQtsGProtoLogMode mode = 5 [default = QTS_GPROTO_LOG_MODE_NONE];		//是否发送到网络
+}
+
+/**
+brief:回报信息
+*/
+message QtsGProtoReturn {
+	required 	uint64	account = 1;				//帐号
+	required	uint32  strategyid = 2;				//策略ID
+	required	uint64	algoid = 3;					//算法ID
+	required	uint64	algoindex = 4;				//算法订单ID
+	required	uint64	orderid = 5;				//订单ID
+	required	uint64	parentid = 6;				//父订单ID
+	required  uint64 	code = 7;					//交易标的
+	required	EQtsGProtoOrderAction	action = 8 [default = QTS_GPROTO_ORDER_ACTION_BUY];				//订单行为
+	required	EQtsGProtoOrderAction	paction = 9 [default = QTS_GPROTO_ORDER_ACTION_BUY];			//父订单行为
+	required	EQtsGProtoOrderStatus	status = 10 [default = QTS_GPROTO_ORDER_STATUS_INVALID];		//订单状态
+	required	EQtsGProtoOrderStatus	prevstatus = 11 [default = QTS_GPROTO_ORDER_STATUS_INVALID];	//父订单状态
+	required	int64		price = 12;				//订单价格
+	required	int64		volume = 13;			//订单量
+	required	uint32		property = 14;			//订单属性
+	required	uint64	time = 15;					//下单时间
+	required uint32 direction = 16;					//订单方向
+	required uint32 channel = 17;					//下单通道
+	required uint32 userid = 18;			//用户ID
+	required uint64 refid = 19;				//引用ID
+	required uint32 sessionid = 20;			//生命ID	
+	repeated QtsGProtoVariable vars = 21;			//万能参数
+	optional EQtsGProtoTestOrderMode testmode = 22 [default = QTS_GPROTO_TEST_ORDER_MODE_COMMON];		//测试模式
+	optional uint32 testdelay = 23 [default = 0];			//测试延时
+	optional uint32 testcount = 24 [default = 0];			//成交交易次数
+	optional uint64 testtime = 25 [default = 0];			//性能测试
+	optional uint32 source = 26;
+}
+
+/**
+brief:回报信息集
+*/
+message QtsGProtoReturns {
+	repeated QtsGProtoReturn results = 1;		//回报信息集
+}
+
+/**
+brief:证券信息
+*/
+message QtsGProtoSecuInfo {
+	required  uint64 	innercode = 1;						//交易标的
+	required	uint32	secucode = 2;						//证券代码
+	required	string	ordercode = 3;						//交易代码
+	required	string	secuname = 4;						//证券名称
+	required	uint32	market = 5;							//市场
+	required	uint32	category = 6;						//品种
+	required	string	marketname = 7;						//市场名称
+	required	string	categoryname = 8;					//品种名称
+	required	int32		bate = 9;						//
+	required	int32		multipler = 10;					//乘数
+	required	int32		margin = 11;					//保证金比列
+	required	int64		lastprice = 12;					//昨日收盘价
+	required	int64		settlementprice = 13;			//结算价
+	required	int64		lolimitprice = 14;				//跌停价
+	required	int64		uplimitprice = 15;				//涨停价
+	required	EQtsGProtoSuspensionType suspensiontype = 16 [default = QTS_GPROTO_SUSPENSION_TYPE_CONTINUE];		//停牌类型
+	required	int32		pricetick = 17;			//价格变动最小档位
+	required	int64		minorderqty = 18;		//最小量级
+	required	int64		maxorderqty = 19;		//最大量级
+	required	bool		istradeforbidden = 20;	//是否禁止交易
+	required	EQtsGProtoTradeTnType	tradetn = 21 [default = QTS_GPROTO_TRADE_TN_TYPE_0];				//交易类型
+	required	EQtsGProtoPositionMode	posmode = 22 [default = QTS_GPROTO_POSITION_MODE_LONG];				//仓位类型
+	required	bool		uplolimited = 23;			//是否涨停
+	repeated	uint32		tradefee = 24;				//交易费用
+	repeated QtsGProtoVariable vars = 25;				//万能参数
+}
+
+/**
+brief:证券信息集
+*/
+message QtsGProtoSecuInfoes {
+	repeated QtsGProtoSecuInfo secuinfoes = 1;		//证券信息集
+}	
+
+/**
+brief:交易所回报
+*/
+message QtsGProtoGWReturn {
+	required  uint64 	orderid = 1;			//订单ID
+	required  uint64 	code = 2;				//交易标的
+	required  EQtsGProtoGWOrderStatus  	status = 3 [default = QTS_GPROTO_GW_ORDER_STATUS_INIT];   //回报状态
+	required  int64  	price = 4;			//成交价格
+	required  int64  	quantity = 5;		//成交交易量
+	required  uint64 	time = 6;			//成交时间
+	optional  int32 	errid = 7;			//错误码
+	optional  string 	errmsg = 8;			//错误信息
+	optional  EQtsGProtoLogType type = 9;	//日志类型
+	optional  EQtsGProtoLogLevel level = 10; //日志级别
+	optional  uint32	source = 11;
+}
+
+/**
+brief:注册数据信息
+*/
+message QtsGProtoRegisterData {
+	required uint64 secuid = 1;				//证券ID
+	required uint32 type = 2;				//注册类型
+	required uint64 code = 3;				//交易标的
+	required uint32 strategyid = 4;			//策略ID
+	required EQtsGProtoRegDataMode mode = 5 [default = QTS_GOROTO_REG_DATA_MODE_CODE];				//订阅模式
+	required uint32 channel = 6;			//行情通道
+}
+
+/**
+brief:算法配置键值
+*/
+message QtsGProtoAlgoConfigKey {
+	required uint32 strategyid = 1;			//策略ID
+	required uint64 algoid = 2;				//算法ID
+	required uint64 algoindex = 3;			//算法订单ID
+	required uint32 key = 4;				//键值
+}
+
+/**
+brief:算法配置值
+*/
+message QtsGProtoAlgoConfigValue {
+	required uint32 strategyid = 1;			//策略ID
+	required uint64 algoid = 2;				//算法ID
+	required uint64 algoindex = 3;			//算法订单ID
+	required QtsGProtoVariable value = 4;	//万能变量
+}
+
+/**
+brief:算法订单
+*/
+message QtsGProtoAlgoOrder {
+	required uint64 algoid = 1;						//算法ID
+	repeated QtsGProtoVariables items = 2;			//参数成员
+	optional uint64 algoindex = 3  [default = 0];	//算法订单ID
+}
+
+/**
+brief:算法撤单
+*/
+message QtsGProtoAlgoCancel {
+	required uint64 algoid = 1;						//算法ID
+	repeated QtsGProtoVariables items = 2;			//能数成员
+	optional uint64 algoindex = 3 [default = 0];	//算法订单ID
+}
+
+/**
+brief:网络协议头
+*/
+message QtsGProtoNetHead{
+	required uint32 type = 2;			//主命令
+	required uint32 subtype = 3;		//次命令
+	optional uint32 size = 4;			//包体大小
+	optional uint32	proto = 5;			//协议类型
+	optional uint32	ctrl = 6;			//控制模式
+}
+
+/**
+brief:网络协议体
+*/
+message QtsGProtoNetPackage {
+	required QtsGProtoNetHead head = 1;		//包头
+	optional bytes body = 2;				//包体
+}
