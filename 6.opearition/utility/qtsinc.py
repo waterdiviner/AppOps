@@ -4,7 +4,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 def _include_plat(path) :
-    root_path = '../../onuca/pylib'
+    root_path = '../pylib'
     web_path = '{0}/weblib'.format(root_path)
     sys.path.append('{0}/{1}/utility'.format(path,root_path))
     sys.path.append('{0}/{1}/net/control'.format(path,root_path))

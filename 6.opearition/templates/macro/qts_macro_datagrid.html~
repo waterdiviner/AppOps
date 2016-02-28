@@ -78,7 +78,6 @@ parameter:
 
         function {{ dg }}_append(){
             if ({{ dg }}_endEditing()){
-		$('#{{ dg }}').datagrid('appendRow',{status:'P'});
                 editIndex = $('#{{ dg }}').datagrid('getRows').length-1;
                 $('#{{ dg }}').datagrid('selectRow', editIndex)
                         .datagrid('beginEdit', editIndex);
