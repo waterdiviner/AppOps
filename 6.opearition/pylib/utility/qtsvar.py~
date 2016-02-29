@@ -417,13 +417,13 @@ qts_command_field='qts_command'
 
 #add by lay sta
 qts_rights_table='qts_rights'
-
 qts_target_field='qts_target'
 qts_read_field='qts_read'
 qts_insert_field='qts_insert'
 qts_delete_field='qts_delete'
 qts_update_field='qts_update'
 
+qts_subtype_field='qts_subtype'
 qts_manager_field='qts_manager'
 qts_bdate_field='qts_bdate'
 qts_edate_field='qts_edate'

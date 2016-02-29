@@ -10,12 +10,14 @@ _include_plat(info_page.root_path)
 
 from qtswebres import *
 from qtsdbmachine import *
+from qtsadmin import *
 from qtsdbapp import *
 from qtsdbjob import *
 from qtsdbright import *
 from qtsdbproduct import *
 from qtsdbsecuinfo import *
 from qtsdbstrategyinapp import *
+
 
 
 ##########################################################################################################
@@ -365,3 +367,65 @@ def _update_strategyinapp():
     return build_reponse({'success': 'update successed!'}, 200)
 
 ##########################################################################################################
+
+@info_page.route('/admin')
+def show_admin():
+    #machine_types = get_machine_type(build_path(info_page.root_path,'static/data/qts_machine_type.json'))
+    return render_template('info_admin.html', title='admin',fields=get_admin_head_fields(),
+                           texts=get_admin_head_texts(),reses=get_resources(),colsize=len(get_admin_head_fields()) )
+
+@info_page.route('/get_admin')
+def get_admin():
+    page = get_arg_int(qts_json_page_field)
+    rows = get_arg_int(qts_json_rows_field)
+    return get_admins_json_by_page(qts_config_db,qts_admins_table,page - 1,rows)
+
+@info_page.route('/_insert_admin', methods=[qts_web_get_field, qts_web_post_field])
+def _insert_admin():
+    if request.method == qts_web_post_field :
+        items = dict()
+        append_items_from_form(items,get_admin_head_fields()[1:])
+        print(items)
+        if not exist_admin(qts_config_db,qts_admins_table,items[qts_id_field]) :
+            insert_admin(qts_config_db,qts_admins_table,items)
+            return build_reponse({'success': 'insert successed!'}, 200)
+        else :
+            return build_reponse({'success': 'insert failed!'}, 400)
+    return build_reponse({'error': 'insert failed!'}, 400)
+
+@info_page.route('/_update_admin', methods=[qts_web_get_field, qts_web_post_field])
+def _update_admin():
+    inserted = get_form(qts_json_inserted,'')
+    deleted = get_form(qts_json_deleted,'')
+    updated = get_form(qts_json_updated,'')
+    current_app.logger.debug('update_admin: {0} {1} {2}'.format(inserted,deleted,updated))
+    if inserted != '' :
+        insert_admins(qts_config_db,qts_admins_table,inserted)
+    if deleted != '' :
+        delete_admins(qts_config_db,qts_admins_table,deleted)
+    if updated != '' :
+        update_admins(qts_config_db,qts_admins_table,updated)
+    return build_reponse({'success': 'update successed!'}, 200)
+
+
+##########################################################################################################
+
+
+
+
+
+
+
+##########################################################################################################
+
+
+
+
+
+
+
+##########################################################################################################
+
+
+
+
