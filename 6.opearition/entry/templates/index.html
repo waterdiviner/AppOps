@@ -35,8 +35,12 @@
                             {"menuid":"307","menuname":"账户信息","icon":"icon-nav","url":""},
                             {"menuid":"308","menuname":"仓位信息","icon":"icon-nav","url":""},
                             {"menuid":"309","menuname":"策略信息","icon":"icon-nav","url":""},
-                            {"menuid":"310","menuname":"策略在应用","icon":"icon-nav","url":"{{url_for('info.show_strategyinapp')}}"},
-                            {"menuid":"311","menuname":"策略在机器","icon":"icon-nav","url":"{{url_for('info.show_strategyinapp')}}"}
+                            {"menuid":"310","menuname":"策略部署","icon":"icon-nav",
+                                 "child":[
+                                            {"menuid":"311","menuname":"策略在应用","icon":"icon-nav","url":"{{url_for('info.show_strategyinapp')}}"},
+                                            {"menuid":"312","menuname":"策略在产品","icon":"icon-nav","url":"{{url_for('info.show_strategyinapp')}}"}
+                                         ]
+                            }
                         ]
             },
             {"menuid":"4","icon":"icon-monitor","menuname":"监控",
