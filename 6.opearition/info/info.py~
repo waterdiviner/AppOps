@@ -10,12 +10,18 @@ _include_plat(info_page.root_path)
 
 from qtswebres import *
 from qtsdbmachine import *
+from qtsadmin import *
 from qtsdbapp import *
 from qtsdbjob import *
 from qtsdbright import *
 from qtsdbproduct import *
 from qtsdbsecuinfo import *
 from qtsdbstrategyinapp import *
+from qtsdbstrategyinproduct import *
+from qtsdbposition import *
+from qtsdbtrade import *
+from qtsdbuser import *
+
 
 
 ##########################################################################################################
@@ -366,6 +372,48 @@ def _update_strategyinapp():
 
 ##########################################################################################################
 
+@info_page.route('/strategyinproduct')
+def show_strategyinproduct():
+    return render_template('info_strategyinproduct.html', title='strategyinproduct',fields=get_strategyinproduct_head_fields(),texts=get_strategyinproduct_head_texts(),reses=get_resources(),
+                           colsize=len(get_strategyinproduct_head_fields()) )
+
+@info_page.route('/get_strategyinproduct')
+def get_strategyinproduct():
+    page = get_arg_int(qts_json_page_field)
+    rows = get_arg_int(qts_json_rows_field)
+    return get_apps_json_by_page(qts_config_db,qts_strategyinproduct_table,page - 1,rows)
+
+@info_page.route('/_insert_strategyinproduct', methods=[qts_web_get_field, qts_web_post_field])
+def _insert_strategyinproduct():
+    if request.method == qts_web_post_field :
+        items = dict()
+        append_items_from_form(items,get_strategyinproduct_head_fields()[1:])
+
+        print(items)
+        if not exist_strategyinproduct(qts_config_db,qts_strategyinproducts_table,items[qts_id_field]) :
+            insert_strategyinproduct(qts_config_db,qts_strategyinproducts_table,items)
+            return build_reponse({'success': 'insert successed!'}, 200)
+        else :
+            return build_reponse({'success': 'insert failed!'}, 400)
+    return build_reponse({'error': 'insert failed!'}, 400)
+
+@info_page.route('/_update_strategyinproduct', methods=[qts_web_get_field, qts_web_post_field])
+def _update_strategyinproduct():
+    inserted = get_form(qts_json_inserted,'')
+    deleted = get_form(qts_json_deleted,'')
+    updated = get_form(qts_json_updated,'')
+    current_app.logger.debug('update_strategyinproduct: {0} {1} {2}'.format(inserted,deleted,updated))
+    if inserted != '' :
+        insert_strategyinproducts(qts_config_db,qts_strategyinproducts_table,inserted)
+    if deleted != '' :
+        delete_strategyinproducts(qts_config_db,qts_strategyinproducts_table,deleted)
+    if updated != '' :
+        update_strategyinproducts(qts_config_db,qts_strategyinproducts_table,updated)
+    return build_reponse({'success': 'update successed!'}, 200)
+
+
+##########################################################################################################
+
 @info_page.route('/admin')
 def show_admin():
     #machine_types = get_machine_type(build_path(info_page.root_path,'static/data/qts_machine_type.json'))
@@ -408,8 +456,177 @@ def _update_admin():
 
 ##########################################################################################################
 
+@info_page.route('/position')
+def show_position():
+    #machine_types = get_machine_type(build_path(info_page.root_path,'static/data/qts_machine_type.json'))
+    return render_template('info_position.html', title='position',fields=get_position_head_fields(),
+                           texts=get_position_head_texts(),reses=get_resources(),colsize=len(get_position_head_fields()) )
+
+@info_page.route('/get_position')
+def get_position():
+    page = get_arg_int(qts_json_page_field)
+    rows = get_arg_int(qts_json_rows_field)
+    return get_positions_json_by_page(qts_config_db,qts_positions_table,page - 1,rows)
+
+@info_page.route('/_insert_position', methods=[qts_web_get_field, qts_web_post_field])
+def _insert_position():
+    if request.method == qts_web_post_field :
+        items = dict()
+        append_items_from_form(items,get_position_head_fields()[1:])
+        print(items)
+        if not exist_position(qts_config_db,qts_positions_table,items[qts_id_field]) :
+            insert_position(qts_config_db,qts_positions_table,items)
+            return build_reponse({'success': 'insert successed!'}, 200)
+        else :
+            return build_reponse({'success': 'insert failed!'}, 400)
+    return build_reponse({'error': 'insert failed!'}, 400)
+
+@info_page.route('/_update_position', methods=[qts_web_get_field, qts_web_post_field])
+def _update_position():
+    inserted = get_form(qts_json_inserted,'')
+    deleted = get_form(qts_json_deleted,'')
+    updated = get_form(qts_json_updated,'')
+    current_app.logger.debug('update_position: {0} {1} {2}'.format(inserted,deleted,updated))
+    if inserted != '' :
+        insert_positions(qts_loader_db,qts_positions_table,inserted)
+    if deleted != '' :
+        delete_positions(qts_loader_db,qts_positions_table,deleted)
+    if updated != '' :
+        update_positions(qts_loader_db,qts_positions_table,updated)
+    return build_reponse({'success': 'update successed!'}, 200)
+
+##########################################################################################################
+
+@info_page.route('/trade')
+def show_trade():
+    #machine_types = get_machine_type(build_path(info_page.root_path,'static/data/qts_machine_type.json'))
+    return render_template('info_trade.html', title='trade',fields=get_trade_head_fields(),
+                           texts=get_trade_head_texts(),reses=get_resources(),colsize=len(get_trade_head_fields()) )
+
+@info_page.route('/get_trade')
+def get_trade():
+    page = get_arg_int(qts_json_page_field)
+    rows = get_arg_int(qts_json_rows_field)
+    return get_trades_json_by_page(qts_config_db,qts_trades_table,page - 1,rows)
+
+@info_page.route('/_insert_trade', methods=[qts_web_get_field, qts_web_post_field])
+def _insert_trade():
+    if request.method == qts_web_post_field :
+        items = dict()
+        append_items_from_form(items,get_trade_head_fields()[1:])
+        print(items)
+        if not exist_trade(qts_config_db,qts_trades_table,items[qts_id_field]) :
+            insert_trade(qts_config_db,qts_trades_table,items)
+            return build_reponse({'success': 'insert successed!'}, 200)
+        else :
+            return build_reponse({'success': 'insert failed!'}, 400)
+    return build_reponse({'error': 'insert failed!'}, 400)
+
+@info_page.route('/_update_trade', methods=[qts_web_get_field, qts_web_post_field])
+def _update_trade():
+    inserted = get_form(qts_json_inserted,'')
+    deleted = get_form(qts_json_deleted,'')
+    updated = get_form(qts_json_updated,'')
+    current_app.logger.debug('update_trade: {0} {1} {2}'.format(inserted,deleted,updated))
+    if inserted != '' :
+        insert_trades(qts_loader_db,qts_trades_table,inserted)
+    if deleted != '' :
+        delete_trades(qts_loader_db,qts_trades_table,deleted)
+    if updated != '' :
+        update_trades(qts_loader_db,qts_trades_table,updated)
+    return build_reponse({'success': 'update successed!'}, 200)
+
+##########################################################################################################
 
 
+@info_page.route('/user')
+def show_user():
+    #machine_types = get_machine_type(build_path(info_page.root_path,'static/data/qts_machine_type.json'))
+    return render_template('info_user.html', title='user',fields=get_user_head_fields(),
+                           texts=get_user_head_texts(),reses=get_resources(),colsize=len(get_user_head_fields()) )
+
+@info_page.route('/get_user')
+def get_user():
+    page = get_arg_int(qts_json_page_field)
+    rows = get_arg_int(qts_json_rows_field)
+    return get_users_json_by_page(qts_config_db,qts_users_table,page - 1,rows)
+
+@info_page.route('/_insert_user', methods=[qts_web_get_field, qts_web_post_field])
+def _insert_user():
+    if request.method == qts_web_post_field :
+        items = dict()
+        append_items_from_form(items,get_user_head_fields()[1:])
+        print(items)
+        if not exist_user(qts_config_db,qts_users_table,items[qts_id_field]) :
+            insert_user(qts_config_db,qts_users_table,items)
+            return build_reponse({'success': 'insert successed!'}, 200)
+        else :
+            return build_reponse({'success': 'insert failed!'}, 400)
+    return build_reponse({'error': 'insert failed!'}, 400)
+
+@info_page.route('/_update_user', methods=[qts_web_get_field, qts_web_post_field])
+def _update_user():
+    inserted = get_form(qts_json_inserted,'')
+    deleted = get_form(qts_json_deleted,'')
+    updated = get_form(qts_json_updated,'')
+    current_app.logger.debug('update_user: {0} {1} {2}'.format(inserted,deleted,updated))
+    if inserted != '' :
+        insert_users(qts_loader_db,qts_users_table,inserted)
+    if deleted != '' :
+        delete_users(qts_loader_db,qts_users_table,deleted)
+    if updated != '' :
+        update_users(qts_loader_db,qts_users_table,updated)
+    return build_reponse({'success': 'update successed!'}, 200)
+
+
+##########################################################################################################
+
+@info_page.route('/exchange')
+def show_exchange():
+    #machine_types = get_machine_type(build_path(info_page.root_path,'static/data/qts_machine_type.json'))
+    return render_template('info_exchange.html', title='exchange',fields=get_exchange_head_fields(),
+                           texts=get_exchange_head_texts(),reses=get_resources(),colsize=len(get_exchange_head_fields()) )
+
+@info_page.route('/get_exchange')
+def get_exchange():
+    page = get_arg_int(qts_json_page_field)
+    rows = get_arg_int(qts_json_rows_field)
+    return get_exchanges_json_by_page(qts_config_db,qts_exchanges_table,page - 1,rows)
+
+@info_page.route('/_insert_exchange', methods=[qts_web_get_field, qts_web_post_field])
+def _insert_exchange():
+    if request.method == qts_web_post_field :
+        items = dict()
+        append_items_from_form(items,get_exchange_head_fields()[1:])
+        print(items)
+        if not exist_exchange(qts_config_db,qts_exchanges_table,items[qts_id_field]) :
+            insert_exchange(qts_config_db,qts_exchanges_table,items)
+            return build_reponse({'success': 'insert successed!'}, 200)
+        else :
+            return build_reponse({'success': 'insert failed!'}, 400)
+    return build_reponse({'error': 'insert failed!'}, 400)
+
+@info_page.route('/_update_exchange', methods=[qts_web_get_field, qts_web_post_field])
+def _update_exchange():
+    inserted = get_form(qts_json_inserted,'')
+    deleted = get_form(qts_json_deleted,'')
+    updated = get_form(qts_json_updated,'')
+    current_app.logger.debug('update_exchange: {0} {1} {2}'.format(inserted,deleted,updated))
+    if inserted != '' :
+        insert_exchanges(qts_loader_db,qts_exchanges_table,inserted)
+    if deleted != '' :
+        delete_exchanges(qts_loader_db,qts_exchanges_table,deleted)
+    if updated != '' :
+        update_exchanges(qts_loader_db,qts_exchanges_table,updated)
+    return build_reponse({'success': 'update successed!'}, 200)
+
+
+##########################################################################################################
+
+
+
+
+##########################################################################################################
 
 
 
@@ -420,10 +637,5 @@ def _update_admin():
 
 
 
-
-
 ##########################################################################################################
-
-
-
 
