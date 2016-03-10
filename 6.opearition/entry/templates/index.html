@@ -41,11 +41,11 @@
                             {"menuid":"308","menuname":"仓位信息","icon":"icon-nav","url":"{{url_for('info.show_position')}}"},
                             {"menuid":"309","menuname":"策略信息","icon":"icon-nav",
                                  "child":[
-                                            {"menuid":"361","menuname":"基础信息","icon":"icon-nav","url":""},
-                                            {"menuid":"362","menuname":"合约信息","icon":"icon-nav","url":""},
-                                            {"menuid":"363","menuname":"参数信息","icon":"icon-nav","url":""},
-                                            {"menuid":"364","menuname":"控制信息","icon":"icon-nav","url":""},
-                                            {"menuid":"365","menuname":"指令信息","icon":"icon-nav","url":""}
+                                            {"menuid":"361","menuname":"基础信息","icon":"icon-nav","url":"{{url_for('info.show_strategy')}}"},
+                                            {"menuid":"362","menuname":"合约信息","icon":"icon-nav","url":"{{url_for('info.show_instrument')}}"},
+                                            {"menuid":"363","menuname":"参数信息","icon":"icon-nav","url":"{{url_for('info.show_parameter')}}"},
+                                            {"menuid":"364","menuname":"控制信息","icon":"icon-nav","url":"{{url_for('info.show_comment')}}"},
+                                            {"menuid":"365","menuname":"指令信息","icon":"icon-nav","url":"{{url_for('info.show_command')}}"}
                                          ]},
                             {"menuid":"310","menuname":"策略部署","icon":"icon-nav",
                                  "child":[

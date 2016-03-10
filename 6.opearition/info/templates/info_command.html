@@ -4,9 +4,9 @@
 {% block body %}
 
     {#  ajax url set  #}
-    {% set addurl = 'info._insert_strategy' %}
-    {% set upurl = 'info._update_strategy' %}
-    {% set geturl = 'info.get_strategy' %}
+    {% set addurl = 'info._insert_command' %}
+    {% set upurl = 'info._update_command' %}
+    {% set geturl = 'info.get_command' %}
     {{ qts_forms.qts_input_for_data("machine_ids",machine_ids) }}
     {{ qts_forms.qts_input_for_data("job_types",job_types) }}
 

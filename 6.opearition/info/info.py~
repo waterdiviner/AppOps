@@ -21,7 +21,8 @@ from qtsdbstrategyinproduct import *
 from qtsdbposition import *
 from qtsdbtrade import *
 from qtsdbuser import *
-
+from qtsdbexchange import *
+from qtsdbstrategy import *
 
 
 ##########################################################################################################
@@ -623,7 +624,171 @@ def _update_exchange():
 
 ##########################################################################################################
 
+@info_page.route('/strategy')
+def show_strategy():
+    #machine_types = get_machine_type(build_path(info_page.root_path,'static/data/qts_machine_type.json'))
+    return render_template('info_strategy.html', title='strategy',fields=get_strategy_head_fields(),
+                           texts=get_strategy_head_texts(),reses=get_resources(),colsize=len(get_strategy_head_fields()) )
 
+@info_page.route('/get_strategy')
+def get_strategy():
+    page = get_arg_int(qts_json_page_field)
+    rows = get_arg_int(qts_json_rows_field)
+    return get_strategys_json_by_page(qts_config_db,qts_strategys_table,page - 1,rows)
+
+@info_page.route('/_insert_strategy', methods=[qts_web_get_field, qts_web_post_field])
+def _insert_strategy():
+    if request.method == qts_web_post_field :
+        items = dict()
+        append_items_from_form(items,get_strategy_head_fields()[1:])
+        print(items)
+        if not exist_strategy(qts_config_db,qts_strategys_table,items[qts_id_field]) :
+            insert_strategy(qts_config_db,qts_strategys_table,items)
+            return build_reponse({'success': 'insert successed!'}, 200)
+        else :
+            return build_reponse({'success': 'insert failed!'}, 400)
+    return build_reponse({'error': 'insert failed!'}, 400)
+
+@info_page.route('/_update_strategy', methods=[qts_web_get_field, qts_web_post_field])
+def _update_strategy():
+    inserted = get_form(qts_json_inserted,'')
+    deleted = get_form(qts_json_deleted,'')
+    updated = get_form(qts_json_updated,'')
+    current_app.logger.debug('update_strategy: {0} {1} {2}'.format(inserted,deleted,updated))
+    if inserted != '' :
+        insert_strategys(qts_loader_db,qts_strategys_table,inserted)
+    if deleted != '' :
+        delete_strategys(qts_loader_db,qts_strategys_table,deleted)
+    if updated != '' :
+        update_strategys(qts_loader_db,qts_strategys_table,updated)
+    return build_reponse({'success': 'update successed!'}, 200)
+
+
+##########################################################################################################
+
+@info_page.route('/instrument')
+def show_instrument():
+    #machine_types = get_machine_type(build_path(info_page.root_path,'static/data/qts_machine_type.json'))
+    return render_template('info_instrument.html', title='instrument',fields=get_instrument_head_fields(),
+                           texts=get_instrument_head_texts(),reses=get_resources(),colsize=len(get_instrument_head_fields()) )
+
+@info_page.route('/get_instrument')
+def get_instrument():
+    page = get_arg_int(qts_json_page_field)
+    rows = get_arg_int(qts_json_rows_field)
+    return get_instruments_json_by_page(qts_config_db,qts_instruments_table,page - 1,rows)
+
+@info_page.route('/_insert_instrument', methods=[qts_web_get_field, qts_web_post_field])
+def _insert_instrument():
+    if request.method == qts_web_post_field :
+        items = dict()
+        append_items_from_form(items,get_instrument_head_fields()[1:])
+        print(items)
+        if not exist_instrument(qts_config_db,qts_instruments_table,items[qts_id_field]) :
+            insert_instrument(qts_config_db,qts_instruments_table,items)
+            return build_reponse({'success': 'insert successed!'}, 200)
+        else :
+            return build_reponse({'success': 'insert failed!'}, 400)
+    return build_reponse({'error': 'insert failed!'}, 400)
+
+@info_page.route('/_update_instrument', methods=[qts_web_get_field, qts_web_post_field])
+def _update_instrument():
+    inserted = get_form(qts_json_inserted,'')
+    deleted = get_form(qts_json_deleted,'')
+    updated = get_form(qts_json_updated,'')
+    current_app.logger.debug('update_instrument: {0} {1} {2}'.format(inserted,deleted,updated))
+    if inserted != '' :
+        insert_instruments(qts_loader_db,qts_instruments_table,inserted)
+    if deleted != '' :
+        delete_instruments(qts_loader_db,qts_instruments_table,deleted)
+    if updated != '' :
+        update_instruments(qts_loader_db,qts_instruments_table,updated)
+    return build_reponse({'success': 'update successed!'}, 200)
+
+
+##########################################################################################################
+
+@info_page.route('/parameter')
+def show_parameter():
+    #machine_types = get_machine_type(build_path(info_page.root_path,'static/data/qts_machine_type.json'))
+    return render_template('info_parameter.html', title='parameter',fields=get_parameter_head_fields(),
+                           texts=get_parameter_head_texts(),reses=get_resources(),colsize=len(get_parameter_head_fields()) )
+
+@info_page.route('/get_parameter')
+def get_parameter():
+    page = get_arg_int(qts_json_page_field)
+    rows = get_arg_int(qts_json_rows_field)
+    return get_parameters_json_by_page(qts_config_db,qts_parameters_table,page - 1,rows)
+
+@info_page.route('/_insert_parameter', methods=[qts_web_get_field, qts_web_post_field])
+def _insert_parameter():
+    if request.method == qts_web_post_field :
+        items = dict()
+        append_items_from_form(items,get_parameter_head_fields()[1:])
+        print(items)
+        if not exist_parameter(qts_config_db,qts_parameters_table,items[qts_id_field]) :
+            insert_parameter(qts_config_db,qts_parameters_table,items)
+            return build_reponse({'success': 'insert successed!'}, 200)
+        else :
+            return build_reponse({'success': 'insert failed!'}, 400)
+    return build_reponse({'error': 'insert failed!'}, 400)
+
+@info_page.route('/_update_parameter', methods=[qts_web_get_field, qts_web_post_field])
+def _update_parameter():
+    inserted = get_form(qts_json_inserted,'')
+    deleted = get_form(qts_json_deleted,'')
+    updated = get_form(qts_json_updated,'')
+    current_app.logger.debug('update_parameter: {0} {1} {2}'.format(inserted,deleted,updated))
+    if inserted != '' :
+        insert_parameters(qts_loader_db,qts_parameters_table,inserted)
+    if deleted != '' :
+        delete_parameters(qts_loader_db,qts_parameters_table,deleted)
+    if updated != '' :
+        update_parameters(qts_loader_db,qts_parameters_table,updated)
+    return build_reponse({'success': 'update successed!'}, 200)
+
+
+
+##########################################################################################################
+
+@info_page.route('/comment')
+def show_comment():
+    #machine_types = get_machine_type(build_path(info_page.root_path,'static/data/qts_machine_type.json'))
+    return render_template('info_comment.html', title='comment',fields=get_comment_head_fields(),
+                           texts=get_comment_head_texts(),reses=get_resources(),colsize=len(get_comment_head_fields()) )
+
+@info_page.route('/get_comment')
+def get_comment():
+    page = get_arg_int(qts_json_page_field)
+    rows = get_arg_int(qts_json_rows_field)
+    return get_comments_json_by_page(qts_config_db,qts_comments_table,page - 1,rows)
+
+@info_page.route('/_insert_comment', methods=[qts_web_get_field, qts_web_post_field])
+def _insert_comment():
+    if request.method == qts_web_post_field :
+        items = dict()
+        append_items_from_form(items,get_comment_head_fields()[1:])
+        print(items)
+        if not exist_comment(qts_config_db,qts_comments_table,items[qts_id_field]) :
+            insert_comment(qts_config_db,qts_comments_table,items)
+            return build_reponse({'success': 'insert successed!'}, 200)
+        else :
+            return build_reponse({'success': 'insert failed!'}, 400)
+    return build_reponse({'error': 'insert failed!'}, 400)
+
+@info_page.route('/_update_comment', methods=[qts_web_get_field, qts_web_post_field])
+def _update_comment():
+    inserted = get_form(qts_json_inserted,'')
+    deleted = get_form(qts_json_deleted,'')
+    updated = get_form(qts_json_updated,'')
+    current_app.logger.debug('update_comment: {0} {1} {2}'.format(inserted,deleted,updated))
+    if inserted != '' :
+        insert_comments(qts_loader_db,qts_comments_table,inserted)
+    if deleted != '' :
+        delete_comments(qts_loader_db,qts_comments_table,deleted)
+    if updated != '' :
+        update_comments(qts_loader_db,qts_comments_table,updated)
+    return build_reponse({'success': 'update successed!'}, 200)
 
 
 ##########################################################################################################
@@ -636,6 +801,9 @@ def _update_exchange():
 
 
 
-
 ##########################################################################################################
 
+
+
+
+##########################################################################################################
