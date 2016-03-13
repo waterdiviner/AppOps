@@ -452,6 +452,13 @@ qts_workings_table='qts_workings'
 qts_remotes_table='qts_remotes'
 qts_books_table='qts_books'
 qts_strategys_table='qts_strategys'
+
+qts_instruments_table='qts_instruments'
+qts_trades_table='qts_trades'
+qts_comments_table='qts_comments'
+qts_commands_table='qts_commands'
+qts_exchanges_table='qts_exchanges'
+
 qts_parameters_table='qts_parameters'
 qts_controls_table='qts_controls'
 qts_messages_table='qts_messages'

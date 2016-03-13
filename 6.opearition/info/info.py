@@ -10,7 +10,7 @@ _include_plat(info_page.root_path)
 
 from qtswebres import *
 from qtsdbmachine import *
-from qtsadmin import *
+from qtsdbadmin import *
 from qtsdbapp import *
 from qtsdbjob import *
 from qtsdbright import *
@@ -47,6 +47,8 @@ def get_machine():
     page = get_arg_int(qts_json_page_field)
     rows = get_arg_int(qts_json_rows_field)
     return get_machines_json_by_page(qts_config_db,qts_machines_table,page - 1,rows)
+    #print x;
+    #return x;
 
 @info_page.route('/_insert_machine', methods=[qts_web_get_field, qts_web_post_field])
 def _insert_machine():
@@ -252,12 +254,12 @@ def _update_product():
 
 ##########################################################################################################
 
-@info_page.route('/secuinfo')
-def show_secuinfo():
+@info_page.route('/secuinfos')
+def show_secuinfos():
     machine_ids = get_machines_json_machineid(qts_config_db,qts_machines_table)
     app_types = get_app_type(build_path(info_page.root_path,'static/data/qts_app_type.json'))
-    return render_template('info_secuinfo.html', title='secuinfo',fields_s=get_secuinfo_s_head_fields(),texts_s=get_secuinfo_s_head_texts(),fields_d=get_secuinfo_d_head_fields(),texts_d=get_secuinfo_d_head_texts(),reses=get_resources(),
-                           colsize_s=len(get_secuinfo_s_head_fields()), colsize_d=len(get_secuinfo_d_head_fields()))
+    return render_template('info_secuinfos.html', title='secuinfos',fields=get_secuinfo_s_head_fields(),texts=get_secuinfo_s_head_texts(),reses=get_resources(),colsize=len(get_secuinfo_s_head_fields()) )
+
 
 @info_page.route('/get_secuinfos')
 def get_secuinfos():
@@ -292,7 +294,13 @@ def _update_secuinfos():
         update_secuinfoss(qts_loader_db,qts_secuinfo_s_table,updated)
     return build_reponse({'success': 'update successed!'}, 200)
 
+##########################################################################################################
 
+@info_page.route('/secuinfod')
+def show_secuinfod():
+    machine_ids = get_machines_json_machineid(qts_config_db,qts_machines_table)
+    app_types = get_app_type(build_path(info_page.root_path,'static/data/qts_app_type.json'))
+    return render_template('info_secuinfod.html', title='secuinfod',fields=get_secuinfo_d_head_fields(),texts=get_secuinfo_d_head_texts(),reses=get_resources(),colsize=len(get_secuinfo_d_head_fields()) )
 
 
 @info_page.route('/get_secuinfod')

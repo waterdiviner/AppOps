@@ -4,9 +4,9 @@
 
 {% block body %}
     {#  ajax url set  #}
-    {% set addurl = 'info._insert_machine' %}
-    {% set upurl = 'info._update_machine' %}
-    {% set geturl = 'info.get_machine' %}
+    {% set addurl = 'info._insert_admin' %}
+    {% set upurl = 'info._update_admin' %}
+    {% set geturl = 'info.get_admin' %}
     {% set machine_type_url = 'data/qts_machine_type.json'%}
     {{ qts_forms.qts_input_for_data("machine_types",machine_types) }}
 
@@ -32,10 +32,10 @@
                                             formatter:onFormatter,
                                             editor:{type:'combobox',options:{valueField:'id',textField:'text',method:'get',url:'" +
                                             url_for('static',filename=machine_type_url) + "',required:true}}",
-                                fields[7]:"width:80,align:'right',editor:'text'",
-                                fields[8]:"width:80,align:'right',editor:'text'"
+                                fields[7]:"width:80,align:'right',editor:'text'"
                             }
             %}
+
 
             {{ qts_dg.qts_dg_table("dg","dg_tb",fields,texts,reses,colsize,hoptions=hoptions,upurl=upurl,geturl=geturl,
                                     title="Row Editing in DataGrid",style="width:auto;height:auto",

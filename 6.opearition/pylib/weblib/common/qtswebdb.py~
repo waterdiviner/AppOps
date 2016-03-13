@@ -338,7 +338,7 @@ def get_rows_json_dict_by_page(dbname,dbtable,page,size,row,idfield=qts_autoid_f
         for market in markets :
             results['rows'].append(build_row_dict(market,index,row,fun))
             index += 1
-    #print results
+    print results
     return results
 
 def get_rows_json_dict_condition_by_page(dbname,dbtable,page,size,row,value,idfield=qts_id_field,fun=None,fields=None) :

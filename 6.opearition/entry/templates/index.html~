@@ -31,26 +31,30 @@
                             {"menuid":"303","menuname":"应用信息","icon":"icon-nav","url":"{{url_for('info.show_app')}}"},
                             {"menuid":"304","menuname":"任务信息","icon":"icon-nav","url":"{{url_for('info.show_job')}}"},
                             {"menuid":"305","menuname":"产品管理","icon":"icon-nav","url":"{{url_for('info.show_product')}}"},
-                            {"menuid":"306","menuname":"证券信息","icon":"icon-nav","url":"{{url_for('info.show_secuinfo')}}"},
+                            {"menuid":"306","menuname":"证券信息","icon":"icon-nav"，
+                                 "child":[
+                                            {"menuid":"350","menuname":"静态信息","icon":"icon-nav","url":"{{url_for('info.show_secuinfos')}}"},
+                                            {"menuid":"351","menuname":"动态信息","icon":"icon-nav","url":"{{url_for('info.show_secuinfod')}}"}
+                                         ]},
                             {"menuid":"307","menuname":"账户信息","icon":"icon-nav",
                                  "child":[
-                                            {"menuid":"351","menuname":"交易账户","icon":"icon-nav","url":"{{url_for('info.show_trade')}}"},
-                                            {"menuid":"352","menuname":"用户账户","icon":"icon-nav","url":"{{url_for('info.show_user')}}"},
-                                            {"menuid":"353","menuname":"市场账户","icon":"icon-nav","url":"{{url_for('info.show_exchange')}}"}
+                                            {"menuid":"360","menuname":"交易账户","icon":"icon-nav","url":"{{url_for('info.show_trade')}}"},
+                                            {"menuid":"361","menuname":"用户账户","icon":"icon-nav","url":"{{url_for('info.show_user')}}"},
+                                            {"menuid":"362","menuname":"市场账户","icon":"icon-nav","url":"{{url_for('info.show_exchange')}}"}
                                          ]},
                             {"menuid":"308","menuname":"仓位信息","icon":"icon-nav","url":"{{url_for('info.show_position')}}"},
                             {"menuid":"309","menuname":"策略信息","icon":"icon-nav",
                                  "child":[
-                                            {"menuid":"361","menuname":"基础信息","icon":"icon-nav","url":"{{url_for('info.show_strategy')}}"},
-                                            {"menuid":"362","menuname":"合约信息","icon":"icon-nav","url":"{{url_for('info.show_instrument')}}"},
-                                            {"menuid":"363","menuname":"参数信息","icon":"icon-nav","url":"{{url_for('info.show_parameter')}}"},
-                                            {"menuid":"364","menuname":"控制信息","icon":"icon-nav","url":"{{url_for('info.show_strategy')}}"},
-                                            {"menuid":"365","menuname":"指令信息","icon":"icon-nav","url":"{{url_for('info.show_strategy')}}"}
+                                            {"menuid":"370","menuname":"基础信息","icon":"icon-nav","url":"{{url_for('info.show_strategy')}}"},
+                                            {"menuid":"371","menuname":"合约信息","icon":"icon-nav","url":"{{url_for('info.show_instrument')}}"},
+                                            {"menuid":"372","menuname":"参数信息","icon":"icon-nav","url":"{{url_for('info.show_parameter')}}"},
+                                            {"menuid":"373","menuname":"控制信息","icon":"icon-nav","url":"{{url_for('info.show_comment')}}"},
+                                            {"menuid":"374","menuname":"指令信息","icon":"icon-nav","url":"{{url_for('info.show_command')}}"}
                                          ]},
                             {"menuid":"310","menuname":"策略部署","icon":"icon-nav",
                                  "child":[
-                                            {"menuid":"371","menuname":"策略在应用","icon":"icon-nav","url":"{{url_for('info.show_strategyinapp')}}"},
-                                            {"menuid":"372","menuname":"策略在产品","icon":"icon-nav","url":"{{url_for('info.show_strategyinproduct')}}"}
+                                            {"menuid":"380","menuname":"策略在应用","icon":"icon-nav","url":"{{url_for('info.show_strategyinapp')}}"},
+                                            {"menuid":"381","menuname":"策略在产品","icon":"icon-nav","url":"{{url_for('info.show_strategyinproduct')}}"}
                                          ]
                             }
                         ]
