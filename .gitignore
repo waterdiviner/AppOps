@@ -2,6 +2,14 @@
 Thumbs.db
 ehthumbs.db
 
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+
 # Folder config file
 Desktop.ini
 
