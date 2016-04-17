@@ -19,7 +19,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='qtsgproto.proto',
   package='QTS.ProtoBuf',
-  serialized_pb=_b('\n\x0fqtsgproto.proto\x12\x0cQTS.ProtoBuf\"&\n\x15QtsGProtoStringVector\x12\r\n\x05items\x18\x01 \x03(\t\"#\n\x12QtsGProtoIntVector\x12\r\n\x05items\x18\x01 \x03(\x03\"K\n\rQtsGProtoUser\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x10\n\x08password\x18\x03 \x02(\t\x12\x0e\n\x06status\x18\x04 \x02(\r\"\xbd\x04\n\x11QtsGProtoVariable\x12R\n\x04type\x18\x01 \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoVariableType:\x1eQTS_GPROTO_VARIABLE_TYPE_INT32\x12\x0e\n\x03key\x18\x02 \x01(\r:\x01\x30\x12\x0e\n\x04name\x18\x03 \x01(\t:\x00\x12G\n\x04mode\x18\x04 \x01(\x0e\x32\x1f.QTS.ProtoBuf.EQtsGProtoVarMode:\x18QTS_GPROTO_VAR_MODE_NONE\x12\x10\n\x05index\x18\x05 \x01(\r:\x01\x30\x12\x15\n\nvalue_int8\x18\x06 \x01(\x05:\x01\x30\x12\x16\n\x0bvalue_uint8\x18\x07 \x01(\r:\x01\x30\x12\x16\n\x0bvalue_int16\x18\x08 \x01(\x05:\x01\x30\x12\x17\n\x0cvalue_uint16\x18\t \x01(\r:\x01\x30\x12\x16\n\x0bvalue_int32\x18\n \x01(\x05:\x01\x30\x12\x17\n\x0cvalue_uint32\x18\x0b \x01(\r:\x01\x30\x12\x16\n\x0bvalue_int64\x18\x0c \x01(\x03:\x01\x30\x12\x17\n\x0cvalue_uint64\x18\r \x01(\x04:\x01\x30\x12\x16\n\x0bvalue_float\x18\x0e \x01(\x02:\x01\x30\x12\x17\n\x0cvalue_double\x18\x0f \x01(\x01:\x01\x30\x12\x19\n\nvalue_bool\x18\x10 \x01(\x08:\x05\x66\x61lse\x12\x16\n\x0cvalue_string\x18\x11 \x01(\t:\x00\x12\x33\n\nvalue_list\x18\x12 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"g\n\x12QtsGProtoVariables\x12\x0f\n\x04type\x18\x01 \x01(\r:\x01\x30\x12\x10\n\x05index\x18\x02 \x01(\r:\x01\x30\x12.\n\x05items\x18\x03 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"|\n\x11QtsGProtoUserData\x12\x15\n\nstrategyid\x18\x01 \x01(\r:\x01\x30\x12\x0f\n\x04type\x18\x02 \x01(\r:\x01\x30\x12\x0e\n\x04name\x18\x03 \x01(\t:\x00\x12/\n\x05items\x18\x04 \x03(\x0b\x32 .QTS.ProtoBuf.QtsGProtoVariables\"\xbc\x02\n\x15QtsGProtoStrategyInfo\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x0f\n\x07\x61\x63\x63ount\x18\x03 \x03(\x04\x12\x12\n\nminorderid\x18\x04 \x02(\x04\x12\x12\n\nmaxorderid\x18\x05 \x02(\x04\x12\x13\n\x0b\x63urrorderid\x18\x06 \x02(\x04\x12\x13\n\x0borderidstep\x18\x07 \x02(\x04\x12W\n\x06status\x18\x08 \x02(\x0e\x32&.QTS.ProtoBuf.EQtsGProtoStrategyStatus:\x1fQTS_GPROTO_STRATEGY_STATUS_STOP\x12\x10\n\x08threadid\x18\t \x02(\r\x12\r\n\x05\x63ycle\x18\n \x02(\x04\x12\x12\n\ntradecycle\x18\x0b \x02(\x04\x12\x10\n\x08ismanual\x18\x0c \x02(\x08\"N\n\x17QtsGProtoStrategyInfoes\x12\x33\n\x06infoes\x18\x01 \x03(\x0b\x32#.QTS.ProtoBuf.QtsGProtoStrategyInfo\"3\n\x0eQtsGProtoCodes\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\r\n\x05\x63odes\x18\x02 \x03(\x04\"4\n\x0fQtsGProtoConfig\x12\r\n\x05value\x18\x01 \x02(\t\x12\x12\n\nstrategyid\x18\x02 \x01(\r\"\xa5\x02\n\x12QtsGProtoParameter\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0b\n\x03key\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x02(\t\x12\r\n\x05value\x18\x04 \x02(\x03\x12\x33\n\x04type\x18\x05 \x02(\x0e\x32%.QTS.ProtoBuf.EQtsGProtoParameterType\x12\r\n\x05level\x18\x06 \x02(\r\x12\x0f\n\x07\x64\x65\x63imal\x18\x07 \x02(\r\x12\x0e\n\x06status\x18\x08 \x02(\r\x12\x0c\n\x04mode\x18\t \x02(\r\x12\r\n\x05style\x18\n \x02(\t\x12\x11\n\tcomponent\x18\x0b \x02(\t\x12\r\n\x05index\x18\x0c \x02(\r\x12-\n\x04vars\x18\r \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"K\n\x13QtsGProtoParameters\x12\x34\n\nparameters\x18\x01 \x03(\x0b\x32 .QTS.ProtoBuf.QtsGProtoParameter\"\xe3\x01\n\x10QtsGProtoControl\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0b\n\x03key\x18\x02 \x02(\r\x12U\n\x04type\x18\x03 \x02(\x0e\x32&.QTS.ProtoBuf.EQtsGProtoStrategyStatus:\x1fQTS_GPROTO_STRATEGY_STATUS_STOP\x12W\n\x06status\x18\x04 \x02(\x0e\x32&.QTS.ProtoBuf.EQtsGProtoStrategyStatus:\x1fQTS_GPROTO_STRATEGY_STATUS_STOP\"\xd7\x03\n\x10QtsGProtoAccount\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x0f\n\x07\x61\x63\x63ount\x18\x02 \x02(\x04\x12\x13\n\x0btotalamount\x18\x03 \x02(\x03\x12\x11\n\tavlamount\x18\x04 \x02(\x03\x12\x14\n\x0c\x66reezeamount\x18\x05 \x02(\x03\x12\x0c\n\x04\x64\x61te\x18\x06 \x02(\x04\x12\x10\n\x08\x63urrency\x18\x07 \x02(\r\x12\x0c\n\x04user\x18\x08 \x02(\r\x12\x10\n\x08sharetag\x18\t \x02(\r\x12Q\n\x05level\x18\n \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoAccountLevel:\x1cQTS_GPROTO_ACCOUNT_LEVEL_SUB\x12\x12\n\nviraccount\x18\x0b \x02(\x04\x12-\n\x04vars\x18\x0c \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\x12\x1a\n\x0f\x62uyfreezeamount\x18\r \x01(\x03:\x01\x30\x12\x1b\n\x10sellfreezeamount\x18\x0e \x01(\x03:\x01\x30\x12\x1a\n\x0f\x62uymarginamount\x18\x0f \x01(\x03:\x01\x30\x12\x1b\n\x10sellmarginamount\x18\x10 \x01(\x03:\x01\x30\x12\x1c\n\x11totalmarginamount\x18\x11 \x01(\x03:\x01\x30\"E\n\x11QtsGProtoAccounts\x12\x30\n\x08\x61\x63\x63ounts\x18\x01 \x03(\x0b\x32\x1e.QTS.ProtoBuf.QtsGProtoAccount\"\xa2\x03\n\x11QtsGProtoPosition\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x0f\n\x07\x61\x63\x63ount\x18\x02 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x03 \x02(\x04\x12T\n\x04type\x18\x04 \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoPositionType: QTS_GPROTO_POSITION_TYPE_UNKNOWN\x12\x0c\n\x04\x64\x61te\x18\x05 \x02(\x04\x12\x10\n\x08totalvol\x18\x06 \x02(\x03\x12\x0e\n\x06\x61vlvol\x18\x07 \x02(\x03\x12\x12\n\nworkingvol\x18\x08 \x02(\x03\x12\x11\n\ttotalcost\x18\t \x02(\x03\x12S\n\x05level\x18\n \x02(\x0e\x32%.QTS.ProtoBuf.EQtsGProtoPositionLevel:\x1dQTS_GPROTO_POSITION_LEVEL_SUB\x12\x18\n\ravlcredempvol\x18\x0b \x01(\x03:\x01\x30\x12\x13\n\x08todayvol\x18\x0c \x01(\x03:\x01\x30\x12-\n\x04vars\x18\r \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"H\n\x12QtsGProtoPositions\x12\x32\n\tpositions\x18\x01 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoPosition\"\xa8\x07\n\x0fQtsGProtoRecord\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x0f\n\x07\x61\x63\x63ount\x18\x02 \x02(\x04\x12\x12\n\nstrategyid\x18\x03 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x04 \x02(\x04\x12\x11\n\talgoindex\x18\x05 \x02(\x04\x12\x0f\n\x07orderid\x18\x06 \x02(\x04\x12\x10\n\x08parentid\x18\x07 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x08 \x02(\x04\x12P\n\x06\x61\x63tion\x18\t \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderAction:\x1bQTS_GPROTO_ORDER_ACTION_BUY\x12Q\n\x07paction\x18\n \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderAction:\x1bQTS_GPROTO_ORDER_ACTION_BUY\x12T\n\x06status\x18\x0b \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderStatus:\x1fQTS_GPROTO_ORDER_STATUS_INVALID\x12X\n\nprevstatus\x18\x0c \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderStatus:\x1fQTS_GPROTO_ORDER_STATUS_INVALID\x12\x0e\n\x06oprice\x18\r \x02(\x03\x12\x0e\n\x06iprice\x18\x0e \x02(\x03\x12\x0f\n\x07ovolume\x18\x0f \x02(\x03\x12\x0f\n\x07ivolume\x18\x10 \x02(\x03\x12\r\n\x05otime\x18\x11 \x02(\x04\x12\r\n\x05itime\x18\x12 \x02(\x04\x12\x10\n\x08property\x18\x13 \x02(\r\x12\x10\n\x08\x63\x61nceled\x18\x14 \x02(\x08\x12\x0e\n\x06userid\x18\x15 \x02(\r\x12\r\n\x05refid\x18\x16 \x02(\x04\x12\x11\n\tsessionid\x18\x17 \x02(\r\x12\x11\n\tdirection\x18\x18 \x02(\r\x12\x0f\n\x07\x63hannel\x18\x19 \x02(\r\x12-\n\x04vars\x18\x1a \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\x12Z\n\x08testmode\x18\x1b \x01(\x0e\x32%.QTS.ProtoBuf.EQtsGProtoTestOrderMode:!QTS_GPROTO_TEST_ORDER_MODE_COMMON\x12\x14\n\ttestdelay\x18\x1c \x01(\r:\x01\x30\x12\x14\n\ttestcount\x18\x1d \x01(\r:\x01\x30\x12\x0e\n\x06source\x18\x1e \x01(\r\x12\n\n\x02ss\x18\x1f \x01(\r\x12\n\n\x02gw\x18  \x01(\r\"B\n\x10QtsGProtoRecords\x12.\n\x07records\x18\x01 \x03(\x0b\x32\x1d.QTS.ProtoBuf.QtsGProtoRecord\"\xc1\x03\n\x10QtsGProtoWorking\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x12\n\nstrategyid\x18\x02 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x03 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x04 \x02(\x04\x12P\n\x06\x61\x63tion\x18\x05 \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderAction:\x1bQTS_GPROTO_ORDER_ACTION_BUY\x12\x12\n\nworkingvol\x18\x06 \x02(\x03\x12\x13\n\x0bworkingsize\x18\x07 \x02(\r\x12\x14\n\x0c\x63\x61ncelingvol\x18\x08 \x02(\x03\x12\x15\n\rcancelingsize\x18\t \x02(\r\x12\x10\n\x08ordervol\x18\n \x02(\x03\x12\x11\n\tordersize\x18\x0b \x02(\r\x12\x11\n\tcancelvol\x18\x0c \x02(\x03\x12\x12\n\ncancelsize\x18\r \x02(\r\x12\x12\n\nunackedvol\x18\x0e \x02(\x03\x12\x13\n\x0bunackedsize\x18\x0f \x02(\r\x12\x0f\n\x07\x61vprice\x18\x10 \x02(\x03\x12\x0e\n\x06\x61mount\x18\x11 \x02(\x03\x12-\n\x04vars\x18\x12 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"E\n\x11QtsGProtoWorkings\x12\x30\n\x08workings\x18\x01 \x03(\x0b\x32\x1e.QTS.ProtoBuf.QtsGProtoWorking\"\xe3\x01\n\rQtsGProtoBook\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x12\n\nstrategyid\x18\x02 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x03 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x04 \x02(\x04\x12\r\n\x05price\x18\x05 \x02(\x03\x12\x0e\n\x06volume\x18\x06 \x02(\x03\x12\x0e\n\x06\x62uyvol\x18\x07 \x02(\x03\x12\x0f\n\x07\x62uysize\x18\x08 \x02(\r\x12\x0f\n\x07sellvol\x18\t \x02(\x03\x12\x10\n\x08sellsize\x18\n \x02(\r\x12-\n\x04vars\x18\x0b \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"<\n\x0eQtsGProtoBooks\x12*\n\x05\x62ooks\x18\x01 \x03(\x0b\x32\x1b.QTS.ProtoBuf.QtsGProtoBook\"\xd8\x03\n\x0cQtsGProtoPnl\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x0f\n\x07\x61\x63\x63ount\x18\x02 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x03 \x02(\x04\x12\x0e\n\x06pospnl\x18\x04 \x02(\x03\x12\x13\n\x0btodaypospnl\x18\x05 \x02(\x03\x12\x12\n\nlastpospnl\x18\x06 \x02(\x03\x12\x10\n\x08tradepnl\x18\x07 \x02(\x03\x12\x15\n\rtodaytradepnl\x18\x08 \x02(\x03\x12\x14\n\x0clasttradepnl\x18\t \x02(\x03\x12\x10\n\x08tradefee\x18\n \x02(\x03\x12\x10\n\x08position\x18\x0b \x02(\x03\x12\x10\n\x08todaypos\x18\x0c \x02(\x03\x12\x0f\n\x07lastpos\x18\r \x02(\x03\x12\x11\n\tlastprice\x18\x0e \x02(\x03\x12\x13\n\x0bmarketprice\x18\x0f \x02(\x03\x12\x11\n\tmaxpospnl\x18\x10 \x02(\x03\x12\x12\n\navbuyprice\x18\x11 \x02(\x03\x12\x13\n\x0b\x61vsellprice\x18\x12 \x02(\x03\x12G\n\x04type\x18\x13 \x02(\x0e\x32\x1f.QTS.ProtoBuf.EQtsGProtoPnlType:\x18QTS_GPROTO_PNL_TYPE_CODE\x12-\n\x04vars\x18\x14 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"9\n\rQtsGProtoPnls\x12(\n\x04pnls\x18\x01 \x03(\x0b\x32\x1a.QTS.ProtoBuf.QtsGProtoPnl\"\xd0\x01\n\x10QtsGProtoMessage\x12\n\n\x02id\x18\x01 \x02(\x05\x12J\n\x04type\x18\x02 \x02(\x0e\x32\x1f.QTS.ProtoBuf.EQtsGProtoLogType:\x1bQTS_GPROTO_LOG_TYPE_MESSAGE\x12G\n\x05level\x18\x03 \x02(\x0e\x32 .QTS.ProtoBuf.EQtsGProtoLogLevel:\x16QTS_GPROTO_LOG_LEVEL_0\x12\x0b\n\x03msg\x18\x04 \x02(\t\x12\x0e\n\x06source\x18\x05 \x01(\r\"\x92\x01\n\x0fQtsGProtoClient\x12\x0b\n\x03key\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x0c\n\x04type\x18\x03 \x02(\r\x12V\n\x06status\x18\x04 \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoRemoteStatus: QTS_GPROTO_REMOTE_STATUS_UNKNOWN\"\xb7\x03\n\x0fQtsGProtoRemote\x12\x0b\n\x03key\x18\x01 \x02(\r\x12\x0f\n\x07localid\x18\x02 \x02(\x04\x12\x11\n\tlocalport\x18\x03 \x02(\x04\x12\x10\n\x08remoteid\x18\x04 \x02(\x04\x12\x12\n\nremoteport\x18\x05 \x02(\x04\x12\r\n\x05\x61ppid\x18\x06 \x02(\x04\x12\x0f\n\x07\x61pptype\x18\x07 \x02(\r\x12\x0c\n\x04name\x18\x08 \x02(\t\x12\x0f\n\x07version\x18\t \x02(\t\x12U\n\x04mode\x18\n \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoPluginInMode:!QTS_GPROTO_PLUGIN_IN_MODE_UNKNOWN\x12V\n\x06status\x18\x0b \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoRemoteStatus: QTS_GPROTO_REMOTE_STATUS_UNKNOWN\x12\r\n\x05group\x18\x0c \x02(\r\x12P\n\x04type\x18\r \x02(\x0e\x32\".QTS.ProtoBuf.EQtsGProtoRemoteType:\x1eQTS_GPROTO_REMOTE_TYPE_UNKNOWN\"B\n\x10QtsGProtoRemotes\x12.\n\x07remotes\x18\x01 \x03(\x0b\x32\x1d.QTS.ProtoBuf.QtsGProtoRemote\"\xff\x04\n\rQtsGProtoData\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\r\n\x05index\x18\x02 \x02(\x04\x12\x0c\n\x04type\x18\x03 \x02(\r\x12\x0f\n\x07subtype\x18\x04 \x02(\r\x12\x0c\n\x04\x63ode\x18\x05 \x02(\x04\x12\r\n\x05level\x18\x06 \x02(\r\x12\x10\n\x08\x61skprice\x18\x07 \x03(\x03\x12\x0e\n\x06\x61skvol\x18\x08 \x03(\x03\x12\x10\n\x08\x61sklevel\x18\t \x02(\r\x12\x10\n\x08\x62idprice\x18\n \x03(\x03\x12\x0e\n\x06\x62idvol\x18\x0b \x03(\x03\x12\x10\n\x08\x62idlevel\x18\x0c \x02(\r\x12\x14\n\x0clolimitprice\x18\r \x02(\x03\x12\x14\n\x0cuplimitprice\x18\x0e \x02(\x03\x12\x11\n\tlastprice\x18\x0f \x02(\x03\x12\x11\n\topenprice\x18\x10 \x02(\x03\x12\x1a\n\x12presettlementprice\x18\x11 \x02(\x03\x12\x15\n\rprecloseprice\x18\x12 \x02(\x03\x12\x13\n\x0bmarketprice\x18\x13 \x02(\x03\x12\x11\n\tmarketvol\x18\x14 \x02(\x03\x12\x10\n\x08totalvol\x18\x15 \x02(\x03\x12\x13\n\x0btotalamount\x18\x16 \x02(\x03\x12\x11\n\ttimestamp\x18\x17 \x02(\x04\x12\x13\n\x0breceivetime\x18\x18 \x02(\x04\x12_\n\nsuspension\x18\x19 \x02(\x0e\x32&.QTS.ProtoBuf.EQtsGProtoSuspensionType:#QTS_GPROTO_SUSPENSION_TYPE_CONTINUE\x12\x0f\n\x07\x63hannel\x18\x1a \x02(\r\x12-\n\x04vars\x18\x1b \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\x12\x0e\n\x06source\x18\x1c \x01(\r\"<\n\x0eQtsGProtoDatas\x12*\n\x05\x64\x61tas\x18\x01 \x03(\x0b\x32\x1b.QTS.ProtoBuf.QtsGProtoData\"0\n\x11QtsGProtoProperty\x12\x0c\n\x04type\x18\x01 \x02(\r\x12\r\n\x05value\x18\x02 \x02(\x05\"\x90\x05\n\x0eQtsGProtoOrder\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x02 \x02(\x04\x12\x0e\n\x06market\x18\x03 \x02(\r\x12\x10\n\x08\x63\x61tegory\x18\x04 \x02(\r\x12\x0c\n\x04\x63ode\x18\x05 \x02(\r\x12\x0f\n\x07\x61\x63\x63ount\x18\x06 \x02(\x04\x12\r\n\x05price\x18\x07 \x02(\x03\x12\x10\n\x08quantity\x18\x08 \x02(\x03\x12P\n\x06\x61\x63tion\x18\t \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderAction:\x1bQTS_GPROTO_ORDER_ACTION_BUY\x12\x10\n\x08property\x18\n \x02(\r\x12\r\n\x05refid\x18\x0b \x02(\x04\x12\x11\n\tsessionid\x18\x0c \x02(\r\x12\x11\n\tdirection\x18\r \x02(\r\x12/\n\x06\x63ommit\x18\x0e \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoProperty\x12\x30\n\x07\x63ontrol\x18\x0f \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoProperty\x12-\n\x04vars\x18\x10 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\x12\x0f\n\x07orderid\x18\x11 \x01(\x04\x12\x0f\n\x07\x63hannel\x18\x12 \x02(\r\x12Z\n\x08testmode\x18\x13 \x01(\x0e\x32%.QTS.ProtoBuf.EQtsGProtoTestOrderMode:!QTS_GPROTO_TEST_ORDER_MODE_COMMON\x12\x14\n\ttestdelay\x18\x14 \x01(\r:\x01\x30\x12\x14\n\ttestcount\x18\x15 \x01(\r:\x01\x30\x12\x13\n\x08testtime\x18\x16 \x01(\x04:\x01\x30\x12\x0e\n\x06source\x18\x17 \x01(\r\"?\n\x0fQtsGProtoOrders\x12,\n\x06orders\x18\x01 \x03(\x0b\x32\x1c.QTS.ProtoBuf.QtsGProtoOrder\"\"\n\x0fQtsGProtoCancel\x12\x0f\n\x07orderid\x18\x01 \x02(\x04\"\x86\x02\n\x0cQtsGProtoLog\x12\x0b\n\x03key\x18\x01 \x02(\t\x12J\n\x04type\x18\x02 \x02(\x0e\x32\x1f.QTS.ProtoBuf.EQtsGProtoLogType:\x1bQTS_GPROTO_LOG_TYPE_MESSAGE\x12G\n\x05level\x18\x03 \x02(\x0e\x32 .QTS.ProtoBuf.EQtsGProtoLogLevel:\x16QTS_GPROTO_LOG_LEVEL_0\x12\x0b\n\x03msg\x18\x04 \x02(\t\x12G\n\x04mode\x18\x05 \x01(\x0e\x32\x1f.QTS.ProtoBuf.EQtsGProtoLogMode:\x18QTS_GPROTO_LOG_MODE_NONE\"\xd0\x06\n\x0fQtsGProtoReturn\x12\x0f\n\x07\x61\x63\x63ount\x18\x01 \x02(\x04\x12\x12\n\nstrategyid\x18\x02 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x03 \x02(\x04\x12\x11\n\talgoindex\x18\x04 \x02(\x04\x12\x0f\n\x07orderid\x18\x05 \x02(\x04\x12\x10\n\x08parentid\x18\x06 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x07 \x02(\x04\x12P\n\x06\x61\x63tion\x18\x08 \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderAction:\x1bQTS_GPROTO_ORDER_ACTION_BUY\x12Q\n\x07paction\x18\t \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderAction:\x1bQTS_GPROTO_ORDER_ACTION_BUY\x12T\n\x06status\x18\n \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderStatus:\x1fQTS_GPROTO_ORDER_STATUS_INVALID\x12X\n\nprevstatus\x18\x0b \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderStatus:\x1fQTS_GPROTO_ORDER_STATUS_INVALID\x12\r\n\x05price\x18\x0c \x02(\x03\x12\x0e\n\x06volume\x18\r \x02(\x03\x12\x10\n\x08property\x18\x0e \x02(\r\x12\x0c\n\x04time\x18\x0f \x02(\x04\x12\x11\n\tdirection\x18\x10 \x02(\r\x12\x0f\n\x07\x63hannel\x18\x11 \x02(\r\x12\x0e\n\x06userid\x18\x12 \x02(\r\x12\r\n\x05refid\x18\x13 \x02(\x04\x12\x11\n\tsessionid\x18\x14 \x02(\r\x12-\n\x04vars\x18\x15 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\x12Z\n\x08testmode\x18\x16 \x01(\x0e\x32%.QTS.ProtoBuf.EQtsGProtoTestOrderMode:!QTS_GPROTO_TEST_ORDER_MODE_COMMON\x12\x14\n\ttestdelay\x18\x17 \x01(\r:\x01\x30\x12\x14\n\ttestcount\x18\x18 \x01(\r:\x01\x30\x12\x13\n\x08testtime\x18\x19 \x01(\x04:\x01\x30\x12\x0e\n\x06source\x18\x1a \x01(\r\"B\n\x10QtsGProtoReturns\x12.\n\x07results\x18\x01 \x03(\x0b\x32\x1d.QTS.ProtoBuf.QtsGProtoReturn\"\xec\x05\n\x11QtsGProtoSecuInfo\x12\x11\n\tinnercode\x18\x01 \x02(\x04\x12\x10\n\x08secucode\x18\x02 \x02(\r\x12\x11\n\tordercode\x18\x03 \x02(\t\x12\x10\n\x08secuname\x18\x04 \x02(\t\x12\x0e\n\x06market\x18\x05 \x02(\r\x12\x10\n\x08\x63\x61tegory\x18\x06 \x02(\r\x12\x12\n\nmarketname\x18\x07 \x02(\t\x12\x14\n\x0c\x63\x61tegoryname\x18\x08 \x02(\t\x12\x0c\n\x04\x62\x61te\x18\t \x02(\x05\x12\x11\n\tmultipler\x18\n \x02(\x05\x12\x0e\n\x06margin\x18\x0b \x02(\x05\x12\x11\n\tlastprice\x18\x0c \x02(\x03\x12\x17\n\x0fsettlementprice\x18\r \x02(\x03\x12\x14\n\x0clolimitprice\x18\x0e \x02(\x03\x12\x14\n\x0cuplimitprice\x18\x0f \x02(\x03\x12\x63\n\x0esuspensiontype\x18\x10 \x02(\x0e\x32&.QTS.ProtoBuf.EQtsGProtoSuspensionType:#QTS_GPROTO_SUSPENSION_TYPE_CONTINUE\x12\x11\n\tpricetick\x18\x11 \x02(\x05\x12\x13\n\x0bminorderqty\x18\x12 \x02(\x03\x12\x13\n\x0bmaxorderqty\x18\x13 \x02(\x03\x12\x18\n\x10istradeforbidden\x18\x14 \x02(\x08\x12P\n\x07tradetn\x18\x15 \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoTradeTnType:\x1aQTS_GPROTO_TRADE_TN_TYPE_0\x12T\n\x07posmode\x18\x16 \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoPositionMode:\x1dQTS_GPROTO_POSITION_MODE_LONG\x12\x13\n\x0buplolimited\x18\x17 \x02(\x08\x12\x10\n\x08tradefee\x18\x18 \x03(\r\x12-\n\x04vars\x18\x19 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"J\n\x13QtsGProtoSecuInfoes\x12\x33\n\nsecuinfoes\x18\x01 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoSecuInfo\"\xc8\x02\n\x11QtsGProtoGWReturn\x12\x0f\n\x07orderid\x18\x01 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x02 \x02(\x04\x12V\n\x06status\x18\x03 \x02(\x0e\x32%.QTS.ProtoBuf.EQtsGProtoGWOrderStatus:\x1fQTS_GPROTO_GW_ORDER_STATUS_INIT\x12\r\n\x05price\x18\x04 \x02(\x03\x12\x10\n\x08quantity\x18\x05 \x02(\x03\x12\x0c\n\x04time\x18\x06 \x02(\x04\x12\r\n\x05\x65rrid\x18\x07 \x01(\x05\x12\x0e\n\x06\x65rrmsg\x18\x08 \x01(\t\x12-\n\x04type\x18\t \x01(\x0e\x32\x1f.QTS.ProtoBuf.EQtsGProtoLogType\x12/\n\x05level\x18\n \x01(\x0e\x32 .QTS.ProtoBuf.EQtsGProtoLogLevel\x12\x0e\n\x06source\x18\x0b \x01(\r\"\xba\x01\n\x15QtsGProtoRegisterData\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x0c\n\x04type\x18\x02 \x02(\r\x12\x0c\n\x04\x63ode\x18\x03 \x02(\x04\x12\x12\n\nstrategyid\x18\x04 \x02(\r\x12P\n\x04mode\x18\x05 \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoRegDataMode:\x1dQTS_GOROTO_REG_DATA_MODE_CODE\x12\x0f\n\x07\x63hannel\x18\x06 \x02(\r\"\\\n\x16QtsGProtoAlgoConfigKey\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x02 \x02(\x04\x12\x11\n\talgoindex\x18\x03 \x02(\x04\x12\x0b\n\x03key\x18\x04 \x02(\r\"\x81\x01\n\x18QtsGProtoAlgoConfigValue\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x02 \x02(\x04\x12\x11\n\talgoindex\x18\x03 \x02(\x04\x12.\n\x05value\x18\x04 \x02(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"k\n\x12QtsGProtoAlgoOrder\x12\x0e\n\x06\x61lgoid\x18\x01 \x02(\x04\x12/\n\x05items\x18\x02 \x03(\x0b\x32 .QTS.ProtoBuf.QtsGProtoVariables\x12\x14\n\talgoindex\x18\x03 \x01(\x04:\x01\x30\"l\n\x13QtsGProtoAlgoCancel\x12\x0e\n\x06\x61lgoid\x18\x01 \x02(\x04\x12/\n\x05items\x18\x02 \x03(\x0b\x32 .QTS.ProtoBuf.QtsGProtoVariables\x12\x14\n\talgoindex\x18\x03 \x01(\x04:\x01\x30\"\\\n\x10QtsGProtoNetHead\x12\x0c\n\x04type\x18\x02 \x02(\r\x12\x0f\n\x07subtype\x18\x03 \x02(\r\x12\x0c\n\x04size\x18\x04 \x01(\r\x12\r\n\x05proto\x18\x05 \x01(\r\x12\x0c\n\x04\x63trl\x18\x06 \x01(\r\"Q\n\x13QtsGProtoNetPackage\x12,\n\x04head\x18\x01 \x02(\x0b\x32\x1e.QTS.ProtoBuf.QtsGProtoNetHead\x12\x0c\n\x04\x62ody\x18\x02 \x01(\x0c*\x9b\x03\n\x10\x45QtsGProtoSource\x12\x1d\n\x19QTS_GPROTO_SOURCE_UNKNOWN\x10\x00\x12 \n\x1cQTS_GPROTO_SOURCE_SS_UNKNOWN\x10\x01\x12 \n\x1cQTS_GPROTO_SOURCE_GW_UNKNOWN\x10\x02\x12 \n\x1cQTS_GPROTO_SOURCE_DS_UNKNOWN\x10\x03\x12!\n\x1dQTS_GPROTO_SOURCE_GUI_UNKNOWN\x10\x04\x12\x1e\n\x1aQTS_GPROTO_SOURCE_SS_INNER\x10\x05\x12\x1d\n\x19QTS_GPROTO_SOURCE_SS_ALGO\x10\x06\x12\x1e\n\x1aQTS_GPROTO_SOURCE_SS_CHECK\x10\x07\x12\x1e\n\x1aQTS_GPROTO_SOURCE_GW_INNER\x10\x08\x12\x1d\n\x19QTS_GPROTO_SOURCE_GW_ALGO\x10\t\x12\x1e\n\x1aQTS_GPROTO_SOURCE_GW_CHECK\x10\n\x12!\n\x1dQTS_GPROTO_SOURCE_GW_EXCHANGE\x10\x0b*\x90\x02\n\x16\x45QtsGProtoProtocolType\x12$\n QTS_GPROTO_PROTOCOL_TYPE_UNKNOWN\x10\x00\x12\"\n\x1eQTS_GPROTO_PROTOCOL_TYPE_OWNER\x10\x01\x12$\n QTS_GPROTO_PROTOCOL_TYPE_PROBUFF\x10\x02\x12 \n\x1cQTS_GPROTO_PROTOCOL_TYPE_FIX\x10\x03\x12 \n\x1cQTS_GPROTO_PROTOCOL_TYPE_CSV\x10\x04\x12 \n\x1cQTS_GPROTO_PROTOCOL_TYPE_XML\x10\x05\x12 \n\x1cQTS_GPROTO_PROTOCOL_TYPE_SQL\x10\x06*\x88\x02\n\x18\x45QtsGProtoRequstDataType\x12\"\n\x1eQTS_REQUEST_DATA_TYPE_STRATEGY\x10\x00\x12!\n\x1dQTS_REQUEST_DATA_TYPE_ACCOUNT\x10\x01\x12\"\n\x1eQTS_REQUEST_DATA_TYPE_POSITION\x10\x02\x12 \n\x1cQTS_REQUEST_DATA_TYPE_RECORD\x10\x03\x12\x1d\n\x19QTS_REQUEST_DATA_TYPE_PNL\x10\x04\x12\x1e\n\x1aQTS_REQUEST_DATA_TYPE_BOOK\x10\x05\x12 \n\x1cQTS_REQUEST_DATA_TYPE_REMOTE\x10\x06*\xc0\x01\n\x12\x45QtsGProtoOrderDir\x12 \n\x1cQTS_GPROTO_ORDER_DIR_UNKNOWN\x10\x00\x12\x1d\n\x19QTS_GPROTO_ORDER_DIR_OPEN\x10\x01\x12\x1e\n\x1aQTS_GPROTO_ORDER_DIR_CLOSE\x10\x02\x12#\n\x1fQTS_GPROTO_ORDER_DIR_CLOSE_LAST\x10\x03\x12$\n QTS_GPROTO_ORDER_DIR_CLOSE_TODAY\x10\x04*\xc6\x0b\n\x13\x45QtsGProtoEventType\x12&\n\"QTS_GPROTO_EVENT_TYPE_STRATEGYINFO\x10\x00\x12#\n\x1fQTS_GPROTO_EVENT_TYPE_PARAMETER\x10\x01\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_CONTROL\x10\x02\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_ACCOUNT\x10\x03\x12\"\n\x1eQTS_GPROTO_EVENT_TYPE_POSITION\x10\x04\x12 \n\x1cQTS_GPROTO_EVENT_TYPE_RECORD\x10\x05\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_WORKING\x10\x06\x12\x1e\n\x1aQTS_GPROTO_EVENT_TYPE_BOOK\x10\x07\x12\x1d\n\x19QTS_GPROTO_EVENT_TYPE_PNL\x10\x08\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_MESSAGE\x10\t\x12 \n\x1cQTS_GPROTO_EVENT_TYPE_REMOTE\x10\n\x12\x1e\n\x1aQTS_GPROTO_EVENT_TYPE_DATA\x10\x0b\x12(\n$QTS_GPROTO_EVENT_TYPE_STRATEGY_START\x10\x0c\x12(\n$QTS_GPROTO_EVENT_TYPE_STRATEGY_PAUSE\x10\r\x12(\n$QTS_GPROTO_EVENT_TYPE_STRATEGY_WATCH\x10\x0e\x12\'\n#QTS_GPROTO_EVENT_TYPE_STRATEGY_STOP\x10\x0f\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_ERROR\x10\x10\x12 \n\x1cQTS_GPROTO_EVENT_TYPE_RETURN\x10\x11\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_EVENT\x10\x12\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_CYCLING\x10\x13\x12 \n\x1cQTS_GPROTO_EVENT_TYPE_CYCLED\x10\x14\x12#\n\x1fQTS_GPROTO_EVENT_TYPE_COMMITING\x10\x15\x12\"\n\x1eQTS_GPROTO_EVENT_TYPE_COMMITED\x10\x16\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_ORDER\x10\x17\x12 \n\x1cQTS_GPROTO_EVENT_TYPE_CANCEL\x10\x18\x12\x1d\n\x19QTS_GPROTO_EVENT_TYPE_REG\x10\x19\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_UNREG\x10\x1a\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_DATAS\x10\x1b\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_RETURNS\x10\x1c\x12\"\n\x1eQTS_GPROTO_EVENT_TYPE_UPDATING\x10\x1d\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_UPDATED\x10\x1e\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_QUERY\x10\x1f\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_LOGIN\x10 \x12!\n\x1dQTS_GPROTO_EVENT_TYPE_UNLOGIN\x10!\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_CONNECT\x10\"\x12$\n QTS_GPROTO_EVENT_TYPE_DISCONNECT\x10#\x12 \n\x1bQTS_GPROTO_EVENT_TYPE_CLEAR\x10\xff\x01\x12\x1f\n\x1aQTS_GPROTO_EVENT_TYPE_INIT\x10\x80\x02\x12\"\n\x1dQTS_GPROTO_EVENT_TYPE_READKEY\x10\x81\x02\x12(\n#QTS_GPROTO_EVENT_TYPE_READANY_BYKEY\x10\x82\x02\x12)\n$QTS_GPROTO_EVENT_TYPE_READANY_BYDICT\x10\x83\x02*\xd8\x01\n\x12\x45QtsGProtoCodeType\x12 \n\x1cQTS_GPROTO_CODE_TYPE_UNKNOWN\x10\x00\x12\x1e\n\x1aQTS_GPROTO_CODE_TYPE_TRADE\x10\x01\x12\x1f\n\x1bQTS_GPROTO_CODE_TYPE_SIGNAL\x10\x02\x12\x1f\n\x1bQTS_GPROTO_CODE_TYPE_BASKET\x10\x03\x12\x1e\n\x1aQTS_GPROTO_CODE_TYPE_INDEX\x10\x04\x12\x1e\n\x1aQTS_GPROTO_CODE_TYPE_OWNER\x10\x05*[\n\x14\x45QtsGProtoRecordMode\x12 \n\x1cQTS_GPROTO_RECORD_MODE_ORDER\x10\x00\x12!\n\x1dQTS_GPROTO_RECORD_MODE_RECORD\x10\x01*Z\n\x15\x45QtsGProtoOrderAction\x12\x1f\n\x1bQTS_GPROTO_ORDER_ACTION_BUY\x10\x00\x12 \n\x1cQTS_GPROTO_ORDER_ACTION_SELL\x10\x01*\x85\x01\n\x16\x45QtsGProtoPositionType\x12!\n\x1dQTS_GPROTO_POSITION_TYPE_LONG\x10\x00\x12\"\n\x1eQTS_GPROTO_POSITION_TYPE_SHORT\x10\x01\x12$\n QTS_GPROTO_POSITION_TYPE_UNKNOWN\x10\x02*\xb1\x01\n\x18\x45QtsGProtoStrategyStatus\x12$\n QTS_GPROTO_STRATEGY_STATUS_START\x10\x00\x12$\n QTS_GPROTO_STRATEGY_STATUS_PAUSE\x10\x01\x12$\n QTS_GPROTO_STRATEGY_STATUS_WATCH\x10\x02\x12#\n\x1fQTS_GPROTO_STRATEGY_STATUS_STOP\x10\x03*\xf0\x01\n\x17\x45QtsGProtoParameterType\x12(\n$QTS_GPROTO_STRATEGY_ARG_TYPE_UNKNOWN\x10\x00\x12+\n\'QTS_GPROTO_STRATEGY_ARG_TYPE_INSTRUMENT\x10\x01\x12*\n&QTS_GPROTO_STRATEGY_ARG_TYPE_PARAMETER\x10\x02\x12(\n$QTS_GPROTO_STRATEGY_ARG_TYPE_COMMENT\x10\x03\x12(\n$QTS_GPROTO_STRATEGY_ARG_TYPE_COMMAND\x10\x04*\xbd\x02\n\x18\x45QtsGProtoInstrumentMode\x12#\n\x1fQTS_GPROTO_INSTRUMENT_MODE_NONE\x10\x00\x12\"\n\x1eQTS_GPROTO_INSTRUMENT_MODE_ALL\x10\x01\x12\"\n\x1eQTS_GPROTO_INSTRUMENT_MODE_PNL\x10\x02\x12#\n\x1fQTS_GPROTO_INSTRUMENT_MODE_BOOK\x10\x03\x12&\n\"QTS_GPROTO_INSTRUMENT_MODE_WORKING\x10\x04\x12!\n\x1dQTS_GPROTO_INSTRUMENT_MODE_BP\x10\x05\x12!\n\x1dQTS_GPROTO_INSTRUMENT_MODE_BW\x10\x06\x12!\n\x1dQTS_GPROTO_INSTRUMENT_MODE_PW\x10\x07*m\n\x1a\x45QtsGProtoInstrumentStatus\x12%\n!QTS_GPROTO_INSTRUMENT_STATUS_HIDE\x10\x00\x12(\n$QTS_GPROTO_INSTRUMENT_STATUS_DISPLAY\x10\x01*\xc8\x03\n\x15\x45QtsGProtoOrderStatus\x12#\n\x1fQTS_GPROTO_ORDER_STATUS_INVALID\x10\x00\x12 \n\x1cQTS_GPROTO_ORDER_STATUS_INIT\x10\x01\x12%\n!QTS_GPROTO_ORDER_STATUS_WAIT_SEND\x10\x02\x12 \n\x1cQTS_GPROTO_ORDER_STATUS_SEND\x10\x03\x12,\n(QTS_GPROTO_ORDER_STATUS_SEND_WAIT_CANCEL\x10\x04\x12,\n(QTS_GPROTO_ORDER_STATUS_PART_WAIT_CANCEL\x10\x05\x12)\n%QTS_GPROTO_ORDER_STATUS_PART_CANCELED\x10\x06\x12$\n QTS_GPROTO_ORDER_STATUS_CANCELED\x10\x07\x12\'\n#QTS_GPROTO_ORDER_STATUS_PART_DEALED\x10\x08\x12\"\n\x1eQTS_GPROTO_ORDER_STATUS_DEALED\x10\t\x12%\n!QTS_GPROTO_ORDER_STATUS_DISCARDED\x10\n*\xc4\x03\n\x17\x45QtsGProtoGWOrderStatus\x12#\n\x1fQTS_GPROTO_GW_ORDER_STATUS_INIT\x10\x00\x12(\n$QTS_GPROTO_GW_ORDER_STATUS_SEND_PICK\x10\x01\x12+\n\'QTS_GPROTO_GW_ORDER_STATUS_SEND_CONFIRM\x10\x02\x12%\n!QTS_GPROTO_GW_ORDER_STATUS_CANCEL\x10\x03\x12+\n\'QTS_GPROTO_GW_ORDER_STATUS_INNER_CANCEL\x10\x04\x12)\n%QTS_GPROTO_GW_ORDER_STATUS_ALL_DEALED\x10\x05\x12*\n&QTS_GPROTO_GW_ORDER_STATUS_PART_DEALED\x10\x06\x12,\n(QTS_GPROTO_GW_ORDER_STATUS_CANCEL_DEALED\x10\x07\x12+\n\'QTS_GPROTO_GW_ORDER_STATUS_MATCH_EENLED\x10\x08\x12\'\n\"QTS_GPROTO_GW_ORDER_STATUS_INVALID\x10\xff\x01*\x93\x01\n\x11\x45QtsGProtoLogType\x12\x1f\n\x1bQTS_GPROTO_LOG_TYPE_MESSAGE\x10\x00\x12\x1d\n\x19QTS_GPROTO_LOG_TYPE_DEBUG\x10\x01\x12\x1f\n\x1bQTS_GPROTO_LOG_TYPE_WARNING\x10\x02\x12\x1d\n\x19QTS_GPROTO_LOG_TYPE_ERROR\x10\x03*\xd8\x01\n\x12\x45QtsGProtoLogLevel\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_0\x10\x00\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_1\x10\x01\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_2\x10\x02\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_3\x10\x03\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_4\x10\x04\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_5\x10\x05\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_6\x10\x06*\xb6\x01\n\x18\x45QtsGProtoSuspensionType\x12#\n\x1fQTS_GPROTO_SUSPENSION_TYPE_LAST\x10\x00\x12$\n QTS_GPROTO_SUSPENSION_TYPE_TODAY\x10\x01\x12\'\n#QTS_GPROTO_SUSPENSION_TYPE_CONTINUE\x10\x02\x12&\n\"QTS_GPROTO_SUSPENSION_TYPE_UNKNOWN\x10\x03*\x9d\x01\n\x15\x45QtsGProtoTradeTnType\x12\x1e\n\x1aQTS_GPROTO_TRADE_TN_TYPE_0\x10\x00\x12\x1e\n\x1aQTS_GPROTO_TRADE_TN_TYPE_1\x10\x01\x12\x1e\n\x1aQTS_GPROTO_TRADE_TN_TYPE_2\x10\x02\x12$\n QTS_GPROTO_TRADE_TN_TYPE_UNKNOWN\x10\x03*\xa8\x01\n\x16\x45QtsGProtoPositionMode\x12!\n\x1dQTS_GPROTO_POSITION_MODE_LONG\x10\x00\x12\"\n\x1eQTS_GPROTO_POSITION_MODE_SHORT\x10\x01\x12!\n\x1dQTS_GPROTO_POSITION_MODE_BOTH\x10\x02\x12$\n QTS_GPROTO_POSITION_MODE_UNKNOWN\x10\x03*\x94\x04\n\x16\x45QtsGProtoVariableType\x12$\n QTS_GPROTO_VARIABLE_TYPE_UNKNOWN\x10\x00\x12!\n\x1dQTS_GPROTO_VARIABLE_TYPE_INT8\x10\x01\x12\"\n\x1eQTS_GPROTO_VARIABLE_TYPE_UINT8\x10\x02\x12\"\n\x1eQTS_GPROTO_VARIABLE_TYPE_INT16\x10\x03\x12#\n\x1fQTS_GPROTO_VARIABLE_TYPE_UINT16\x10\x04\x12\"\n\x1eQTS_GPROTO_VARIABLE_TYPE_INT32\x10\x05\x12#\n\x1fQTS_GPROTO_VARIABLE_TYPE_UINT32\x10\x06\x12\"\n\x1eQTS_GPROTO_VARIABLE_TYPE_INT64\x10\x07\x12#\n\x1fQTS_GPROTO_VARIABLE_TYPE_UINT64\x10\x08\x12#\n\x1fQTS_GPROTO_VARIABLE_TYPE_DOUBLE\x10\t\x12\"\n\x1eQTS_GPROTO_VARIABLE_TYPE_FLOAT\x10\n\x12!\n\x1dQTS_GPROTO_VARIABLE_TYPE_BOOL\x10\x0b\x12#\n\x1fQTS_GPROTO_VARIABLE_TYPE_STRING\x10\x0c\x12!\n\x1dQTS_GPROTO_VARIABLE_TYPE_LIST\x10\r*l\n\x19\x45QtsGProtoParameterStatus\x12\'\n#QTS_GPROTO_PARAMETER_STATUS_DISABLE\x10\x00\x12&\n\"QTS_GPROTO_PARAMETER_STATUS_ENABLE\x10\x01*\xda\x01\n\x17\x45QtsGProtoComponentMode\x12%\n!QTS_GPROTO_COMPONENT_MODE_TEXTBOX\x10\x00\x12$\n QTS_GPROTO_COMPONENT_MODE_COMBOX\x10\x01\x12$\n QTS_GPROTO_COMPONENT_MODE_BUTTON\x10\x02\x12\'\n#QTS_GPROTO_COMPONENT_MODE_ACKBUTTON\x10\x03\x12#\n\x1fQTS_GPROTO_COMPONENT_MODE_LABEL\x10\x04*\x84\x02\n\x17\x45QtsGProtoTestOrderMode\x12%\n!QTS_GPROTO_TEST_ORDER_MODE_COMMON\x10\x00\x12$\n QTS_GPROTO_TEST_ORDER_MODE_NOACK\x10\x01\x12\"\n\x1eQTS_GPROTO_TEST_ORDER_MODE_ACK\x10\x02\x12*\n&QTS_GPROTO_TEST_ORDER_MODE_PART_DEALED\x10\x03\x12%\n!QTS_GPROTO_TEST_ORDER_MODE_DEALED\x10\x04\x12%\n!QTS_GPROTO_TEST_ORDER_MODE_DENLED\x10\x05*\x84\x02\n\x17\x45QtsGProtoTradeCodeType\x12&\n\"QTS_GPROTO_TRADE_CODE_TYPE_UNKNOWN\x10\x00\x12\'\n#QTS_GPROTO_TRADE_CODE_TYPE_INNERCOD\x10\x01\x12%\n!QTS_GPROTO_TRADE_CODE_TYPE_SIGNAL\x10\x02\x12%\n!QTS_GPROTO_TRADE_CODE_TYPE_BASKET\x10\x03\x12$\n QTS_GPROTO_TRADE_CODE_TYPE_INDEX\x10\x04\x12$\n QTS_GPROTO_TRADE_CODE_TYPE_OWNER\x10\x05*\x8a\x01\n\x16\x45QtsGProtoPluginInMode\x12%\n!QTS_GPROTO_PLUGIN_IN_MODE_UNKNOWN\x10\x00\x12#\n\x1fQTS_GPROTO_PLUGIN_IN_MODE_LOCAL\x10\x01\x12$\n QTS_GPROTO_PLUGIN_IN_MODE_REMOTE\x10\x02*\x8d\x01\n\x16\x45QtsGProtoRemoteStatus\x12$\n QTS_GPROTO_REMOTE_STATUS_UNKNOWN\x10\x00\x12$\n QTS_GPROTO_REMOTE_STATUS_CONNECT\x10\x01\x12\'\n#QTS_GPROTO_REMOTE_STATUS_DISCONNECT\x10\x02*^\n\x16\x45QtsGProtoAccountLevel\x12\"\n\x1eQTS_GPROTO_ACCOUNT_LEVEL_TOTAL\x10\x00\x12 \n\x1cQTS_GPROTO_ACCOUNT_LEVEL_SUB\x10\x01*a\n\x17\x45QtsGProtoPositionLevel\x12#\n\x1fQTS_GPROTO_POSITION_LEVEL_TOTAL\x10\x00\x12!\n\x1dQTS_GPROTO_POSITION_LEVEL_SUB\x10\x01*\xe0\x01\n\x14\x45QtsGProtoRemoteType\x12\"\n\x1eQTS_GPROTO_REMOTE_TYPE_UNKNOWN\x10\x00\x12(\n$QTS_GPROTO_REMOTE_TYPE_REMOTE_CLIENT\x10\x01\x12(\n$QTS_GPROTO_REMOTE_TYPE_REMOTE_SERVER\x10\x02\x12\'\n#QTS_GPROTO_REMOTE_TYPE_LOCAL_CLIENT\x10\x03\x12\'\n#QTS_GPROTO_REMOTE_TYPE_LOCAL_SERVER\x10\x04*\xf0\x02\n\x11\x45QtsGProtoBZError\x12,\n(QTS_GPROTO_ERROR_BZ_ORDER_INVALID_STATUS\x10\x01\x12-\n)QTS_GPROTO_ERROR_BZ_ORDER_NOEXIST_GATEWAY\x10\x02\x12+\n\'QTS_GPROTO_ERROR_BZ_ORDER_INVALID_PRICE\x10\x03\x12.\n*QTS_GPROTO_ERROR_BZ_ORDER_INVALID_QUANTITY\x10\x04\x12,\n(QTS_GPROTO_ERROR_BZ_ORDER_INVALID_ACTION\x10\x05\x12\x39\n5QTS_GPROTO_ERROR_BZ_ORDER_NOEXIST_ACCOUNT_IN_STRATEGY\x10\x06\x12\x38\n4QTS_GPROTO_ERROR_BZ_ORDER_INVALID_ACCOUNT_IN_ACCOUNT\x10\x07*\xc5\x07\n\x13\x45QtsGProtoRiskError\x12#\n\x1fQTS_GPROTO_ERROR_RISK_MAX_ORDER\x10\x01\x12&\n\"QTS_GPROTO_ERROR_RISK_MAX_POSITION\x10\x02\x12%\n!QTS_GPROTO_ERROR_RISK_MAX_BUY_QTY\x10\x03\x12\'\n#QTS_GPROTO_ERROR_RISK_MAX_BUY_COUNT\x10\x04\x12&\n\"QTS_GPROTO_ERROR_RISK_MAX_SELL_QTY\x10\x05\x12(\n$QTS_GPROTO_ERROR_RISK_MAX_SELL_COUNT\x10\x06\x12*\n&QTS_GPROTO_ERROR_RISK_MAX_CANCEL_COUNT\x10\x07\x12%\n!QTS_GPROTO_ERROR_RISK_MAX_UNACKED\x10\x08\x12)\n%QTS_GPROTO_ERROR_RISK_MAX_WORKING_QTY\x10\t\x12+\n\'QTS_GPROTO_ERROR_RISK_MAX_WORKING_COUNT\x10\n\x12)\n%QTS_GPROTO_ERROR_RISK_MAX_UNHEDGE_QTY\x10\x0b\x12)\n%QTS_GPROTO_ERROR_RISK_MAX_LOSS_AMOUNT\x10\x0c\x12-\n)QTS_GPROTO_ERROR_RISK_MAX_DRAWDOWN_AMOUNT\x10\r\x12*\n&QTS_GPROTO_ERROR_RISK_MAX_THROTTLE_ONE\x10\x0e\x12+\n\'QTS_GPROTO_ERROR_RISK_MAX_THROTTLE_FIVE\x10\x0f\x12-\n)QTS_GPROTO_ERROR_RISK_MAX_THROTTLE_TWENTY\x10\x10\x12.\n*QTS_GPROTO_ERROR_RISK_MAX_CONSECUTIVE_LOSS\x10\x11\x12)\n%QTS_GPROTO_ERROR_RISK_ENOUGH_POSITION\x10\x12\x12(\n$QTS_GPROTO_ERROR_RISK_ENOUGH_ACCOUNT\x10\x13\x12*\n&QTS_GPROTO_ERROR_RISK_OVER_UPPER_PRICE\x10\x14\x12*\n&QTS_GPROTO_ERROR_RISK_OVER_LOWER_PRICE\x10\x15\x12*\n&QTS_GPROTO_ERROR_RISK_INVALID_QUANTITY\x10\x16*\xb9\x01\n\x19\x45QtsGProtoOrderCommitType\x12%\n!QTS_GPROTO_ORDER_COMMIT_TYPE_NONE\x10\x00\x12&\n\"QTS_GPROTO_ORDER_COMMIT_TYPE_PAUSE\x10\x01\x12&\n\"QTS_GPROTO_ORDER_COMMIT_TYPE_WATCH\x10\x02\x12%\n!QTS_GPROTO_ORDER_COMMIT_TYPE_STOP\x10\x03*\x9f\x01\n\x1a\x45QtsGProtoOrderControlType\x12&\n\"QTS_GPROTO_ORDER_CONTROL_TYPE_NONE\x10\x00\x12-\n)QTS_GPROTO_ORDER_CONTROL_TYPE_NO_GW_ERROR\x10\x01\x12*\n&QTS_GPROTO_ORDER_CONTROL_TYPE_NO_CHECK\x10\x02*\x8a\x01\n\x11\x45QtsGProtoVarMode\x12\x1c\n\x18QTS_GPROTO_VAR_MODE_NONE\x10\x00\x12\x1c\n\x18QTS_GPROTO_VAR_MODE_SAVE\x10\x01\x12\x1b\n\x17QTS_GPROTO_VAR_MODE_NET\x10\x02\x12\x1c\n\x18QTS_GPROTO_VAR_MODE_BOTH\x10\x03*\x8d\x01\n\x11\x45QtsGProtoLogMode\x12\x1c\n\x18QTS_GPROTO_LOG_MODE_NONE\x10\x00\x12\x1f\n\x1bQTS_GPROTO_LOG_MODE_CONSOLE\x10\x01\x12\x1b\n\x17QTS_GPROTO_LOG_MODE_NET\x10\x02\x12\x1c\n\x18QTS_GPROTO_LOG_MODE_BOTH\x10\x03*\xa8\x01\n\x15\x45QtsGProtoRegDataMode\x12!\n\x1dQTS_GOROTO_REG_DATA_MODE_CODE\x10\x00\x12%\n!QTS_GOROTO_REG_DATA_MODE_CATEGORY\x10\x01\x12#\n\x1fQTS_GOROTO_REG_DATA_MODE_MARKET\x10\x02\x12 \n\x1cQTS_GOROTO_REG_DATA_MODE_ALL\x10\x03*o\n\x11\x45QtsGProtoPnlType\x12\x1c\n\x18QTS_GPROTO_PNL_TYPE_CODE\x10\x00\x12\x1f\n\x1bQTS_GPROTO_PNL_TYPE_ACCOUNT\x10\x01\x12\x1b\n\x17QTS_GPROTO_PNL_TYPE_ALL\x10\x02')
+  serialized_pb=_b('\n\x0fqtsgproto.proto\x12\x0cQTS.ProtoBuf\"&\n\x15QtsGProtoStringVector\x12\r\n\x05items\x18\x01 \x03(\t\"#\n\x12QtsGProtoIntVector\x12\r\n\x05items\x18\x01 \x03(\x03\"K\n\rQtsGProtoUser\x12\n\n\x02id\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x10\n\x08password\x18\x03 \x02(\t\x12\x0e\n\x06status\x18\x04 \x02(\r\"\xbd\x04\n\x11QtsGProtoVariable\x12R\n\x04type\x18\x01 \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoVariableType:\x1eQTS_GPROTO_VARIABLE_TYPE_INT32\x12\x0e\n\x03key\x18\x02 \x01(\r:\x01\x30\x12\x0e\n\x04name\x18\x03 \x01(\t:\x00\x12G\n\x04mode\x18\x04 \x01(\x0e\x32\x1f.QTS.ProtoBuf.EQtsGProtoVarMode:\x18QTS_GPROTO_VAR_MODE_NONE\x12\x10\n\x05index\x18\x05 \x01(\r:\x01\x30\x12\x15\n\nvalue_int8\x18\x06 \x01(\x05:\x01\x30\x12\x16\n\x0bvalue_uint8\x18\x07 \x01(\r:\x01\x30\x12\x16\n\x0bvalue_int16\x18\x08 \x01(\x05:\x01\x30\x12\x17\n\x0cvalue_uint16\x18\t \x01(\r:\x01\x30\x12\x16\n\x0bvalue_int32\x18\n \x01(\x05:\x01\x30\x12\x17\n\x0cvalue_uint32\x18\x0b \x01(\r:\x01\x30\x12\x16\n\x0bvalue_int64\x18\x0c \x01(\x03:\x01\x30\x12\x17\n\x0cvalue_uint64\x18\r \x01(\x04:\x01\x30\x12\x16\n\x0bvalue_float\x18\x0e \x01(\x02:\x01\x30\x12\x17\n\x0cvalue_double\x18\x0f \x01(\x01:\x01\x30\x12\x19\n\nvalue_bool\x18\x10 \x01(\x08:\x05\x66\x61lse\x12\x16\n\x0cvalue_string\x18\x11 \x01(\t:\x00\x12\x33\n\nvalue_list\x18\x12 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"g\n\x12QtsGProtoVariables\x12\x0f\n\x04type\x18\x01 \x01(\r:\x01\x30\x12\x10\n\x05index\x18\x02 \x01(\r:\x01\x30\x12.\n\x05items\x18\x03 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"|\n\x11QtsGProtoUserData\x12\x15\n\nstrategyid\x18\x01 \x01(\r:\x01\x30\x12\x0f\n\x04type\x18\x02 \x01(\r:\x01\x30\x12\x0e\n\x04name\x18\x03 \x01(\t:\x00\x12/\n\x05items\x18\x04 \x03(\x0b\x32 .QTS.ProtoBuf.QtsGProtoVariables\"\xbc\x02\n\x15QtsGProtoStrategyInfo\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x0f\n\x07\x61\x63\x63ount\x18\x03 \x03(\x04\x12\x12\n\nminorderid\x18\x04 \x02(\x04\x12\x12\n\nmaxorderid\x18\x05 \x02(\x04\x12\x13\n\x0b\x63urrorderid\x18\x06 \x02(\x04\x12\x13\n\x0borderidstep\x18\x07 \x02(\x04\x12W\n\x06status\x18\x08 \x02(\x0e\x32&.QTS.ProtoBuf.EQtsGProtoStrategyStatus:\x1fQTS_GPROTO_STRATEGY_STATUS_STOP\x12\x10\n\x08threadid\x18\t \x02(\r\x12\r\n\x05\x63ycle\x18\n \x02(\x04\x12\x12\n\ntradecycle\x18\x0b \x02(\x04\x12\x10\n\x08ismanual\x18\x0c \x02(\x08\"N\n\x17QtsGProtoStrategyInfoes\x12\x33\n\x06infoes\x18\x01 \x03(\x0b\x32#.QTS.ProtoBuf.QtsGProtoStrategyInfo\"3\n\x0eQtsGProtoCodes\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\r\n\x05\x63odes\x18\x02 \x03(\x04\"4\n\x0fQtsGProtoConfig\x12\r\n\x05value\x18\x01 \x02(\t\x12\x12\n\nstrategyid\x18\x02 \x01(\r\"\xa5\x02\n\x12QtsGProtoParameter\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0b\n\x03key\x18\x02 \x02(\r\x12\x0c\n\x04name\x18\x03 \x02(\t\x12\r\n\x05value\x18\x04 \x02(\x03\x12\x33\n\x04type\x18\x05 \x02(\x0e\x32%.QTS.ProtoBuf.EQtsGProtoParameterType\x12\r\n\x05level\x18\x06 \x02(\r\x12\x0f\n\x07\x64\x65\x63imal\x18\x07 \x02(\r\x12\x0e\n\x06status\x18\x08 \x02(\r\x12\x0c\n\x04mode\x18\t \x02(\r\x12\r\n\x05style\x18\n \x02(\t\x12\x11\n\tcomponent\x18\x0b \x02(\t\x12\r\n\x05index\x18\x0c \x02(\r\x12-\n\x04vars\x18\r \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"K\n\x13QtsGProtoParameters\x12\x34\n\nparameters\x18\x01 \x03(\x0b\x32 .QTS.ProtoBuf.QtsGProtoParameter\"\xe3\x01\n\x10QtsGProtoControl\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0b\n\x03key\x18\x02 \x02(\r\x12U\n\x04type\x18\x03 \x02(\x0e\x32&.QTS.ProtoBuf.EQtsGProtoStrategyStatus:\x1fQTS_GPROTO_STRATEGY_STATUS_STOP\x12W\n\x06status\x18\x04 \x02(\x0e\x32&.QTS.ProtoBuf.EQtsGProtoStrategyStatus:\x1fQTS_GPROTO_STRATEGY_STATUS_STOP\"\xd7\x03\n\x10QtsGProtoAccount\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x0f\n\x07\x61\x63\x63ount\x18\x02 \x02(\x04\x12\x13\n\x0btotalamount\x18\x03 \x02(\x03\x12\x11\n\tavlamount\x18\x04 \x02(\x03\x12\x14\n\x0c\x66reezeamount\x18\x05 \x02(\x03\x12\x0c\n\x04\x64\x61te\x18\x06 \x02(\x04\x12\x10\n\x08\x63urrency\x18\x07 \x02(\r\x12\x0c\n\x04user\x18\x08 \x02(\r\x12\x10\n\x08sharetag\x18\t \x02(\r\x12Q\n\x05level\x18\n \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoAccountLevel:\x1cQTS_GPROTO_ACCOUNT_LEVEL_SUB\x12\x12\n\nviraccount\x18\x0b \x02(\x04\x12-\n\x04vars\x18\x0c \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\x12\x1a\n\x0f\x62uyfreezeamount\x18\r \x01(\x03:\x01\x30\x12\x1b\n\x10sellfreezeamount\x18\x0e \x01(\x03:\x01\x30\x12\x1a\n\x0f\x62uymarginamount\x18\x0f \x01(\x03:\x01\x30\x12\x1b\n\x10sellmarginamount\x18\x10 \x01(\x03:\x01\x30\x12\x1c\n\x11totalmarginamount\x18\x11 \x01(\x03:\x01\x30\"E\n\x11QtsGProtoAccounts\x12\x30\n\x08\x61\x63\x63ounts\x18\x01 \x03(\x0b\x32\x1e.QTS.ProtoBuf.QtsGProtoAccount\"\xa2\x03\n\x11QtsGProtoPosition\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x0f\n\x07\x61\x63\x63ount\x18\x02 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x03 \x02(\x04\x12T\n\x04type\x18\x04 \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoPositionType: QTS_GPROTO_POSITION_TYPE_UNKNOWN\x12\x0c\n\x04\x64\x61te\x18\x05 \x02(\x04\x12\x10\n\x08totalvol\x18\x06 \x02(\x03\x12\x0e\n\x06\x61vlvol\x18\x07 \x02(\x03\x12\x12\n\nworkingvol\x18\x08 \x02(\x03\x12\x11\n\ttotalcost\x18\t \x02(\x03\x12S\n\x05level\x18\n \x02(\x0e\x32%.QTS.ProtoBuf.EQtsGProtoPositionLevel:\x1dQTS_GPROTO_POSITION_LEVEL_SUB\x12\x18\n\ravlcredempvol\x18\x0b \x01(\x03:\x01\x30\x12\x13\n\x08todayvol\x18\x0c \x01(\x03:\x01\x30\x12-\n\x04vars\x18\r \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"H\n\x12QtsGProtoPositions\x12\x32\n\tpositions\x18\x01 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoPosition\"\xa8\x07\n\x0fQtsGProtoRecord\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x0f\n\x07\x61\x63\x63ount\x18\x02 \x02(\x04\x12\x12\n\nstrategyid\x18\x03 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x04 \x02(\x04\x12\x11\n\talgoindex\x18\x05 \x02(\x04\x12\x0f\n\x07orderid\x18\x06 \x02(\x04\x12\x10\n\x08parentid\x18\x07 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x08 \x02(\x04\x12P\n\x06\x61\x63tion\x18\t \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderAction:\x1bQTS_GPROTO_ORDER_ACTION_BUY\x12Q\n\x07paction\x18\n \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderAction:\x1bQTS_GPROTO_ORDER_ACTION_BUY\x12T\n\x06status\x18\x0b \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderStatus:\x1fQTS_GPROTO_ORDER_STATUS_INVALID\x12X\n\nprevstatus\x18\x0c \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderStatus:\x1fQTS_GPROTO_ORDER_STATUS_INVALID\x12\x0e\n\x06oprice\x18\r \x02(\x03\x12\x0e\n\x06iprice\x18\x0e \x02(\x03\x12\x0f\n\x07ovolume\x18\x0f \x02(\x03\x12\x0f\n\x07ivolume\x18\x10 \x02(\x03\x12\r\n\x05otime\x18\x11 \x02(\x04\x12\r\n\x05itime\x18\x12 \x02(\x04\x12\x10\n\x08property\x18\x13 \x02(\r\x12\x10\n\x08\x63\x61nceled\x18\x14 \x02(\x08\x12\x0e\n\x06userid\x18\x15 \x02(\r\x12\r\n\x05refid\x18\x16 \x02(\x04\x12\x11\n\tsessionid\x18\x17 \x02(\r\x12\x11\n\tdirection\x18\x18 \x02(\r\x12\x0f\n\x07\x63hannel\x18\x19 \x02(\r\x12-\n\x04vars\x18\x1a \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\x12Z\n\x08testmode\x18\x1b \x01(\x0e\x32%.QTS.ProtoBuf.EQtsGProtoTestOrderMode:!QTS_GPROTO_TEST_ORDER_MODE_COMMON\x12\x14\n\ttestdelay\x18\x1c \x01(\r:\x01\x30\x12\x14\n\ttestcount\x18\x1d \x01(\r:\x01\x30\x12\x0e\n\x06source\x18\x1e \x01(\r\x12\n\n\x02ss\x18\x1f \x01(\r\x12\n\n\x02gw\x18  \x01(\r\"B\n\x10QtsGProtoRecords\x12.\n\x07records\x18\x01 \x03(\x0b\x32\x1d.QTS.ProtoBuf.QtsGProtoRecord\"\xc1\x03\n\x10QtsGProtoWorking\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x12\n\nstrategyid\x18\x02 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x03 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x04 \x02(\x04\x12P\n\x06\x61\x63tion\x18\x05 \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderAction:\x1bQTS_GPROTO_ORDER_ACTION_BUY\x12\x12\n\nworkingvol\x18\x06 \x02(\x03\x12\x13\n\x0bworkingsize\x18\x07 \x02(\r\x12\x14\n\x0c\x63\x61ncelingvol\x18\x08 \x02(\x03\x12\x15\n\rcancelingsize\x18\t \x02(\r\x12\x10\n\x08ordervol\x18\n \x02(\x03\x12\x11\n\tordersize\x18\x0b \x02(\r\x12\x11\n\tcancelvol\x18\x0c \x02(\x03\x12\x12\n\ncancelsize\x18\r \x02(\r\x12\x12\n\nunackedvol\x18\x0e \x02(\x03\x12\x13\n\x0bunackedsize\x18\x0f \x02(\r\x12\x0f\n\x07\x61vprice\x18\x10 \x02(\x03\x12\x0e\n\x06\x61mount\x18\x11 \x02(\x03\x12-\n\x04vars\x18\x12 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"E\n\x11QtsGProtoWorkings\x12\x30\n\x08workings\x18\x01 \x03(\x0b\x32\x1e.QTS.ProtoBuf.QtsGProtoWorking\"\xe3\x01\n\rQtsGProtoBook\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x12\n\nstrategyid\x18\x02 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x03 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x04 \x02(\x04\x12\r\n\x05price\x18\x05 \x02(\x03\x12\x0e\n\x06volume\x18\x06 \x02(\x03\x12\x0e\n\x06\x62uyvol\x18\x07 \x02(\x03\x12\x0f\n\x07\x62uysize\x18\x08 \x02(\r\x12\x0f\n\x07sellvol\x18\t \x02(\x03\x12\x10\n\x08sellsize\x18\n \x02(\r\x12-\n\x04vars\x18\x0b \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"<\n\x0eQtsGProtoBooks\x12*\n\x05\x62ooks\x18\x01 \x03(\x0b\x32\x1b.QTS.ProtoBuf.QtsGProtoBook\"\xd8\x03\n\x0cQtsGProtoPnl\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x0f\n\x07\x61\x63\x63ount\x18\x02 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x03 \x02(\x04\x12\x0e\n\x06pospnl\x18\x04 \x02(\x03\x12\x13\n\x0btodaypospnl\x18\x05 \x02(\x03\x12\x12\n\nlastpospnl\x18\x06 \x02(\x03\x12\x10\n\x08tradepnl\x18\x07 \x02(\x03\x12\x15\n\rtodaytradepnl\x18\x08 \x02(\x03\x12\x14\n\x0clasttradepnl\x18\t \x02(\x03\x12\x10\n\x08tradefee\x18\n \x02(\x03\x12\x10\n\x08position\x18\x0b \x02(\x03\x12\x10\n\x08todaypos\x18\x0c \x02(\x03\x12\x0f\n\x07lastpos\x18\r \x02(\x03\x12\x11\n\tlastprice\x18\x0e \x02(\x03\x12\x13\n\x0bmarketprice\x18\x0f \x02(\x03\x12\x11\n\tmaxpospnl\x18\x10 \x02(\x03\x12\x12\n\navbuyprice\x18\x11 \x02(\x03\x12\x13\n\x0b\x61vsellprice\x18\x12 \x02(\x03\x12G\n\x04type\x18\x13 \x02(\x0e\x32\x1f.QTS.ProtoBuf.EQtsGProtoPnlType:\x18QTS_GPROTO_PNL_TYPE_CODE\x12-\n\x04vars\x18\x14 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"9\n\rQtsGProtoPnls\x12(\n\x04pnls\x18\x01 \x03(\x0b\x32\x1a.QTS.ProtoBuf.QtsGProtoPnl\"\xd0\x01\n\x10QtsGProtoMessage\x12\n\n\x02id\x18\x01 \x02(\x05\x12J\n\x04type\x18\x02 \x02(\x0e\x32\x1f.QTS.ProtoBuf.EQtsGProtoLogType:\x1bQTS_GPROTO_LOG_TYPE_MESSAGE\x12G\n\x05level\x18\x03 \x02(\x0e\x32 .QTS.ProtoBuf.EQtsGProtoLogLevel:\x16QTS_GPROTO_LOG_LEVEL_0\x12\x0b\n\x03msg\x18\x04 \x02(\t\x12\x0e\n\x06source\x18\x05 \x01(\r\"\x92\x01\n\x0fQtsGProtoClient\x12\x0b\n\x03key\x18\x01 \x02(\r\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x0c\n\x04type\x18\x03 \x02(\r\x12V\n\x06status\x18\x04 \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoRemoteStatus: QTS_GPROTO_REMOTE_STATUS_UNKNOWN\"\xb7\x03\n\x0fQtsGProtoRemote\x12\x0b\n\x03key\x18\x01 \x02(\r\x12\x0f\n\x07localid\x18\x02 \x02(\x04\x12\x11\n\tlocalport\x18\x03 \x02(\x04\x12\x10\n\x08remoteid\x18\x04 \x02(\x04\x12\x12\n\nremoteport\x18\x05 \x02(\x04\x12\r\n\x05\x61ppid\x18\x06 \x02(\x04\x12\x0f\n\x07\x61pptype\x18\x07 \x02(\r\x12\x0c\n\x04name\x18\x08 \x02(\t\x12\x0f\n\x07version\x18\t \x02(\t\x12U\n\x04mode\x18\n \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoPluginInMode:!QTS_GPROTO_PLUGIN_IN_MODE_UNKNOWN\x12V\n\x06status\x18\x0b \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoRemoteStatus: QTS_GPROTO_REMOTE_STATUS_UNKNOWN\x12\r\n\x05group\x18\x0c \x02(\r\x12P\n\x04type\x18\r \x02(\x0e\x32\".QTS.ProtoBuf.EQtsGProtoRemoteType:\x1eQTS_GPROTO_REMOTE_TYPE_UNKNOWN\"B\n\x10QtsGProtoRemotes\x12.\n\x07remotes\x18\x01 \x03(\x0b\x32\x1d.QTS.ProtoBuf.QtsGProtoRemote\"\xaa\x05\n\rQtsGProtoData\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\r\n\x05index\x18\x02 \x02(\x04\x12\x0c\n\x04type\x18\x03 \x02(\r\x12\x0f\n\x07subtype\x18\x04 \x02(\r\x12\x0c\n\x04\x63ode\x18\x05 \x02(\x04\x12\r\n\x05level\x18\x06 \x02(\r\x12\x10\n\x08\x61skprice\x18\x07 \x03(\x03\x12\x0e\n\x06\x61skvol\x18\x08 \x03(\x03\x12\x10\n\x08\x61sklevel\x18\t \x02(\r\x12\x10\n\x08\x62idprice\x18\n \x03(\x03\x12\x0e\n\x06\x62idvol\x18\x0b \x03(\x03\x12\x10\n\x08\x62idlevel\x18\x0c \x02(\r\x12\x14\n\x0clolimitprice\x18\r \x02(\x03\x12\x14\n\x0cuplimitprice\x18\x0e \x02(\x03\x12\x11\n\tlastprice\x18\x0f \x02(\x03\x12\x11\n\topenprice\x18\x10 \x02(\x03\x12\x1a\n\x12presettlementprice\x18\x11 \x02(\x03\x12\x15\n\rprecloseprice\x18\x12 \x02(\x03\x12\x13\n\x0bmarketprice\x18\x13 \x02(\x03\x12\x11\n\tmarketvol\x18\x14 \x02(\x03\x12\x10\n\x08totalvol\x18\x15 \x02(\x03\x12\x13\n\x0btotalamount\x18\x16 \x02(\x03\x12\x11\n\ttimestamp\x18\x17 \x02(\x04\x12\x13\n\x0breceivetime\x18\x18 \x02(\x04\x12_\n\nsuspension\x18\x19 \x02(\x0e\x32&.QTS.ProtoBuf.EQtsGProtoSuspensionType:#QTS_GPROTO_SUSPENSION_TYPE_CONTINUE\x12\x0f\n\x07\x63hannel\x18\x1a \x02(\r\x12\x14\n\x0chighestprice\x18\x1b \x02(\x03\x12\x13\n\x0blowestprice\x18\x1c \x02(\x03\x12-\n\x04vars\x18\x1d \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\x12\x0e\n\x06source\x18\x1e \x01(\r\"<\n\x0eQtsGProtoDatas\x12*\n\x05\x64\x61tas\x18\x01 \x03(\x0b\x32\x1b.QTS.ProtoBuf.QtsGProtoData\"0\n\x11QtsGProtoProperty\x12\x0c\n\x04type\x18\x01 \x02(\r\x12\r\n\x05value\x18\x02 \x02(\x05\"\x90\x05\n\x0eQtsGProtoOrder\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x02 \x02(\x04\x12\x0e\n\x06market\x18\x03 \x02(\r\x12\x10\n\x08\x63\x61tegory\x18\x04 \x02(\r\x12\x0c\n\x04\x63ode\x18\x05 \x02(\r\x12\x0f\n\x07\x61\x63\x63ount\x18\x06 \x02(\x04\x12\r\n\x05price\x18\x07 \x02(\x03\x12\x10\n\x08quantity\x18\x08 \x02(\x03\x12P\n\x06\x61\x63tion\x18\t \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderAction:\x1bQTS_GPROTO_ORDER_ACTION_BUY\x12\x10\n\x08property\x18\n \x02(\r\x12\r\n\x05refid\x18\x0b \x02(\x04\x12\x11\n\tsessionid\x18\x0c \x02(\r\x12\x11\n\tdirection\x18\r \x02(\r\x12/\n\x06\x63ommit\x18\x0e \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoProperty\x12\x30\n\x07\x63ontrol\x18\x0f \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoProperty\x12-\n\x04vars\x18\x10 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\x12\x0f\n\x07orderid\x18\x11 \x01(\x04\x12\x0f\n\x07\x63hannel\x18\x12 \x02(\r\x12Z\n\x08testmode\x18\x13 \x01(\x0e\x32%.QTS.ProtoBuf.EQtsGProtoTestOrderMode:!QTS_GPROTO_TEST_ORDER_MODE_COMMON\x12\x14\n\ttestdelay\x18\x14 \x01(\r:\x01\x30\x12\x14\n\ttestcount\x18\x15 \x01(\r:\x01\x30\x12\x13\n\x08testtime\x18\x16 \x01(\x04:\x01\x30\x12\x0e\n\x06source\x18\x17 \x01(\r\"?\n\x0fQtsGProtoOrders\x12,\n\x06orders\x18\x01 \x03(\x0b\x32\x1c.QTS.ProtoBuf.QtsGProtoOrder\"6\n\x0fQtsGProtoCancel\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0f\n\x07orderid\x18\x02 \x02(\x04\"A\n\x10QtsGProtoCancels\x12-\n\x06orders\x18\x01 \x03(\x0b\x32\x1d.QTS.ProtoBuf.QtsGProtoCancel\"\x86\x02\n\x0cQtsGProtoLog\x12\x0b\n\x03key\x18\x01 \x02(\t\x12J\n\x04type\x18\x02 \x02(\x0e\x32\x1f.QTS.ProtoBuf.EQtsGProtoLogType:\x1bQTS_GPROTO_LOG_TYPE_MESSAGE\x12G\n\x05level\x18\x03 \x02(\x0e\x32 .QTS.ProtoBuf.EQtsGProtoLogLevel:\x16QTS_GPROTO_LOG_LEVEL_0\x12\x0b\n\x03msg\x18\x04 \x02(\t\x12G\n\x04mode\x18\x05 \x01(\x0e\x32\x1f.QTS.ProtoBuf.EQtsGProtoLogMode:\x18QTS_GPROTO_LOG_MODE_NONE\"\xd0\x06\n\x0fQtsGProtoReturn\x12\x0f\n\x07\x61\x63\x63ount\x18\x01 \x02(\x04\x12\x12\n\nstrategyid\x18\x02 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x03 \x02(\x04\x12\x11\n\talgoindex\x18\x04 \x02(\x04\x12\x0f\n\x07orderid\x18\x05 \x02(\x04\x12\x10\n\x08parentid\x18\x06 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x07 \x02(\x04\x12P\n\x06\x61\x63tion\x18\x08 \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderAction:\x1bQTS_GPROTO_ORDER_ACTION_BUY\x12Q\n\x07paction\x18\t \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderAction:\x1bQTS_GPROTO_ORDER_ACTION_BUY\x12T\n\x06status\x18\n \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderStatus:\x1fQTS_GPROTO_ORDER_STATUS_INVALID\x12X\n\nprevstatus\x18\x0b \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoOrderStatus:\x1fQTS_GPROTO_ORDER_STATUS_INVALID\x12\r\n\x05price\x18\x0c \x02(\x03\x12\x0e\n\x06volume\x18\r \x02(\x03\x12\x10\n\x08property\x18\x0e \x02(\r\x12\x0c\n\x04time\x18\x0f \x02(\x04\x12\x11\n\tdirection\x18\x10 \x02(\r\x12\x0f\n\x07\x63hannel\x18\x11 \x02(\r\x12\x0e\n\x06userid\x18\x12 \x02(\r\x12\r\n\x05refid\x18\x13 \x02(\x04\x12\x11\n\tsessionid\x18\x14 \x02(\r\x12-\n\x04vars\x18\x15 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\x12Z\n\x08testmode\x18\x16 \x01(\x0e\x32%.QTS.ProtoBuf.EQtsGProtoTestOrderMode:!QTS_GPROTO_TEST_ORDER_MODE_COMMON\x12\x14\n\ttestdelay\x18\x17 \x01(\r:\x01\x30\x12\x14\n\ttestcount\x18\x18 \x01(\r:\x01\x30\x12\x13\n\x08testtime\x18\x19 \x01(\x04:\x01\x30\x12\x0e\n\x06source\x18\x1a \x01(\r\"B\n\x10QtsGProtoReturns\x12.\n\x07results\x18\x01 \x03(\x0b\x32\x1d.QTS.ProtoBuf.QtsGProtoReturn\"\xec\x05\n\x11QtsGProtoSecuInfo\x12\x11\n\tinnercode\x18\x01 \x02(\x04\x12\x10\n\x08secucode\x18\x02 \x02(\r\x12\x11\n\tordercode\x18\x03 \x02(\t\x12\x10\n\x08secuname\x18\x04 \x02(\t\x12\x0e\n\x06market\x18\x05 \x02(\r\x12\x10\n\x08\x63\x61tegory\x18\x06 \x02(\r\x12\x12\n\nmarketname\x18\x07 \x02(\t\x12\x14\n\x0c\x63\x61tegoryname\x18\x08 \x02(\t\x12\x0c\n\x04\x62\x61te\x18\t \x02(\x05\x12\x11\n\tmultipler\x18\n \x02(\x05\x12\x0e\n\x06margin\x18\x0b \x02(\x05\x12\x11\n\tlastprice\x18\x0c \x02(\x03\x12\x17\n\x0fsettlementprice\x18\r \x02(\x03\x12\x14\n\x0clolimitprice\x18\x0e \x02(\x03\x12\x14\n\x0cuplimitprice\x18\x0f \x02(\x03\x12\x63\n\x0esuspensiontype\x18\x10 \x02(\x0e\x32&.QTS.ProtoBuf.EQtsGProtoSuspensionType:#QTS_GPROTO_SUSPENSION_TYPE_CONTINUE\x12\x11\n\tpricetick\x18\x11 \x02(\x05\x12\x13\n\x0bminorderqty\x18\x12 \x02(\x03\x12\x13\n\x0bmaxorderqty\x18\x13 \x02(\x03\x12\x18\n\x10istradeforbidden\x18\x14 \x02(\x08\x12P\n\x07tradetn\x18\x15 \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoTradeTnType:\x1aQTS_GPROTO_TRADE_TN_TYPE_0\x12T\n\x07posmode\x18\x16 \x02(\x0e\x32$.QTS.ProtoBuf.EQtsGProtoPositionMode:\x1dQTS_GPROTO_POSITION_MODE_LONG\x12\x13\n\x0buplolimited\x18\x17 \x02(\x08\x12\x10\n\x08tradefee\x18\x18 \x03(\r\x12-\n\x04vars\x18\x19 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"J\n\x13QtsGProtoSecuInfoes\x12\x33\n\nsecuinfoes\x18\x01 \x03(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoSecuInfo\"\xc8\x02\n\x11QtsGProtoGWReturn\x12\x0f\n\x07orderid\x18\x01 \x02(\x04\x12\x0c\n\x04\x63ode\x18\x02 \x02(\x04\x12V\n\x06status\x18\x03 \x02(\x0e\x32%.QTS.ProtoBuf.EQtsGProtoGWOrderStatus:\x1fQTS_GPROTO_GW_ORDER_STATUS_INIT\x12\r\n\x05price\x18\x04 \x02(\x03\x12\x10\n\x08quantity\x18\x05 \x02(\x03\x12\x0c\n\x04time\x18\x06 \x02(\x04\x12\r\n\x05\x65rrid\x18\x07 \x01(\x05\x12\x0e\n\x06\x65rrmsg\x18\x08 \x01(\t\x12-\n\x04type\x18\t \x01(\x0e\x32\x1f.QTS.ProtoBuf.EQtsGProtoLogType\x12/\n\x05level\x18\n \x01(\x0e\x32 .QTS.ProtoBuf.EQtsGProtoLogLevel\x12\x0e\n\x06source\x18\x0b \x01(\r\"\xba\x01\n\x15QtsGProtoRegisterData\x12\x0e\n\x06secuid\x18\x01 \x02(\x04\x12\x0c\n\x04type\x18\x02 \x02(\r\x12\x0c\n\x04\x63ode\x18\x03 \x02(\x04\x12\x12\n\nstrategyid\x18\x04 \x02(\r\x12P\n\x04mode\x18\x05 \x02(\x0e\x32#.QTS.ProtoBuf.EQtsGProtoRegDataMode:\x1dQTS_GOROTO_REG_DATA_MODE_CODE\x12\x0f\n\x07\x63hannel\x18\x06 \x02(\r\"\\\n\x16QtsGProtoAlgoConfigKey\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x02 \x02(\x04\x12\x11\n\talgoindex\x18\x03 \x02(\x04\x12\x0b\n\x03key\x18\x04 \x02(\r\"\x81\x01\n\x18QtsGProtoAlgoConfigValue\x12\x12\n\nstrategyid\x18\x01 \x02(\r\x12\x0e\n\x06\x61lgoid\x18\x02 \x02(\x04\x12\x11\n\talgoindex\x18\x03 \x02(\x04\x12.\n\x05value\x18\x04 \x02(\x0b\x32\x1f.QTS.ProtoBuf.QtsGProtoVariable\"\x82\x01\n\x12QtsGProtoAlgoOrder\x12\x0e\n\x06\x61lgoid\x18\x01 \x02(\x04\x12/\n\x05items\x18\x02 \x03(\x0b\x32 .QTS.ProtoBuf.QtsGProtoVariables\x12\x14\n\talgoindex\x18\x03 \x01(\x04:\x01\x30\x12\x15\n\nstrategyid\x18\x04 \x01(\r:\x01\x30\"\x83\x01\n\x13QtsGProtoAlgoCancel\x12\x0e\n\x06\x61lgoid\x18\x01 \x02(\x04\x12/\n\x05items\x18\x02 \x03(\x0b\x32 .QTS.ProtoBuf.QtsGProtoVariables\x12\x14\n\talgoindex\x18\x03 \x01(\x04:\x01\x30\x12\x15\n\nstrategyid\x18\x04 \x01(\r:\x01\x30\"\\\n\x10QtsGProtoNetHead\x12\x0c\n\x04type\x18\x02 \x02(\r\x12\x0f\n\x07subtype\x18\x03 \x02(\r\x12\x0c\n\x04size\x18\x04 \x01(\r\x12\r\n\x05proto\x18\x05 \x01(\r\x12\x0c\n\x04\x63trl\x18\x06 \x01(\r\"Q\n\x13QtsGProtoNetPackage\x12,\n\x04head\x18\x01 \x02(\x0b\x32\x1e.QTS.ProtoBuf.QtsGProtoNetHead\x12\x0c\n\x04\x62ody\x18\x02 \x01(\x0c*\x9b\x03\n\x10\x45QtsGProtoSource\x12\x1d\n\x19QTS_GPROTO_SOURCE_UNKNOWN\x10\x00\x12 \n\x1cQTS_GPROTO_SOURCE_SS_UNKNOWN\x10\x01\x12 \n\x1cQTS_GPROTO_SOURCE_GW_UNKNOWN\x10\x02\x12 \n\x1cQTS_GPROTO_SOURCE_DS_UNKNOWN\x10\x03\x12!\n\x1dQTS_GPROTO_SOURCE_GUI_UNKNOWN\x10\x04\x12\x1e\n\x1aQTS_GPROTO_SOURCE_SS_INNER\x10\x05\x12\x1d\n\x19QTS_GPROTO_SOURCE_SS_ALGO\x10\x06\x12\x1e\n\x1aQTS_GPROTO_SOURCE_SS_CHECK\x10\x07\x12\x1e\n\x1aQTS_GPROTO_SOURCE_GW_INNER\x10\x08\x12\x1d\n\x19QTS_GPROTO_SOURCE_GW_ALGO\x10\t\x12\x1e\n\x1aQTS_GPROTO_SOURCE_GW_CHECK\x10\n\x12!\n\x1dQTS_GPROTO_SOURCE_GW_EXCHANGE\x10\x0b*\x90\x02\n\x16\x45QtsGProtoProtocolType\x12$\n QTS_GPROTO_PROTOCOL_TYPE_UNKNOWN\x10\x00\x12\"\n\x1eQTS_GPROTO_PROTOCOL_TYPE_OWNER\x10\x01\x12$\n QTS_GPROTO_PROTOCOL_TYPE_PROBUFF\x10\x02\x12 \n\x1cQTS_GPROTO_PROTOCOL_TYPE_FIX\x10\x03\x12 \n\x1cQTS_GPROTO_PROTOCOL_TYPE_CSV\x10\x04\x12 \n\x1cQTS_GPROTO_PROTOCOL_TYPE_XML\x10\x05\x12 \n\x1cQTS_GPROTO_PROTOCOL_TYPE_SQL\x10\x06*\x88\x02\n\x18\x45QtsGProtoRequstDataType\x12\"\n\x1eQTS_REQUEST_DATA_TYPE_STRATEGY\x10\x00\x12!\n\x1dQTS_REQUEST_DATA_TYPE_ACCOUNT\x10\x01\x12\"\n\x1eQTS_REQUEST_DATA_TYPE_POSITION\x10\x02\x12 \n\x1cQTS_REQUEST_DATA_TYPE_RECORD\x10\x03\x12\x1d\n\x19QTS_REQUEST_DATA_TYPE_PNL\x10\x04\x12\x1e\n\x1aQTS_REQUEST_DATA_TYPE_BOOK\x10\x05\x12 \n\x1cQTS_REQUEST_DATA_TYPE_REMOTE\x10\x06*\xc0\x01\n\x12\x45QtsGProtoOrderDir\x12 \n\x1cQTS_GPROTO_ORDER_DIR_UNKNOWN\x10\x00\x12\x1d\n\x19QTS_GPROTO_ORDER_DIR_OPEN\x10\x01\x12\x1e\n\x1aQTS_GPROTO_ORDER_DIR_CLOSE\x10\x02\x12#\n\x1fQTS_GPROTO_ORDER_DIR_CLOSE_LAST\x10\x03\x12$\n QTS_GPROTO_ORDER_DIR_CLOSE_TODAY\x10\x04*\xe9\x0b\n\x13\x45QtsGProtoEventType\x12&\n\"QTS_GPROTO_EVENT_TYPE_STRATEGYINFO\x10\x00\x12#\n\x1fQTS_GPROTO_EVENT_TYPE_PARAMETER\x10\x01\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_CONTROL\x10\x02\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_ACCOUNT\x10\x03\x12\"\n\x1eQTS_GPROTO_EVENT_TYPE_POSITION\x10\x04\x12 \n\x1cQTS_GPROTO_EVENT_TYPE_RECORD\x10\x05\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_WORKING\x10\x06\x12\x1e\n\x1aQTS_GPROTO_EVENT_TYPE_BOOK\x10\x07\x12\x1d\n\x19QTS_GPROTO_EVENT_TYPE_PNL\x10\x08\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_MESSAGE\x10\t\x12 \n\x1cQTS_GPROTO_EVENT_TYPE_REMOTE\x10\n\x12\x1e\n\x1aQTS_GPROTO_EVENT_TYPE_DATA\x10\x0b\x12(\n$QTS_GPROTO_EVENT_TYPE_STRATEGY_START\x10\x0c\x12(\n$QTS_GPROTO_EVENT_TYPE_STRATEGY_PAUSE\x10\r\x12(\n$QTS_GPROTO_EVENT_TYPE_STRATEGY_WATCH\x10\x0e\x12\'\n#QTS_GPROTO_EVENT_TYPE_STRATEGY_STOP\x10\x0f\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_ERROR\x10\x10\x12 \n\x1cQTS_GPROTO_EVENT_TYPE_RETURN\x10\x11\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_EVENT\x10\x12\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_CYCLING\x10\x13\x12 \n\x1cQTS_GPROTO_EVENT_TYPE_CYCLED\x10\x14\x12#\n\x1fQTS_GPROTO_EVENT_TYPE_COMMITING\x10\x15\x12\"\n\x1eQTS_GPROTO_EVENT_TYPE_COMMITED\x10\x16\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_ORDER\x10\x17\x12 \n\x1cQTS_GPROTO_EVENT_TYPE_CANCEL\x10\x18\x12\x1d\n\x19QTS_GPROTO_EVENT_TYPE_REG\x10\x19\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_UNREG\x10\x1a\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_DATAS\x10\x1b\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_RETURNS\x10\x1c\x12\"\n\x1eQTS_GPROTO_EVENT_TYPE_UPDATING\x10\x1d\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_UPDATED\x10\x1e\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_QUERY\x10\x1f\x12\x1f\n\x1bQTS_GPROTO_EVENT_TYPE_LOGIN\x10 \x12!\n\x1dQTS_GPROTO_EVENT_TYPE_UNLOGIN\x10!\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_CONNECT\x10\"\x12$\n QTS_GPROTO_EVENT_TYPE_DISCONNECT\x10#\x12!\n\x1dQTS_GPROTO_EVENT_TYPE_DATAEND\x10$\x12 \n\x1bQTS_GPROTO_EVENT_TYPE_CLEAR\x10\xff\x01\x12\x1f\n\x1aQTS_GPROTO_EVENT_TYPE_INIT\x10\x80\x02\x12\"\n\x1dQTS_GPROTO_EVENT_TYPE_READKEY\x10\x81\x02\x12(\n#QTS_GPROTO_EVENT_TYPE_READANY_BYKEY\x10\x82\x02\x12)\n$QTS_GPROTO_EVENT_TYPE_READANY_BYDICT\x10\x83\x02*\xd8\x01\n\x12\x45QtsGProtoCodeType\x12 \n\x1cQTS_GPROTO_CODE_TYPE_UNKNOWN\x10\x00\x12\x1e\n\x1aQTS_GPROTO_CODE_TYPE_TRADE\x10\x01\x12\x1f\n\x1bQTS_GPROTO_CODE_TYPE_SIGNAL\x10\x02\x12\x1f\n\x1bQTS_GPROTO_CODE_TYPE_BASKET\x10\x03\x12\x1e\n\x1aQTS_GPROTO_CODE_TYPE_INDEX\x10\x04\x12\x1e\n\x1aQTS_GPROTO_CODE_TYPE_OWNER\x10\x05*[\n\x14\x45QtsGProtoRecordMode\x12 \n\x1cQTS_GPROTO_RECORD_MODE_ORDER\x10\x00\x12!\n\x1dQTS_GPROTO_RECORD_MODE_RECORD\x10\x01*Z\n\x15\x45QtsGProtoOrderAction\x12\x1f\n\x1bQTS_GPROTO_ORDER_ACTION_BUY\x10\x00\x12 \n\x1cQTS_GPROTO_ORDER_ACTION_SELL\x10\x01*\x85\x01\n\x16\x45QtsGProtoPositionType\x12!\n\x1dQTS_GPROTO_POSITION_TYPE_LONG\x10\x00\x12\"\n\x1eQTS_GPROTO_POSITION_TYPE_SHORT\x10\x01\x12$\n QTS_GPROTO_POSITION_TYPE_UNKNOWN\x10\x02*\xb1\x01\n\x18\x45QtsGProtoStrategyStatus\x12$\n QTS_GPROTO_STRATEGY_STATUS_START\x10\x00\x12$\n QTS_GPROTO_STRATEGY_STATUS_PAUSE\x10\x01\x12$\n QTS_GPROTO_STRATEGY_STATUS_WATCH\x10\x02\x12#\n\x1fQTS_GPROTO_STRATEGY_STATUS_STOP\x10\x03*\xf0\x01\n\x17\x45QtsGProtoParameterType\x12(\n$QTS_GPROTO_STRATEGY_ARG_TYPE_UNKNOWN\x10\x00\x12+\n\'QTS_GPROTO_STRATEGY_ARG_TYPE_INSTRUMENT\x10\x01\x12*\n&QTS_GPROTO_STRATEGY_ARG_TYPE_PARAMETER\x10\x02\x12(\n$QTS_GPROTO_STRATEGY_ARG_TYPE_COMMENT\x10\x03\x12(\n$QTS_GPROTO_STRATEGY_ARG_TYPE_COMMAND\x10\x04*\xbd\x02\n\x18\x45QtsGProtoInstrumentMode\x12#\n\x1fQTS_GPROTO_INSTRUMENT_MODE_NONE\x10\x00\x12\"\n\x1eQTS_GPROTO_INSTRUMENT_MODE_ALL\x10\x01\x12\"\n\x1eQTS_GPROTO_INSTRUMENT_MODE_PNL\x10\x02\x12#\n\x1fQTS_GPROTO_INSTRUMENT_MODE_BOOK\x10\x03\x12&\n\"QTS_GPROTO_INSTRUMENT_MODE_WORKING\x10\x04\x12!\n\x1dQTS_GPROTO_INSTRUMENT_MODE_BP\x10\x05\x12!\n\x1dQTS_GPROTO_INSTRUMENT_MODE_BW\x10\x06\x12!\n\x1dQTS_GPROTO_INSTRUMENT_MODE_PW\x10\x07*m\n\x1a\x45QtsGProtoInstrumentStatus\x12%\n!QTS_GPROTO_INSTRUMENT_STATUS_HIDE\x10\x00\x12(\n$QTS_GPROTO_INSTRUMENT_STATUS_DISPLAY\x10\x01*\xc8\x03\n\x15\x45QtsGProtoOrderStatus\x12#\n\x1fQTS_GPROTO_ORDER_STATUS_INVALID\x10\x00\x12 \n\x1cQTS_GPROTO_ORDER_STATUS_INIT\x10\x01\x12%\n!QTS_GPROTO_ORDER_STATUS_WAIT_SEND\x10\x02\x12 \n\x1cQTS_GPROTO_ORDER_STATUS_SEND\x10\x03\x12,\n(QTS_GPROTO_ORDER_STATUS_SEND_WAIT_CANCEL\x10\x04\x12,\n(QTS_GPROTO_ORDER_STATUS_PART_WAIT_CANCEL\x10\x05\x12)\n%QTS_GPROTO_ORDER_STATUS_PART_CANCELED\x10\x06\x12$\n QTS_GPROTO_ORDER_STATUS_CANCELED\x10\x07\x12\'\n#QTS_GPROTO_ORDER_STATUS_PART_DEALED\x10\x08\x12\"\n\x1eQTS_GPROTO_ORDER_STATUS_DEALED\x10\t\x12%\n!QTS_GPROTO_ORDER_STATUS_DISCARDED\x10\n*\xc4\x03\n\x17\x45QtsGProtoGWOrderStatus\x12#\n\x1fQTS_GPROTO_GW_ORDER_STATUS_INIT\x10\x00\x12(\n$QTS_GPROTO_GW_ORDER_STATUS_SEND_PICK\x10\x01\x12+\n\'QTS_GPROTO_GW_ORDER_STATUS_SEND_CONFIRM\x10\x02\x12%\n!QTS_GPROTO_GW_ORDER_STATUS_CANCEL\x10\x03\x12+\n\'QTS_GPROTO_GW_ORDER_STATUS_INNER_CANCEL\x10\x04\x12)\n%QTS_GPROTO_GW_ORDER_STATUS_ALL_DEALED\x10\x05\x12*\n&QTS_GPROTO_GW_ORDER_STATUS_PART_DEALED\x10\x06\x12,\n(QTS_GPROTO_GW_ORDER_STATUS_CANCEL_DEALED\x10\x07\x12+\n\'QTS_GPROTO_GW_ORDER_STATUS_MATCH_EENLED\x10\x08\x12\'\n\"QTS_GPROTO_GW_ORDER_STATUS_INVALID\x10\xff\x01*\x93\x01\n\x11\x45QtsGProtoLogType\x12\x1f\n\x1bQTS_GPROTO_LOG_TYPE_MESSAGE\x10\x00\x12\x1d\n\x19QTS_GPROTO_LOG_TYPE_DEBUG\x10\x01\x12\x1f\n\x1bQTS_GPROTO_LOG_TYPE_WARNING\x10\x02\x12\x1d\n\x19QTS_GPROTO_LOG_TYPE_ERROR\x10\x03*\xd8\x01\n\x12\x45QtsGProtoLogLevel\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_0\x10\x00\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_1\x10\x01\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_2\x10\x02\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_3\x10\x03\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_4\x10\x04\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_5\x10\x05\x12\x1a\n\x16QTS_GPROTO_LOG_LEVEL_6\x10\x06*\xb6\x01\n\x18\x45QtsGProtoSuspensionType\x12#\n\x1fQTS_GPROTO_SUSPENSION_TYPE_LAST\x10\x00\x12$\n QTS_GPROTO_SUSPENSION_TYPE_TODAY\x10\x01\x12\'\n#QTS_GPROTO_SUSPENSION_TYPE_CONTINUE\x10\x02\x12&\n\"QTS_GPROTO_SUSPENSION_TYPE_UNKNOWN\x10\x03*\x9d\x01\n\x15\x45QtsGProtoTradeTnType\x12\x1e\n\x1aQTS_GPROTO_TRADE_TN_TYPE_0\x10\x00\x12\x1e\n\x1aQTS_GPROTO_TRADE_TN_TYPE_1\x10\x01\x12\x1e\n\x1aQTS_GPROTO_TRADE_TN_TYPE_2\x10\x02\x12$\n QTS_GPROTO_TRADE_TN_TYPE_UNKNOWN\x10\x03*\xa8\x01\n\x16\x45QtsGProtoPositionMode\x12!\n\x1dQTS_GPROTO_POSITION_MODE_LONG\x10\x00\x12\"\n\x1eQTS_GPROTO_POSITION_MODE_SHORT\x10\x01\x12!\n\x1dQTS_GPROTO_POSITION_MODE_BOTH\x10\x02\x12$\n QTS_GPROTO_POSITION_MODE_UNKNOWN\x10\x03*\x94\x04\n\x16\x45QtsGProtoVariableType\x12$\n QTS_GPROTO_VARIABLE_TYPE_UNKNOWN\x10\x00\x12!\n\x1dQTS_GPROTO_VARIABLE_TYPE_INT8\x10\x01\x12\"\n\x1eQTS_GPROTO_VARIABLE_TYPE_UINT8\x10\x02\x12\"\n\x1eQTS_GPROTO_VARIABLE_TYPE_INT16\x10\x03\x12#\n\x1fQTS_GPROTO_VARIABLE_TYPE_UINT16\x10\x04\x12\"\n\x1eQTS_GPROTO_VARIABLE_TYPE_INT32\x10\x05\x12#\n\x1fQTS_GPROTO_VARIABLE_TYPE_UINT32\x10\x06\x12\"\n\x1eQTS_GPROTO_VARIABLE_TYPE_INT64\x10\x07\x12#\n\x1fQTS_GPROTO_VARIABLE_TYPE_UINT64\x10\x08\x12#\n\x1fQTS_GPROTO_VARIABLE_TYPE_DOUBLE\x10\t\x12\"\n\x1eQTS_GPROTO_VARIABLE_TYPE_FLOAT\x10\n\x12!\n\x1dQTS_GPROTO_VARIABLE_TYPE_BOOL\x10\x0b\x12#\n\x1fQTS_GPROTO_VARIABLE_TYPE_STRING\x10\x0c\x12!\n\x1dQTS_GPROTO_VARIABLE_TYPE_LIST\x10\r*l\n\x19\x45QtsGProtoParameterStatus\x12\'\n#QTS_GPROTO_PARAMETER_STATUS_DISABLE\x10\x00\x12&\n\"QTS_GPROTO_PARAMETER_STATUS_ENABLE\x10\x01*\xda\x01\n\x17\x45QtsGProtoComponentMode\x12%\n!QTS_GPROTO_COMPONENT_MODE_TEXTBOX\x10\x00\x12$\n QTS_GPROTO_COMPONENT_MODE_COMBOX\x10\x01\x12$\n QTS_GPROTO_COMPONENT_MODE_BUTTON\x10\x02\x12\'\n#QTS_GPROTO_COMPONENT_MODE_ACKBUTTON\x10\x03\x12#\n\x1fQTS_GPROTO_COMPONENT_MODE_LABEL\x10\x04*\x84\x02\n\x17\x45QtsGProtoTestOrderMode\x12%\n!QTS_GPROTO_TEST_ORDER_MODE_COMMON\x10\x00\x12$\n QTS_GPROTO_TEST_ORDER_MODE_NOACK\x10\x01\x12\"\n\x1eQTS_GPROTO_TEST_ORDER_MODE_ACK\x10\x02\x12*\n&QTS_GPROTO_TEST_ORDER_MODE_PART_DEALED\x10\x03\x12%\n!QTS_GPROTO_TEST_ORDER_MODE_DEALED\x10\x04\x12%\n!QTS_GPROTO_TEST_ORDER_MODE_DENLED\x10\x05*\x84\x02\n\x17\x45QtsGProtoTradeCodeType\x12&\n\"QTS_GPROTO_TRADE_CODE_TYPE_UNKNOWN\x10\x00\x12\'\n#QTS_GPROTO_TRADE_CODE_TYPE_INNERCOD\x10\x01\x12%\n!QTS_GPROTO_TRADE_CODE_TYPE_SIGNAL\x10\x02\x12%\n!QTS_GPROTO_TRADE_CODE_TYPE_BASKET\x10\x03\x12$\n QTS_GPROTO_TRADE_CODE_TYPE_INDEX\x10\x04\x12$\n QTS_GPROTO_TRADE_CODE_TYPE_OWNER\x10\x05*\x8a\x01\n\x16\x45QtsGProtoPluginInMode\x12%\n!QTS_GPROTO_PLUGIN_IN_MODE_UNKNOWN\x10\x00\x12#\n\x1fQTS_GPROTO_PLUGIN_IN_MODE_LOCAL\x10\x01\x12$\n QTS_GPROTO_PLUGIN_IN_MODE_REMOTE\x10\x02*\x8d\x01\n\x16\x45QtsGProtoRemoteStatus\x12$\n QTS_GPROTO_REMOTE_STATUS_UNKNOWN\x10\x00\x12$\n QTS_GPROTO_REMOTE_STATUS_CONNECT\x10\x01\x12\'\n#QTS_GPROTO_REMOTE_STATUS_DISCONNECT\x10\x02*^\n\x16\x45QtsGProtoAccountLevel\x12\"\n\x1eQTS_GPROTO_ACCOUNT_LEVEL_TOTAL\x10\x00\x12 \n\x1cQTS_GPROTO_ACCOUNT_LEVEL_SUB\x10\x01*a\n\x17\x45QtsGProtoPositionLevel\x12#\n\x1fQTS_GPROTO_POSITION_LEVEL_TOTAL\x10\x00\x12!\n\x1dQTS_GPROTO_POSITION_LEVEL_SUB\x10\x01*\xe0\x01\n\x14\x45QtsGProtoRemoteType\x12\"\n\x1eQTS_GPROTO_REMOTE_TYPE_UNKNOWN\x10\x00\x12(\n$QTS_GPROTO_REMOTE_TYPE_REMOTE_CLIENT\x10\x01\x12(\n$QTS_GPROTO_REMOTE_TYPE_REMOTE_SERVER\x10\x02\x12\'\n#QTS_GPROTO_REMOTE_TYPE_LOCAL_CLIENT\x10\x03\x12\'\n#QTS_GPROTO_REMOTE_TYPE_LOCAL_SERVER\x10\x04*\xf0\x02\n\x11\x45QtsGProtoBZError\x12,\n(QTS_GPROTO_ERROR_BZ_ORDER_INVALID_STATUS\x10\x01\x12-\n)QTS_GPROTO_ERROR_BZ_ORDER_NOEXIST_GATEWAY\x10\x02\x12+\n\'QTS_GPROTO_ERROR_BZ_ORDER_INVALID_PRICE\x10\x03\x12.\n*QTS_GPROTO_ERROR_BZ_ORDER_INVALID_QUANTITY\x10\x04\x12,\n(QTS_GPROTO_ERROR_BZ_ORDER_INVALID_ACTION\x10\x05\x12\x39\n5QTS_GPROTO_ERROR_BZ_ORDER_NOEXIST_ACCOUNT_IN_STRATEGY\x10\x06\x12\x38\n4QTS_GPROTO_ERROR_BZ_ORDER_INVALID_ACCOUNT_IN_ACCOUNT\x10\x07*\xc5\x07\n\x13\x45QtsGProtoRiskError\x12#\n\x1fQTS_GPROTO_ERROR_RISK_MAX_ORDER\x10\x01\x12&\n\"QTS_GPROTO_ERROR_RISK_MAX_POSITION\x10\x02\x12%\n!QTS_GPROTO_ERROR_RISK_MAX_BUY_QTY\x10\x03\x12\'\n#QTS_GPROTO_ERROR_RISK_MAX_BUY_COUNT\x10\x04\x12&\n\"QTS_GPROTO_ERROR_RISK_MAX_SELL_QTY\x10\x05\x12(\n$QTS_GPROTO_ERROR_RISK_MAX_SELL_COUNT\x10\x06\x12*\n&QTS_GPROTO_ERROR_RISK_MAX_CANCEL_COUNT\x10\x07\x12%\n!QTS_GPROTO_ERROR_RISK_MAX_UNACKED\x10\x08\x12)\n%QTS_GPROTO_ERROR_RISK_MAX_WORKING_QTY\x10\t\x12+\n\'QTS_GPROTO_ERROR_RISK_MAX_WORKING_COUNT\x10\n\x12)\n%QTS_GPROTO_ERROR_RISK_MAX_UNHEDGE_QTY\x10\x0b\x12)\n%QTS_GPROTO_ERROR_RISK_MAX_LOSS_AMOUNT\x10\x0c\x12-\n)QTS_GPROTO_ERROR_RISK_MAX_DRAWDOWN_AMOUNT\x10\r\x12*\n&QTS_GPROTO_ERROR_RISK_MAX_THROTTLE_ONE\x10\x0e\x12+\n\'QTS_GPROTO_ERROR_RISK_MAX_THROTTLE_FIVE\x10\x0f\x12-\n)QTS_GPROTO_ERROR_RISK_MAX_THROTTLE_TWENTY\x10\x10\x12.\n*QTS_GPROTO_ERROR_RISK_MAX_CONSECUTIVE_LOSS\x10\x11\x12)\n%QTS_GPROTO_ERROR_RISK_ENOUGH_POSITION\x10\x12\x12(\n$QTS_GPROTO_ERROR_RISK_ENOUGH_ACCOUNT\x10\x13\x12*\n&QTS_GPROTO_ERROR_RISK_OVER_UPPER_PRICE\x10\x14\x12*\n&QTS_GPROTO_ERROR_RISK_OVER_LOWER_PRICE\x10\x15\x12*\n&QTS_GPROTO_ERROR_RISK_INVALID_QUANTITY\x10\x16*\xb9\x01\n\x19\x45QtsGProtoOrderCommitType\x12%\n!QTS_GPROTO_ORDER_COMMIT_TYPE_NONE\x10\x00\x12&\n\"QTS_GPROTO_ORDER_COMMIT_TYPE_PAUSE\x10\x01\x12&\n\"QTS_GPROTO_ORDER_COMMIT_TYPE_WATCH\x10\x02\x12%\n!QTS_GPROTO_ORDER_COMMIT_TYPE_STOP\x10\x03*\x9f\x01\n\x1a\x45QtsGProtoOrderControlType\x12&\n\"QTS_GPROTO_ORDER_CONTROL_TYPE_NONE\x10\x00\x12-\n)QTS_GPROTO_ORDER_CONTROL_TYPE_NO_GW_ERROR\x10\x01\x12*\n&QTS_GPROTO_ORDER_CONTROL_TYPE_NO_CHECK\x10\x02*\x8a\x01\n\x11\x45QtsGProtoVarMode\x12\x1c\n\x18QTS_GPROTO_VAR_MODE_NONE\x10\x00\x12\x1c\n\x18QTS_GPROTO_VAR_MODE_SAVE\x10\x01\x12\x1b\n\x17QTS_GPROTO_VAR_MODE_NET\x10\x02\x12\x1c\n\x18QTS_GPROTO_VAR_MODE_BOTH\x10\x03*\x8d\x01\n\x11\x45QtsGProtoLogMode\x12\x1c\n\x18QTS_GPROTO_LOG_MODE_NONE\x10\x00\x12\x1f\n\x1bQTS_GPROTO_LOG_MODE_CONSOLE\x10\x01\x12\x1b\n\x17QTS_GPROTO_LOG_MODE_NET\x10\x02\x12\x1c\n\x18QTS_GPROTO_LOG_MODE_BOTH\x10\x03*\xa8\x01\n\x15\x45QtsGProtoRegDataMode\x12!\n\x1dQTS_GOROTO_REG_DATA_MODE_CODE\x10\x00\x12%\n!QTS_GOROTO_REG_DATA_MODE_CATEGORY\x10\x01\x12#\n\x1fQTS_GOROTO_REG_DATA_MODE_MARKET\x10\x02\x12 \n\x1cQTS_GOROTO_REG_DATA_MODE_ALL\x10\x03*o\n\x11\x45QtsGProtoPnlType\x12\x1c\n\x18QTS_GPROTO_PNL_TYPE_CODE\x10\x00\x12\x1f\n\x1bQTS_GPROTO_PNL_TYPE_ACCOUNT\x10\x01\x12\x1b\n\x17QTS_GPROTO_PNL_TYPE_ALL\x10\x02')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -80,8 +80,8 @@ _EQTSGPROTOSOURCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=11037,
-  serialized_end=11448,
+  serialized_start=11215,
+  serialized_end=11626,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOSOURCE)
 
@@ -123,8 +123,8 @@ _EQTSGPROTOPROTOCOLTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=11451,
-  serialized_end=11723,
+  serialized_start=11629,
+  serialized_end=11901,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOPROTOCOLTYPE)
 
@@ -166,8 +166,8 @@ _EQTSGPROTOREQUSTDATATYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=11726,
-  serialized_end=11990,
+  serialized_start=11904,
+  serialized_end=12168,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOREQUSTDATATYPE)
 
@@ -201,8 +201,8 @@ _EQTSGPROTOORDERDIR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=11993,
-  serialized_end=12185,
+  serialized_start=12171,
+  serialized_end=12363,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOORDERDIR)
 
@@ -358,30 +358,34 @@ _EQTSGPROTOEVENTTYPE = _descriptor.EnumDescriptor(
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='QTS_GPROTO_EVENT_TYPE_CLEAR', index=36, number=255,
+      name='QTS_GPROTO_EVENT_TYPE_DATAEND', index=36, number=36,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='QTS_GPROTO_EVENT_TYPE_INIT', index=37, number=256,
+      name='QTS_GPROTO_EVENT_TYPE_CLEAR', index=37, number=255,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='QTS_GPROTO_EVENT_TYPE_READKEY', index=38, number=257,
+      name='QTS_GPROTO_EVENT_TYPE_INIT', index=38, number=256,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='QTS_GPROTO_EVENT_TYPE_READANY_BYKEY', index=39, number=258,
+      name='QTS_GPROTO_EVENT_TYPE_READKEY', index=39, number=257,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='QTS_GPROTO_EVENT_TYPE_READANY_BYDICT', index=40, number=259,
+      name='QTS_GPROTO_EVENT_TYPE_READANY_BYKEY', index=40, number=258,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='QTS_GPROTO_EVENT_TYPE_READANY_BYDICT', index=41, number=259,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=12188,
-  serialized_end=13666,
+  serialized_start=12366,
+  serialized_end=13879,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOEVENTTYPE)
 
@@ -419,8 +423,8 @@ _EQTSGPROTOCODETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=13669,
-  serialized_end=13885,
+  serialized_start=13882,
+  serialized_end=14098,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOCODETYPE)
 
@@ -442,8 +446,8 @@ _EQTSGPROTORECORDMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=13887,
-  serialized_end=13978,
+  serialized_start=14100,
+  serialized_end=14191,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTORECORDMODE)
 
@@ -465,8 +469,8 @@ _EQTSGPROTOORDERACTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=13980,
-  serialized_end=14070,
+  serialized_start=14193,
+  serialized_end=14283,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOORDERACTION)
 
@@ -492,8 +496,8 @@ _EQTSGPROTOPOSITIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=14073,
-  serialized_end=14206,
+  serialized_start=14286,
+  serialized_end=14419,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOPOSITIONTYPE)
 
@@ -523,8 +527,8 @@ _EQTSGPROTOSTRATEGYSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=14209,
-  serialized_end=14386,
+  serialized_start=14422,
+  serialized_end=14599,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOSTRATEGYSTATUS)
 
@@ -558,8 +562,8 @@ _EQTSGPROTOPARAMETERTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=14389,
-  serialized_end=14629,
+  serialized_start=14602,
+  serialized_end=14842,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOPARAMETERTYPE)
 
@@ -605,8 +609,8 @@ _EQTSGPROTOINSTRUMENTMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=14632,
-  serialized_end=14949,
+  serialized_start=14845,
+  serialized_end=15162,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOINSTRUMENTMODE)
 
@@ -628,8 +632,8 @@ _EQTSGPROTOINSTRUMENTSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=14951,
-  serialized_end=15060,
+  serialized_start=15164,
+  serialized_end=15273,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOINSTRUMENTSTATUS)
 
@@ -687,8 +691,8 @@ _EQTSGPROTOORDERSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=15063,
-  serialized_end=15519,
+  serialized_start=15276,
+  serialized_end=15732,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOORDERSTATUS)
 
@@ -742,8 +746,8 @@ _EQTSGPROTOGWORDERSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=15522,
-  serialized_end=15974,
+  serialized_start=15735,
+  serialized_end=16187,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOGWORDERSTATUS)
 
@@ -773,8 +777,8 @@ _EQTSGPROTOLOGTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=15977,
-  serialized_end=16124,
+  serialized_start=16190,
+  serialized_end=16337,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOLOGTYPE)
 
@@ -816,8 +820,8 @@ _EQTSGPROTOLOGLEVEL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=16127,
-  serialized_end=16343,
+  serialized_start=16340,
+  serialized_end=16556,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOLOGLEVEL)
 
@@ -847,8 +851,8 @@ _EQTSGPROTOSUSPENSIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=16346,
-  serialized_end=16528,
+  serialized_start=16559,
+  serialized_end=16741,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOSUSPENSIONTYPE)
 
@@ -878,8 +882,8 @@ _EQTSGPROTOTRADETNTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=16531,
-  serialized_end=16688,
+  serialized_start=16744,
+  serialized_end=16901,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOTRADETNTYPE)
 
@@ -909,8 +913,8 @@ _EQTSGPROTOPOSITIONMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=16691,
-  serialized_end=16859,
+  serialized_start=16904,
+  serialized_end=17072,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOPOSITIONMODE)
 
@@ -980,8 +984,8 @@ _EQTSGPROTOVARIABLETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=16862,
-  serialized_end=17394,
+  serialized_start=17075,
+  serialized_end=17607,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOVARIABLETYPE)
 
@@ -1003,8 +1007,8 @@ _EQTSGPROTOPARAMETERSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=17396,
-  serialized_end=17504,
+  serialized_start=17609,
+  serialized_end=17717,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOPARAMETERSTATUS)
 
@@ -1038,8 +1042,8 @@ _EQTSGPROTOCOMPONENTMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=17507,
-  serialized_end=17725,
+  serialized_start=17720,
+  serialized_end=17938,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOCOMPONENTMODE)
 
@@ -1077,8 +1081,8 @@ _EQTSGPROTOTESTORDERMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=17728,
-  serialized_end=17988,
+  serialized_start=17941,
+  serialized_end=18201,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOTESTORDERMODE)
 
@@ -1116,8 +1120,8 @@ _EQTSGPROTOTRADECODETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=17991,
-  serialized_end=18251,
+  serialized_start=18204,
+  serialized_end=18464,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOTRADECODETYPE)
 
@@ -1143,8 +1147,8 @@ _EQTSGPROTOPLUGININMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=18254,
-  serialized_end=18392,
+  serialized_start=18467,
+  serialized_end=18605,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOPLUGININMODE)
 
@@ -1170,8 +1174,8 @@ _EQTSGPROTOREMOTESTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=18395,
-  serialized_end=18536,
+  serialized_start=18608,
+  serialized_end=18749,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOREMOTESTATUS)
 
@@ -1193,8 +1197,8 @@ _EQTSGPROTOACCOUNTLEVEL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=18538,
-  serialized_end=18632,
+  serialized_start=18751,
+  serialized_end=18845,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOACCOUNTLEVEL)
 
@@ -1216,8 +1220,8 @@ _EQTSGPROTOPOSITIONLEVEL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=18634,
-  serialized_end=18731,
+  serialized_start=18847,
+  serialized_end=18944,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOPOSITIONLEVEL)
 
@@ -1251,8 +1255,8 @@ _EQTSGPROTOREMOTETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=18734,
-  serialized_end=18958,
+  serialized_start=18947,
+  serialized_end=19171,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOREMOTETYPE)
 
@@ -1294,8 +1298,8 @@ _EQTSGPROTOBZERROR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=18961,
-  serialized_end=19329,
+  serialized_start=19174,
+  serialized_end=19542,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOBZERROR)
 
@@ -1397,8 +1401,8 @@ _EQTSGPROTORISKERROR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=19332,
-  serialized_end=20297,
+  serialized_start=19545,
+  serialized_end=20510,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTORISKERROR)
 
@@ -1428,8 +1432,8 @@ _EQTSGPROTOORDERCOMMITTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=20300,
-  serialized_end=20485,
+  serialized_start=20513,
+  serialized_end=20698,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOORDERCOMMITTYPE)
 
@@ -1455,8 +1459,8 @@ _EQTSGPROTOORDERCONTROLTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=20488,
-  serialized_end=20647,
+  serialized_start=20701,
+  serialized_end=20860,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOORDERCONTROLTYPE)
 
@@ -1486,8 +1490,8 @@ _EQTSGPROTOVARMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=20650,
-  serialized_end=20788,
+  serialized_start=20863,
+  serialized_end=21001,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOVARMODE)
 
@@ -1517,8 +1521,8 @@ _EQTSGPROTOLOGMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=20791,
-  serialized_end=20932,
+  serialized_start=21004,
+  serialized_end=21145,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOLOGMODE)
 
@@ -1548,8 +1552,8 @@ _EQTSGPROTOREGDATAMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=20935,
-  serialized_end=21103,
+  serialized_start=21148,
+  serialized_end=21316,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOREGDATAMODE)
 
@@ -1575,8 +1579,8 @@ _EQTSGPROTOPNLTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=21105,
-  serialized_end=21216,
+  serialized_start=21318,
+  serialized_end=21429,
 )
 _sym_db.RegisterEnumDescriptor(_EQTSGPROTOPNLTYPE)
 
@@ -1648,6 +1652,7 @@ QTS_GPROTO_EVENT_TYPE_LOGIN = 32
 QTS_GPROTO_EVENT_TYPE_UNLOGIN = 33
 QTS_GPROTO_EVENT_TYPE_CONNECT = 34
 QTS_GPROTO_EVENT_TYPE_DISCONNECT = 35
+QTS_GPROTO_EVENT_TYPE_DATAEND = 36
 QTS_GPROTO_EVENT_TYPE_CLEAR = 255
 QTS_GPROTO_EVENT_TYPE_INIT = 256
 QTS_GPROTO_EVENT_TYPE_READKEY = 257
@@ -4130,15 +4135,29 @@ _QTSGPROTODATA = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='vars', full_name='QTS.ProtoBuf.QtsGProtoData.vars', index=26,
-      number=27, type=11, cpp_type=10, label=3,
+      name='highestprice', full_name='QTS.ProtoBuf.QtsGProtoData.highestprice', index=26,
+      number=27, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='lowestprice', full_name='QTS.ProtoBuf.QtsGProtoData.lowestprice', index=27,
+      number=28, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='vars', full_name='QTS.ProtoBuf.QtsGProtoData.vars', index=28,
+      number=29, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='source', full_name='QTS.ProtoBuf.QtsGProtoData.source', index=27,
-      number=28, type=13, cpp_type=3, label=1,
+      name='source', full_name='QTS.ProtoBuf.QtsGProtoData.source', index=29,
+      number=30, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -4155,7 +4174,7 @@ _QTSGPROTODATA = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=6370,
-  serialized_end=7009,
+  serialized_end=7052,
 )
 
 
@@ -4184,8 +4203,8 @@ _QTSGPROTODATAS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7011,
-  serialized_end=7071,
+  serialized_start=7054,
+  serialized_end=7114,
 )
 
 
@@ -4221,8 +4240,8 @@ _QTSGPROTOPROPERTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7073,
-  serialized_end=7121,
+  serialized_start=7116,
+  serialized_end=7164,
 )
 
 
@@ -4405,8 +4424,8 @@ _QTSGPROTOORDER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7124,
-  serialized_end=7780,
+  serialized_start=7167,
+  serialized_end=7823,
 )
 
 
@@ -4435,8 +4454,8 @@ _QTSGPROTOORDERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7782,
-  serialized_end=7845,
+  serialized_start=7825,
+  serialized_end=7888,
 )
 
 
@@ -4448,8 +4467,15 @@ _QTSGPROTOCANCEL = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='orderid', full_name='QTS.ProtoBuf.QtsGProtoCancel.orderid', index=0,
-      number=1, type=4, cpp_type=4, label=2,
+      name='strategyid', full_name='QTS.ProtoBuf.QtsGProtoCancel.strategyid', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='orderid', full_name='QTS.ProtoBuf.QtsGProtoCancel.orderid', index=1,
+      number=2, type=4, cpp_type=4, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -4465,8 +4491,38 @@ _QTSGPROTOCANCEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7847,
-  serialized_end=7881,
+  serialized_start=7890,
+  serialized_end=7944,
+)
+
+
+_QTSGPROTOCANCELS = _descriptor.Descriptor(
+  name='QtsGProtoCancels',
+  full_name='QTS.ProtoBuf.QtsGProtoCancels',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='orders', full_name='QTS.ProtoBuf.QtsGProtoCancels.orders', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7946,
+  serialized_end=8011,
 )
 
 
@@ -4523,8 +4579,8 @@ _QTSGPROTOLOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7884,
-  serialized_end=8146,
+  serialized_start=8014,
+  serialized_end=8276,
 )
 
 
@@ -4728,8 +4784,8 @@ _QTSGPROTORETURN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8149,
-  serialized_end=8997,
+  serialized_start=8279,
+  serialized_end=9127,
 )
 
 
@@ -4758,8 +4814,8 @@ _QTSGPROTORETURNS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8999,
-  serialized_end=9065,
+  serialized_start=9129,
+  serialized_end=9195,
 )
 
 
@@ -4956,8 +5012,8 @@ _QTSGPROTOSECUINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9068,
-  serialized_end=9816,
+  serialized_start=9198,
+  serialized_end=9946,
 )
 
 
@@ -4986,8 +5042,8 @@ _QTSGPROTOSECUINFOES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9818,
-  serialized_end=9892,
+  serialized_start=9948,
+  serialized_end=10022,
 )
 
 
@@ -5086,8 +5142,8 @@ _QTSGPROTOGWRETURN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9895,
-  serialized_end=10223,
+  serialized_start=10025,
+  serialized_end=10353,
 )
 
 
@@ -5151,8 +5207,8 @@ _QTSGPROTOREGISTERDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10226,
-  serialized_end=10412,
+  serialized_start=10356,
+  serialized_end=10542,
 )
 
 
@@ -5202,8 +5258,8 @@ _QTSGPROTOALGOCONFIGKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10414,
-  serialized_end=10506,
+  serialized_start=10544,
+  serialized_end=10636,
 )
 
 
@@ -5253,8 +5309,8 @@ _QTSGPROTOALGOCONFIGVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10509,
-  serialized_end=10638,
+  serialized_start=10639,
+  serialized_end=10768,
 )
 
 
@@ -5286,6 +5342,13 @@ _QTSGPROTOALGOORDER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='strategyid', full_name='QTS.ProtoBuf.QtsGProtoAlgoOrder.strategyid', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -5297,8 +5360,8 @@ _QTSGPROTOALGOORDER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10640,
-  serialized_end=10747,
+  serialized_start=10771,
+  serialized_end=10901,
 )
 
 
@@ -5330,6 +5393,13 @@ _QTSGPROTOALGOCANCEL = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='strategyid', full_name='QTS.ProtoBuf.QtsGProtoAlgoCancel.strategyid', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=True, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -5341,8 +5411,8 @@ _QTSGPROTOALGOCANCEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10749,
-  serialized_end=10857,
+  serialized_start=10904,
+  serialized_end=11035,
 )
 
 
@@ -5399,8 +5469,8 @@ _QTSGPROTONETHEAD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10859,
-  serialized_end=10951,
+  serialized_start=11037,
+  serialized_end=11129,
 )
 
 
@@ -5436,8 +5506,8 @@ _QTSGPROTONETPACKAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10953,
-  serialized_end=11034,
+  serialized_start=11131,
+  serialized_end=11212,
 )
 
 _QTSGPROTOVARIABLE.fields_by_name['type'].enum_type = _EQTSGPROTOVARIABLETYPE
@@ -5490,6 +5560,7 @@ _QTSGPROTOORDER.fields_by_name['control'].message_type = _QTSGPROTOPROPERTY
 _QTSGPROTOORDER.fields_by_name['vars'].message_type = _QTSGPROTOVARIABLE
 _QTSGPROTOORDER.fields_by_name['testmode'].enum_type = _EQTSGPROTOTESTORDERMODE
 _QTSGPROTOORDERS.fields_by_name['orders'].message_type = _QTSGPROTOORDER
+_QTSGPROTOCANCELS.fields_by_name['orders'].message_type = _QTSGPROTOCANCEL
 _QTSGPROTOLOG.fields_by_name['type'].enum_type = _EQTSGPROTOLOGTYPE
 _QTSGPROTOLOG.fields_by_name['level'].enum_type = _EQTSGPROTOLOGLEVEL
 _QTSGPROTOLOG.fields_by_name['mode'].enum_type = _EQTSGPROTOLOGMODE
@@ -5548,6 +5619,7 @@ DESCRIPTOR.message_types_by_name['QtsGProtoProperty'] = _QTSGPROTOPROPERTY
 DESCRIPTOR.message_types_by_name['QtsGProtoOrder'] = _QTSGPROTOORDER
 DESCRIPTOR.message_types_by_name['QtsGProtoOrders'] = _QTSGPROTOORDERS
 DESCRIPTOR.message_types_by_name['QtsGProtoCancel'] = _QTSGPROTOCANCEL
+DESCRIPTOR.message_types_by_name['QtsGProtoCancels'] = _QTSGPROTOCANCELS
 DESCRIPTOR.message_types_by_name['QtsGProtoLog'] = _QTSGPROTOLOG
 DESCRIPTOR.message_types_by_name['QtsGProtoReturn'] = _QTSGPROTORETURN
 DESCRIPTOR.message_types_by_name['QtsGProtoReturns'] = _QTSGPROTORETURNS
@@ -5844,6 +5916,13 @@ QtsGProtoCancel = _reflection.GeneratedProtocolMessageType('QtsGProtoCancel', (_
   # @@protoc_insertion_point(class_scope:QTS.ProtoBuf.QtsGProtoCancel)
   ))
 _sym_db.RegisterMessage(QtsGProtoCancel)
+
+QtsGProtoCancels = _reflection.GeneratedProtocolMessageType('QtsGProtoCancels', (_message.Message,), dict(
+  DESCRIPTOR = _QTSGPROTOCANCELS,
+  __module__ = 'qtsgproto_pb2'
+  # @@protoc_insertion_point(class_scope:QTS.ProtoBuf.QtsGProtoCancels)
+  ))
+_sym_db.RegisterMessage(QtsGProtoCancels)
 
 QtsGProtoLog = _reflection.GeneratedProtocolMessageType('QtsGProtoLog', (_message.Message,), dict(
   DESCRIPTOR = _QTSGPROTOLOG,

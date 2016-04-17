@@ -32,6 +32,7 @@ QTS_ADAPTER_EVENT_CALLBACK = CFUNCTYPE(c_uint,c_uint,c_uint,c_ushort,c_void_p,c_
 QTS_ADAPTER_CONFIG_CALLBACK = CFUNCTYPE(c_uint,c_uint,c_void_p,POINTER(c_uint))
 
 def RegisterEvent(eventid,fun) :
+	result = c_bool(0)
 	try:
 		QtsAdapter.Adapter_RegisterEvent.restype = c_bool
 		QtsAdapter.Adapter_RegisterEvent.argtype = [c_uint,QTS_ADAPTER_EVENT_CALLBACK]
@@ -41,6 +42,7 @@ def RegisterEvent(eventid,fun) :
 	return result
 	
 def UnRegisterEvent(eventid) :
+	result = c_bool(0)
 	try:
 		QtsAdapter.Adapter_UnRegisterEvent.restype = c_bool
 		QtsAdapter.Adapter_UnRegisterEvent.argtype = [c_uint]
@@ -50,6 +52,7 @@ def UnRegisterEvent(eventid) :
 	return result
 
 def RegisterConfig(eventid,fun) :
+	result = c_bool(0)
 	try:
 		QtsAdapter.Adapter_RegisterConfig.restype = c_bool
 		QtsAdapter.Adapter_RegisterConfig.argtype = [c_uint,QTS_ADAPTER_CONFIG_CALLBACK]
@@ -59,6 +62,7 @@ def RegisterConfig(eventid,fun) :
 	return result
 	
 def UnRegisterConfig(eventid) :
+	result = c_bool(0)
 	try:
 		QtsAdapter.Adapter_UnRegisterConfig.restype = c_bool
 		QtsAdapter.Adapter_UnRegisterConfig.argtype = [c_uint]

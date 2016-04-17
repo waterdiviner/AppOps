@@ -1,6 +1,8 @@
 #coding=utf-8
 import sys
+import os
 sys.path.append('../common')
+#sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/common'))
 from qtswebdb import *
 
 ####################################################################################################################################################

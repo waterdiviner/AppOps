@@ -1,6 +1,7 @@
 #coding=utf-8
 import sys
-sys.path.append('../common')
+import os
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/common'))
 from qtswebdb import *
 
 record_head_fields =[qts_orderid_field,qts_account_field,qts_market_field,qts_category_field,qts_secucode_field,

@@ -8,6 +8,8 @@ from flask import Flask, current_app
 #py库的路径
 sys.path.append('../../pylib/utility')
 sys.path.append('../common')
+#sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','../..'),'pylib/utility'))
+#sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/common'))
 
 from qtsvar import *
 from qtsfun import *

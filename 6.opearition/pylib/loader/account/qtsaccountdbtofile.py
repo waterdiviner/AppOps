@@ -1,9 +1,10 @@
 #coding=utf-8
 import csv
 import sys
+import os
 
-sys.path.append('../database')
-sys.path.append('../clearing/account')
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/database'))
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/clearing/account'))
 
 from qtsmysql import *
 

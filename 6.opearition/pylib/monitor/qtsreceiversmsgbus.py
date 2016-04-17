@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../utility')
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/utility'))
 from qtssingleton import singleton
 from qtsdelegate import delegate
 

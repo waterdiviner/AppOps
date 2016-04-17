@@ -2,7 +2,8 @@ from qtsmonitorreceiver import *
 from qtsreceiversmsgbus import *
 
 import sys
-sys.path.append('../utility')
+import os
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/utility'))
 from qtssingleton import singleton
 
 class QtsComponentReceiver(QtsRMQMonitorThread):

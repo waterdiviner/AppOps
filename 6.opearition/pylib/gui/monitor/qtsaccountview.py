@@ -5,7 +5,8 @@ from qtsreceiversqtbus import *
 from qtsform import *
 
 import sys
-sys.path.append('../../utility')
+import os
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','../..'),'pylib/utility'))
 from qtsutility import *
 
 class AccountModel(QAbstractTableModel):

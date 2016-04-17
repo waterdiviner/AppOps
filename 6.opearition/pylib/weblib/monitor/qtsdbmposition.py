@@ -1,6 +1,7 @@
 #coding=utf-8
 import sys
-sys.path.append('../common')
+import os
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/common'))
 from qtswebdb import *
 
 mposition_head_fields =[qts_market_field,qts_category_field,qts_account_field,qts_ordercode_field,qts_type_field,qts_level_field,qts_date_field,qts_totalvol_field,

@@ -1,15 +1,19 @@
 import threading
 import datetime
 import sys
+import os
 
 from qtsmonitorreceivers import QtsComponentReceiver
 from qtssqliterecorder import *
 
-sys.path.append('../utility')
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/utility'))
 from qtslockhelper import *
 from qtsrmqpublisher import *
 from qtssingleton import *
-from qtsgproto_pb2 import *
+try :
+	from qtsgproto_pb2 import *
+except :
+	print('warning>> python lib no support protocol buffer')
 
 HeartBeatSeconds = 10
 ExpiredTimes = 3

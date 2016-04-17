@@ -10,8 +10,12 @@ from PyQt5.QtWidgets import (QAction, QApplication, QButtonGroup, QComboBox,
 from qtsnode import Node
 
 import sys
-sys.path.append('../../utility')
-from qtsgproto_pb2 import *
+import os
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','../..'),'pylib/utility'))
+try :
+	from qtsgproto_pb2 import *
+except :
+	print('warning>> python lib no support protocol buffer')
 
 
 class LinkKey(object):

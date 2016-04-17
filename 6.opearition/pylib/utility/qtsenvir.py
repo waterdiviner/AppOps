@@ -6,11 +6,11 @@ import string
 try :
 	import time
 except :
-	print('no support time')
+	print('warning>> python lib no support time')
 try :
 	import datetime
 except :
-	print('no support datetime')
+	print('warning>> python lib no support datetime')
 import platform
 from qtsvar import *
 from qtssecurity import *

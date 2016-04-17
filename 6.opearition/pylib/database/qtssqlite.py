@@ -1,12 +1,17 @@
 #coding=utf-8
 
 import sys
-import sqlite3
+import os
 
+try :
+	import sqlite3
+except :
+	print('warning>> python lib no support sqlite3')
+	
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-sys.path.append('../utility')
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/utility'))
 from qtsdatabase import *
 
 class QtsSqlite(QtsDatabase) :

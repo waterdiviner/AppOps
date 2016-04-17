@@ -7,7 +7,10 @@ from qtsenvir import *
 from qtssecurity import *
 from qtsfun import *
 from qtstradefun import *
-from qtsgproto_pb2 import *
+try :
+	from qtsgproto_pb2 import *
+except :
+	print('warning>> python lib no support protocol buffer')
 from qtsutility import *
 
 #/////////////////////////////////////////////////////////////////#	

@@ -9,15 +9,23 @@ class QtsSecuInfoToFile(QtsSecuinfoConvert) :
         self.source = _source
         self.starget = _starget
         self.dtarget = _dtarget
-        self.reader = csv.reader(open(self.source,'rb'),delimiter=self.flag)
+        self.bopen = True
+        if os.path.isfile(self.source) :
+            self.reader = csv.reader(open(self.source,'rb'),delimiter=self.flag)
+        else :
+            self.bopen = False
+            TraceError('open file {0} is failed!'.format(self.source))
         self.swriter = csv.writer(open(self.starget,'wb'),delimiter=self.flag,quotechar='\r',quoting=csv.QUOTE_MINIMAL)
         self.dwriter = csv.writer(open(self.dtarget,'wb'),delimiter=self.flag,quotechar='\r',quoting=csv.QUOTE_MINIMAL)
 
     def Run(self) :
-        self.swriter.writerow(static_secuinfo_headers)
-        self.dwriter.writerow(dynamic_secuinfo_headers)
-        for row in self.reader :
-            self.HandleRow(row)
+        if self.bopen :
+            self.swriter.writerow(static_secuinfo_headers)
+            self.dwriter.writerow(dynamic_secuinfo_headers)
+            for row in self.reader :
+                self.HandleRow(row)
+        else :
+            TraceError('file is not opened!')
 
     def HandleStaticRow(self,static_row):
         self.swriter.writerow(static_row)

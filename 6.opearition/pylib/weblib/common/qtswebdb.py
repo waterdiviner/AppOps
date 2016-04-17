@@ -2,11 +2,15 @@
 from qtswebutility import *
 
 import sys
+
 sys.path.append('../../database')
 sys.path.append('../../utility')
+#import os
+#sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','../..'),'pylib/database'))
+#sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','../..'),'pylib/utility'))
 from qtsmysql import QtsMySql
 from qtsvar import *
-from qtsbiz import *
+from qtsbizfun import *
 
 ############################################################################################################################################
 def connect_db(dbname):
@@ -333,12 +337,10 @@ def get_rows_json_dict_by_page(dbname,dbtable,page,size,row,idfield=qts_autoid_f
     results["rows"] = list()
     results["total"] = get_rows_size(dbname,dbtable,idfield)
     markets = get_rows_list_by_page(dbname,dbtable,page,size,idfield,fields)
-    #print markets
     if markets != None :
         for market in markets :
             results['rows'].append(build_row_dict(market,index,row,fun))
             index += 1
-    #print results
     return results
 
 def get_rows_json_dict_condition_by_page(dbname,dbtable,page,size,row,value,idfield=qts_id_field,fun=None,fields=None) :

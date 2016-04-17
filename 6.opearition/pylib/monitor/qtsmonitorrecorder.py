@@ -1,5 +1,6 @@
 #coding=utf-8
 import sys
+import os
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
@@ -7,8 +8,11 @@ import Queue
 from qtsreceiversmsgbus import *
 from qtsmonitorreceivers import *
 
-sys.path.append('../utility')
-from qtsgproto_pb2 import *
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/utility'))
+try :
+	from qtsgproto_pb2 import *
+except :
+	print('warning>> python lib no support protocol buffer')
 from qtsvar import *
 from qtsdatabase import *
 from qtslockhelper import *

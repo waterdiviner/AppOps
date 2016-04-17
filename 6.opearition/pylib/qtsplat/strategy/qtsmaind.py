@@ -1,13 +1,20 @@
 #coding=utf-8
 #////////////////////////////////////////////////////////////////////
 import os
+import sys
 import string
 import platform
 import traceback 
-from ctypes import * 
+from ctypes import *
+
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','../..'),'pylib/utility'))
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','../..'),'pylib/qtsplat/share'))
 from qtsfun import *
 from qtstradefun import *
-from qtsgproto_pb2 import *
+try :
+	from qtsgproto_pb2 import *
+except :
+	print('warning>> python lib no support protocol buffer')
 from qtsonuca import *
 from qtsadapter import *
 from qtspycfg import *
@@ -23,11 +30,9 @@ def OnEvent(itype,subtype,pro,data,size,para) :
 	else :
 		g_oDebugTrade.DoEvent(itype,subtype,pro,data,size,para)
 	return 1
-	
-QtsAdapter_OnEvent=QTS_ADAPTER_EVENT_CALLBACK(OnEvent)
-QtsAdapter_OnReadCfg=QTS_ADAPTER_CONFIG_CALLBACK(OnReadCfg)
 
-def RegisterAllEvent() :
+QtsAdapter_OnEvent=QTS_ADAPTER_EVENT_CALLBACK(OnEvent)
+def RegisterStrategyEvent() :
 	RegisterEvent(QTS_GPROTO_EVENT_TYPE_INIT,QtsAdapter_OnEvent)
 	RegisterEvent(QTS_GPROTO_EVENT_TYPE_DATA,QtsAdapter_OnEvent)
 	RegisterEvent(QTS_GPROTO_EVENT_TYPE_PARAMETER,QtsAdapter_OnEvent)
@@ -41,9 +46,10 @@ def RegisterAllEvent() :
 	RegisterEvent(QTS_GPROTO_EVENT_TYPE_CYCLED,QtsAdapter_OnEvent)
 	RegisterEvent(QTS_GPROTO_EVENT_TYPE_COMMITING,QtsAdapter_OnEvent)
 	RegisterEvent(QTS_GPROTO_EVENT_TYPE_COMMITED,QtsAdapter_OnEvent)
-	RegisterConfig(QTS_GPROTO_EVENT_TYPE_READKEY,QtsAdapter_OnReadCfg)
-	RegisterConfig(QTS_GPROTO_EVENT_TYPE_READANY_BYKEY,QtsAdapter_OnReadCfg)
-	RegisterConfig(QTS_GPROTO_EVENT_TYPE_READANY_BYDICT,QtsAdapter_OnReadCfg)
+
+def RegisterAllEvent() :
+	RegisterStrategyEvent()
+	RegisterCfgEvent()
 
 def RunMain(argv) :
 	print("Start Application from python main")	

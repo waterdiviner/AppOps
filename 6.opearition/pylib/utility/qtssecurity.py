@@ -29,8 +29,9 @@ sqlite,			#sqlite 数据库
 mysql,			#mysql 数据库
 xml,			#xml 文件
 json,			#json 文件
-mixplugin		#混合模式
-)=(0,1,2,3,4,5,6,7)
+mixplugin,		#混合模式
+sqlite_data		#market data
+)=(0,1,2,3,4,5,6,7,8)
 
 ########################################################
 #风控检查是否打开或关闭
@@ -49,95 +50,13 @@ QTS_TRUE			#否
 )=(0,1)
 
 ########################################################
-#市场类型
-#EQtsMarketType
+#配置的布尔值
+#EQtsReplayMode
 (
-ALL_MARKET,			#全市场
-SZ_MARKET,			#深市
-SH_MARKET,			#沪市
-ZJ_MARKET,			#中金
-DL_MARKET,			#大连
-ZZ_MARKET,			#郑州
-SQ_MARKET,			#上期
-SMART_MARKET		#国外(IB接口)
-)=(0,1,2,3,4,5,6,10)
-
-########################################################
-#品种类型
-#EQtsCategoryType
-(
-ALL_CATEGORY,			#全品种
-EQUIT_CATEGORY,			#股票
-INDEX_CATEGORY,         #指数
-IF_CATEGORY,			#股指期货
-CF_CATEGORY,			#商品期货
-OPTION_CATEGORY,		#中证期货
-BOND_CATEGORY,			#指数
-ETF_CATEGORY            #基金
-)=(0,1,2,3,4,5,6,7)
-
-#########################################################
-#中金品种子集
-(ZJ_IF_SUB_CATEGORY,              #沪深指数期货
- ZJ_IH_SUB_CATEGORY,              #上证指数期货
- ZJ_IC_SUB_CATEGORY               #中证指数期货
- )=(1,2,3)
-
-#大连品种子集
-(DL_A_SUB_CATEGORY,               #豆一商品期货
- DL_B_SUB_CATEGORY,               #豆二商品期货
- DL_BB_SUB_CATEGORY,              #胶板商品期货
- DL_C_SUB_CATEGORY,               #玉米商品期货
- DL_CS_SUB_CATEGORY,              #淀粉商品期货
- DL_FB_SUB_CATEGORY,              #纤板商品期货
- DL_I_SUB_CATEGORY,               #铁矿商品期货
- DL_J_SUB_CATEGORY,               #焦炭商品期货
- DL_JD_SUB_CATEGORY,              #鸡蛋商品期货
- DL_JM_SUB_CATEGORY,              #焦煤商品期货
- DL_L_SUB_CATEGORY,               #塑料商品期货
- DL_M_SUB_CATEGORY,               #豆粕商品期货
- DL_P_SUB_CATEGORY,               #棕榈品期货
- DL_PP_SUB_CATEGORY,              #PP商品期货
- DL_V_SUB_CATEGORY,               #PVC商品期货
- DL_Y_SUB_CATEGORY                #豆油商品期货
- )=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16)
-
-#郑州品种子集
-(ZZ_CF_SUB_CATEGORY,               #棉花商品期货
- ZZ_FG_SUB_CATEGORY,               #玻璃商品期货
- ZZ_JR_SUB_CATEGORY,               #粳稻商品期货
- ZZ_LR_SUB_CATEGORY,               #晚稻商品期货
- ZZ_MA_SUB_CATEGORY,               #甲醇商品期货
- ZZ_OI_SUB_CATEGORY,               #菜油商品期货
- ZZ_PM_SUB_CATEGORY,               #普麦商品期货
- ZZ_RJ_SUB_CATEGORY,               #早稻商品期货
- ZZ_RM_SUB_CATEGORY,               #菜粕商品期货
- ZZ_RS_SUB_CATEGORY,               #菜子商品期货
- ZZ_SF_SUB_CATEGORY,               #硅铁商品期货
- ZZ_SM_SUB_CATEGORY,               #硅锰商品期货
- ZZ_SR_SUB_CATEGORY,               #白糖商品期货
- ZZ_TA_SUB_CATEGORY,               #PTA商品期货
- ZZ_TC_SUB_CATEGORY,               #动煤商品期货
- ZZ_WH_SUB_CATEGORY,               #强麦商品期货
- ZZ_ZC_SUB_CATEGORY                #动煤商品期货
- )=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17)
-
-#上期品种子集
-(SQ_AG_SUB_CATEGORY,               #沪银商品期货
- SQ_AL_SUB_CATEGORY,               #沪铝商品期货
- SQ_AU_SUB_CATEGORY,               #沪金商品期货
- SQ_BU_SUB_CATEGORY,               #沥青商品期货
- SQ_CU_SUB_CATEGORY,               #沪铜商品期货
- SQ_FU_SUB_CATEGORY,               #燃油商品期货
- SQ_HC_SUB_CATEGORY,               #热卷商品期货
- SQ_NI_SUB_CATEGORY,               #沪镍商品期货
- SQ_PB_SUB_CATEGORY,               #沪铅商品期货
- SQ_RB_SUB_CATEGORY,               #螺纹商品期货
- SQ_RU_SUB_CATEGORY,               #橡胶商品期货
- SQ_SN_SUB_CATEGORY,               #沪锡商品期货
- SQ_WR_SUB_CATEGORY,               #线材商品期货
- SQ_ZN_SUB_CATEGORY                #沪锌商品期货
- )=(1,2,3,4,5,6,7,8,9,10,11,12,13,14)
+QTS_REPLAY_MODE_COMMON,			#正常回放，检查时间，按时间回放
+QTS_REPLAY_MODE_INDEX,			#不检查时间，按顺序回放
+QTS_REPLAY_MODE_STEP			#一步一步回放
+)=(0,1,2)
 
 ########################################################
 #策略参数类型
@@ -147,6 +66,16 @@ PARA_INSTRUMENT,			#交易标的
 PARA_PARAMETER,				#可变参数
 PARA_COMMENT,				#静态参数
 PARA_COMMAND				#命令参数
+)=(0,1,2,3)
+
+########################################################
+#策略状态
+#EQtsStrategyStatus
+(
+STRATEGY_STATUS_START,   #运行状态
+STRATEGY_STATUS_PAUSE,   #暂停状态
+STRATEGY_STATUS_WATCH,   #观察状态
+STRATEGY_STATUS_STOP    #停止状态
 )=(0,1,2,3)
 
 ########################################################
@@ -215,8 +144,9 @@ QTS_APP_DS,				#数据服务
 QTS_APP_GW,				#通道服务
 QTS_APP_SS,				#策略服务
 QTS_APP_CONVERT,		#backup转换工具
-QTS_APP_QUERY			#查询工具
-)=(0,1,2,3,4,5)
+QTS_APP_QUERY,			#查询工具
+QTS_APP_DC				#数据落盘服务
+)=(0,1,2,3,4,5,6)
 
 ########################################################
 #应用程序部署类型
@@ -233,8 +163,9 @@ QTS_APP_MODE_SINGLE			#独立部署
 (
 qts_match_auto,				#线程撮合
 qts_match_market,			#行情撮合
-qts_match_immediately		#立即撮合
-)=(0,1,2)
+qts_match_immediately,		#立即撮合
+qts_match_manual			#手动撮合
+)=(0,1,2,3)
 
 
 (

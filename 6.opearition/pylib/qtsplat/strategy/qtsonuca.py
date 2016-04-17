@@ -16,7 +16,7 @@ else:
 QtsOnuca = cdll.LoadLibrary(onucafile)
 
 def RunPlat(arg) :
-        result=False
+	result=False
 	try:
 		QtsOnuca.OnucaEntry.restype = c_int
 		QtsOnuca.OnucaEntry.argtype = [c_char_p,c_int]

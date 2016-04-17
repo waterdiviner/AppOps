@@ -8,17 +8,29 @@ class QtsCompareAccount(object) :
         self.flag = _flag
         self.source = _source
         self.target = _target
-        self.sreader = csv.reader(open(self.source,'rb'),delimiter=self.flag)
-        self.treader = csv.reader(open(self.target,'rb'),delimiter=self.flag)
+        self.bopen = True
+        if os.path.isfile(self.source) :
+            self.sreader = csv.reader(open(self.source,'rb'),delimiter=self.flag)
+        else :
+            self.bopen = False
+            TraceError('open file {0} is failed!'.format(self.source))
+        if os.path.isfile(self.target) :
+            self.treader = csv.reader(open(self.target,'rb'),delimiter=self.flag)
+        else :
+            self.bopen = False
+            TraceError('open file {0} is failed!'.format(self.target))
 
     def Load(self,reader,items) :
-        first = True
-        for row in reader :
-            if row[0][0].strip() == '#' :
-                continue
-            if first == False :
-                self.HandleRow(row,items)
-            first = False
+        if self.bopen :
+            first = True
+            for row in reader :
+                if row[0][0].strip() == '#' :
+                    continue
+                if first == False :
+                    self.HandleRow(row,items)
+                first = False
+        else :
+            TraceError('file is not opened!')
 
     def HandleRow(self,row,items) :
         pos_row = list()
@@ -36,7 +48,7 @@ class QtsCompareAccount(object) :
         pos_row.append(row[6].strip())
         pos_row.append(row[7].strip())
         pos_row.append(row[9].strip())
-        if category == EQUIT_CATEGORY:
+        if category == CATEGORY.EQUITY:
             pos_row.append(row[4].strip())
         else :
             pos_row.append(0)

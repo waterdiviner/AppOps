@@ -1,10 +1,14 @@
 from PyQt5.QtCore import pyqtSignal, QObject
 
 import sys
-sys.path.append('../../utility')
-sys.path.append('../../monitor')
+import os
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','../..'),'pylib/utility'))
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','../..'),'pylib/monitor'))
 from qtssingleton import singleton
-from qtsgproto_pb2 import *
+try :
+	from qtsgproto_pb2 import *
+except :
+	print('warning>> python lib no support protocol buffer')
 from qtsrmqinfo import *
 from qtsreceiversmsgbus import *
 

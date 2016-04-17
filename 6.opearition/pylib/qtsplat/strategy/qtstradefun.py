@@ -5,7 +5,10 @@ import string
 import platform
 import traceback 
 from ctypes import *  
-from qtsgproto_pb2 import *
+try :
+	from qtsgproto_pb2 import *
+except :
+	print('warning>> python lib no support protocol buffer')
 from qtsutility import *
 
 dllfile=''

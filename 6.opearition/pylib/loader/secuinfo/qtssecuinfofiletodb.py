@@ -1,6 +1,6 @@
 #coding=utf-8
 from qtssecuinfo import *
-sys.path.append('../database')
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/database'))
 from qtsmysql import *
 
 class QtsSecuInfoFileToDB(object) :
@@ -10,19 +10,31 @@ class QtsSecuInfoFileToDB(object) :
         self.flag = _flag
         self.static = _static
         self.dynamic = _dynamic
-        self.sreader = csv.reader(open(self.static,'rb'),delimiter=self.flag)
-        self.dreader = csv.reader(open(self.dynamic,'rb'),delimiter=self.flag)
+        self.bopen = True
+        if os.path.isfile(self.static) :
+            self.sreader = csv.reader(open(self.static,'rb'),delimiter=self.flag)
+        else :
+            self.bopen = False
+            TraceError('open file {0} is failed!'.format(self.static))
+        if os.path.isfile(self.dynamic) :
+            self.dreader = csv.reader(open(self.dynamic,'rb'),delimiter=self.flag)
+        else :
+            self.bopen = False
+            TraceError('open file {0} is failed!'.format(self.dynamic))
         self.db = None
 
     def Run(self,host,port,user,psw,dbname) :
-        self.db = QtsMySql(host,port,user,psw,dbname)
-        self.db.Clear(qts_secuinfo_s_table)
-        self.db.Clear(qts_secuinfo_d_table)
-        for row in self.sreader :
-            self.HandleStaticRow(row)
-        for row in self.dreader :
-            self.HandleDynamicRow(row)
-        self.db.Commit()
+        if self.bopen :
+            self.db = QtsMySql(host,port,user,psw,dbname)
+            self.db.Clear(qts_secuinfo_s_table)
+            self.db.Clear(qts_secuinfo_d_table)
+            for row in self.sreader :
+                self.HandleStaticRow(row)
+            for row in self.dreader :
+                self.HandleDynamicRow(row)
+            self.db.Commit()
+        else :
+            TraceError('file is not opened!')
 
     def HandleStaticRow(self,row):
         sql = ("INSERT INTO {0}({1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14})"

@@ -1,11 +1,12 @@
 #coding=utf-8
 
 import sys
+import os
 import time
 import threading
 from qtsmonitorrecorder import *
 
-sys.path.append('../database')
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/database'))
 from qtsmysql import *
 
 class QtsMySqlRecorder(QtsMonitorRecorder):

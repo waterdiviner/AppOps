@@ -4,8 +4,13 @@ import sys
 import string
 import platform
 import traceback 
-from ctypes import *  
-from qtsgproto_pb2 import *
+from ctypes import *
+
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','../..'),'pylib/utility'))
+try :
+	from qtsgproto_pb2 import *
+except :
+	print('warning>> python lib no support protocol buffer')
 from qtsfun import *
 from qtsutility import *
 from qtsadapter import *
@@ -124,3 +129,9 @@ def OnReadCfg(itype,data,size) :
 		else :
 			raise StandardError('cfg buff size is large,real size={0},set size=1024 * 1024'.format(size[0]))
 		return QTS_TRUE
+
+QtsAdapter_OnReadCfg=QTS_ADAPTER_CONFIG_CALLBACK(OnReadCfg)
+def RegisterCfgEvent() :
+	RegisterConfig(QTS_GPROTO_EVENT_TYPE_READKEY,QtsAdapter_OnReadCfg)
+	RegisterConfig(QTS_GPROTO_EVENT_TYPE_READANY_BYKEY,QtsAdapter_OnReadCfg)
+	RegisterConfig(QTS_GPROTO_EVENT_TYPE_READANY_BYDICT,QtsAdapter_OnReadCfg)

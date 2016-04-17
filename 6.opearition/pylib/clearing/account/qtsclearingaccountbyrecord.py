@@ -7,16 +7,25 @@ class QtsClearingAccountByRecord(object) :
         self.flag = _flag
         self.source = _source
         self.target = _target
-        self.reader = csv.reader(open(self.source,'rb'),delimiter=self.flag)
-        self.writer = csv.writer(open(self.target,'wb'),delimiter=self.flag)
+        self.bopen = True
+        if os.path.isfile(self.source) :
+            self.reader = csv.reader(open(self.source,'rb'),delimiter=self.flag)
+        else :
+            self.bopen = False
+            TraceError('open file {0} is failed!'.format(self.source))
+        if self.bopen :
+            self.writer = csv.writer(open(self.target,'wb'),delimiter=self.flag)
 
     def Run(self,level,date) :
-        self.writer.writerow(account_headers)
-        for row in self.reader :
-            self.HandleRow(row,level,date)
-        self.Save()
+        if self.bopen :
+            self.writer.writerow(account_headers)
+            for row in self.reader :
+                self.HandleRow(row,date,level)
+            self.Save()
+        else :
+            TraceError('file is not opened!')
 
-    def HandleRow(self,row,date):
+    def HandleRow(self,row,date,level):
         pos_row = [0,0,0,0,0,0,0,0,0,0,0]
         pos_row[0] = long(row[0])
         pos_row[1] = long(row[1])
@@ -24,7 +33,7 @@ class QtsClearingAccountByRecord(object) :
         pos_row[3] = long(row[13]) * long(row[14])
         pos_row[5] = date
         if (int(row[10]) == 6) or (int(row[10]) == 9) :
-            if (GetCategoryFromCode(long(row[7])) == IF_CATEGORY)  or (GetCategoryFromCode(long(row[7])) == CF_CATEGORY):
+            if (GetCategoryFromCode(long(row[7])) == CATEGORY.FUTURES_IDX)  or (GetCategoryFromCode(long(row[7])) == CATEGORY.FUTURES):
                 if int(row[8]) == 0 :
                     if int(row[23]) == 1 :
                         pos_row[2] *= -1

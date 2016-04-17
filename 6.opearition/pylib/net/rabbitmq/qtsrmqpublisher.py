@@ -4,7 +4,10 @@ import sys
 import string
 import platform
 import pika
-from qtsgproto_pb2 import *
+try :
+	from qtsgproto_pb2 import *
+except :
+	print('warning>> python lib no support protocol buffer')
 from qtsutility import *
 from qtsrmqinfo import *
 

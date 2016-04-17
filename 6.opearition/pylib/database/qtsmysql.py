@@ -1,12 +1,17 @@
 #coding=utf-8
 
 import sys
-import MySQLdb
+import os
+
+try :
+	import MySQLdb
+except :
+	print('warning>> python lib no support MySQLdb')
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-sys.path.append('../utility')
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/utility'))
 from qtsdatabase import *
 
 class QtsMySql(QtsDatabase) :

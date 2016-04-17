@@ -7,12 +7,15 @@ import platform
 import pika
 import time
 
-sys.path.append('../utility')
-sys.path.append('../net/rabbitmq')
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/utility'))
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/net/rabbitmq'))
 from qtsdelegate import delegate
-from qtsgproto_pb2 import *
+try :
+	from qtsgproto_pb2 import *
+except :
+	print('warning>> python lib no support protocol buffer')
 from qtsutility import *
-from qtsbiz import *
+from qtsbizfun import *
 from qtsrmqreceiver import *
 
 ################################################################################################

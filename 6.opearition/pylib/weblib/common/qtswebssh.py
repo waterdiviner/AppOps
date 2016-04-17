@@ -4,9 +4,12 @@ from qtswebutility import *
 import sys
 sys.path.append('../../utility')
 sys.path.append('../../net/control')
+#import os
+#sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','../..'),'pylib/utility'))
+#sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','../..'),'pylib/net/control'))
 
 from qtsvar import *
-from qtsbiz import *
+from qtsbizfun import *
 from qtsssh import *
 
 ############################################################################################################################################

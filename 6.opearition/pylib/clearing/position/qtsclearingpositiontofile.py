@@ -7,14 +7,23 @@ class QtsClearingPositionToFile(object) :
         self.flag = _flag
         self.source = _source
         self.target = _target
-        self.reader = csv.reader(open(self.source,'rb'),delimiter=self.flag)
-        self.writer = csv.writer(open(self.target,'wb'),delimiter=self.flag)
+        self.bopen = True
+        if os.path.isfile(self.source) :
+            self.reader = csv.reader(open(self.source,'rb'),delimiter=self.flag)
+        else :
+            self.bopen = False
+            TraceError('open file {0} is failed!'.format(self.source))
+        if self.bopen :
+            self.writer = csv.writer(open(self.target,'wb'),delimiter=self.flag)
 
     def Run(self,date) :
-        self.writer.writerow(pos_headers)
-        for row in self.reader :
-            self.HandleRow(row,date)
-        self.Save()
+        if self.bopen :
+            self.writer.writerow(pos_headers)
+            for row in self.reader :
+                self.HandleRow(row,date)
+            self.Save()
+        else :
+            TraceError('file is not opened!')
 
     def HandleRow(self,row,date):
         pos_row = list()
@@ -32,7 +41,7 @@ class QtsClearingPositionToFile(object) :
         pos_row.append(row[6])
         pos_row.append(row[7])
         pos_row.append(date)
-        if category == EQUIT_CATEGORY:
+        if category == CATEGORY.EQUITY:
             pos_row.append(row[4])
         else :
             pos_row.append(0)

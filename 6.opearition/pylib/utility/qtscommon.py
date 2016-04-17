@@ -1,6 +1,5 @@
 #coding=utf-8
 from qtsfun import *
-from qtsbiz import *
 
 #//////////////////////////////////////////////////////////////////////////////
 ####################################################
@@ -579,7 +578,10 @@ def CreatePluginForParser(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath(),*
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_PARSERS,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_PARSERS,objid))
-	
+
+def PrintForParser(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_PARSERS,objid))
+
 ####################################################
 #@brief 加载解析插件
 #@param objid 		插件ID
@@ -593,6 +595,9 @@ def CreatePluginForBackup(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath(),*
 	CreatePlugin(GetAppPath(),QTS_CFG_GROUP_BACKUPS,QTS_CFG_PLUGINS_BACKUPS,GeneratorObjectName(QTS_CFG_PLUGINS_BACKUPS,objid),objid,secuid,cfg,BuildLibraryFile(dllfile),dllfun,dllpath)	
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_BACKUPS,objid),kwarg,kwargs[kwarg])		
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_BACKUPS,objid))
+
+def PrintForBackup(objid) :
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_BACKUPS,objid))
 
 ####################################################
@@ -609,7 +614,10 @@ def CreatePluginForLoader(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath(),*
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_LOADERS,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_LOADERS,objid))
-	
+
+def PrintForLoader(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_LOADERS,objid))
+
 ####################################################
 #@brief 加载风控插件
 #@param objid 		插件ID
@@ -624,7 +632,10 @@ def CreatePluginForCheck(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath(),**
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CHECKS,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CHECKS,objid))
-	
+
+def PrintForCheck(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CHECKS,objid))
+
 ####################################################
 #@brief 加载算法插件
 #@param objid 		插件ID
@@ -639,7 +650,10 @@ def CreatePluginForAlgo(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath(),**k
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_ALGOES,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_ALGOES,objid))
-	
+
+def PrintForAlgo(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_ALGOES,objid))
+
 ####################################################
 #@brief 加载数据传输插件
 #@param objid 		插件ID
@@ -654,7 +668,10 @@ def CreatePluginForDSTransfer(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_DSTRANSFERS,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_DSTRANSFERS,objid))
-	
+
+def PrintForDSTransfer(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_DSTRANSFERS,objid))
+
 ####################################################
 #@brief 加载交易网关传输插件
 #@param objid 		插件ID
@@ -669,7 +686,10 @@ def CreatePluginForGWTransfer(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_GWTRANSFERS,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_GWTRANSFERS,objid))
-	
+
+def PrintForGWTransfer(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_GWTRANSFERS,objid))
+
 ####################################################
 #@brief 加载终端传输插件
 #@param objid 		插件ID
@@ -684,7 +704,10 @@ def CreatePluginForGUITransfer(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPat
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_GUITRANSFERS,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_GUITRANSFERS,objid))
-	
+
+def PrintForGUITransfer(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_GUITRANSFERS,objid))
+
 ####################################################
 #@brief 加载远程风控传输插件
 #@param objid 		插件ID
@@ -699,7 +722,10 @@ def CreatePluginForCKTransfer(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CKTRANSFERS,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CKTRANSFERS,objid))
-	
+
+def PrintForCKTransfer(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CKTRANSFERS,objid))
+
 ####################################################
 #@brief 加载远程风控传输插件
 #@param objid 		插件ID
@@ -714,7 +740,10 @@ def CreatePluginForCPTransfer(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CPTRANSFERS,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CPTRANSFERS,objid))
-	
+
+def PrintForCPTransfer(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CPTRANSFERS,objid))
+
 ####################################################
 #@brief 加载传输插件
 #@param objid 		插件ID
@@ -729,7 +758,10 @@ def CreatePluginForTransfer(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath()
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_TRANSFERS,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_TRANSFERS,objid))
-	
+
+def PrintForTransfer(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_TRANSFERS,objid))
+
 ####################################################
 #@brief 加载监控插件
 #@param objid 		插件ID
@@ -744,7 +776,10 @@ def CreatePluginForMonitor(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath(),
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_MONITORS,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_MONITORS,objid))
-	
+
+def PrintForMonitor(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_MONITORS,objid))
+
 ####################################################
 #@brief 加载计算插件
 #@param objid 		插件ID
@@ -759,7 +794,10 @@ def CreatePluginForCalculate(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath(
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CALCULATES,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CALCULATES,objid))
-	
+
+def PrintForCalculate(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CALCULATES,objid))
+
 ####################################################
 #@brief 加载策略插件
 #@param objid 		插件ID
@@ -775,7 +813,10 @@ def CreatePluginForStrategy(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath()
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_STRATEGIES,objid),kwarg,kwargs[kwarg])	
 	LoadUserStrategyCfg(cfg)	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_STRATEGIES,objid))
-	
+
+def PrintForStrategy(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_STRATEGIES,objid))
+
 ####################################################
 #@brief 加载逻辑插件
 #@param objid 		插件ID
@@ -789,6 +830,9 @@ def CreatePluginForLogic(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath(),**
 	CreatePlugin(GetAppPath(),QTS_CFG_GROUP_LOGICS,QTS_CFG_PLUGINS_LOGICS,GeneratorObjectName(QTS_CFG_PLUGINS_LOGICS,objid),objid,secuid,cfg,BuildLibraryFile(dllfile),dllfun,dllpath)		
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_LOGICS,objid),kwarg,kwargs[kwarg])	
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_LOGICS,objid))
+
+def PrintForLogic(objid) :
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_LOGICS,objid))
 
 ####################################################
@@ -805,7 +849,10 @@ def CreatePluginForFilter(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath(),*
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_FILTERS,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_FILTERS,objid))
-	
+
+def PrintForFilter(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_FILTERS,objid))
+
 ####################################################
 #@brief 加载市场插件
 #@param objid 		插件ID
@@ -821,6 +868,9 @@ def CreatePluginForMarket(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath(),*
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_MARKETS,objid),kwarg,kwargs[kwarg])	
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_MARKETS,objid))
 
+def PrintForMarket(objid) :
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_MARKETS,objid))
+
 ####################################################
 #@brief 加载交易通道插件
 #@param objid 		插件ID
@@ -834,6 +884,9 @@ def CreatePluginForExchange(objid,secuid,cfg,dllfile,dllfun,dllpath=GetLibPath()
 	CreatePlugin(GetAppPath(),QTS_CFG_GROUP_EXCHANGES,QTS_CFG_PLUGINS_EXCHANGES,GeneratorObjectName(QTS_CFG_PLUGINS_EXCHANGES,objid),objid,secuid,cfg,BuildLibraryFile(dllfile),dllfun,dllpath)		
 	for kwarg in kwargs :
 		AppendItemForMainDict(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_EXCHANGES,objid),kwarg,kwargs[kwarg])	
+	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_EXCHANGES,objid))
+
+def PrintForExchange(objid) :
 	PrintPlugin(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_EXCHANGES,objid))
 
 ####################################################
@@ -1341,7 +1394,7 @@ def SetRemoteInfoForExchange(objid,address='',port=0,heart=30) :
 #@return 插件ID
 ####################################################
 def GetPluginIdForAlgo(objid) :
-	return GetPluginId(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_ALGOES,objid))
+	return GeneratorObjectIdByManager(GetAppPath(),QTS_CFG_GROUP_ALGOES,objid)
 	
 ####################################################
 #@brief 得到风控插件的ID
@@ -1349,7 +1402,7 @@ def GetPluginIdForAlgo(objid) :
 #@return 插件ID
 ####################################################	
 def GetPluginIdForCheck(objid) :
-	return GetPluginId(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CHECKS,objid))
+	return GeneratorObjectIdByManager(GetAppPath(),QTS_CFG_GROUP_CHECKS,objid)
 
 ####################################################
 #@brief 得到风控计算的ID
@@ -1357,7 +1410,7 @@ def GetPluginIdForCheck(objid) :
 #@return 插件ID
 ####################################################	
 def GetPluginIdForCalculate(objid) :
-	return GetPluginId(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_CALCULATES,objid))
+	return GeneratorObjectIdByManager(GetAppPath(),QTS_CFG_GROUP_CALCULATES,objid)
 
 ####################################################
 #@brief 得到加载的ID
@@ -1365,7 +1418,7 @@ def GetPluginIdForCalculate(objid) :
 #@return 插件ID
 ####################################################	
 def GetPluginIdForLoader(objid) :
-	return GetPluginId(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_LOADERS,objid))
+	return GeneratorObjectIdByManager(GetAppPath(),QTS_CFG_GROUP_LOADERS,objid)
 	
 ####################################################
 #@brief 得到加载的ID
@@ -1373,7 +1426,7 @@ def GetPluginIdForLoader(objid) :
 #@return 插件ID
 ####################################################	
 def GetPluginIdForBackup(objid) :
-	return GetPluginId(GetAppPath(),GeneratorObjectName(QTS_CFG_PLUGINS_BACKUPS,objid))
+	return GeneratorObjectIdByManager(GetAppPath(),QTS_CFG_GROUP_BACKUPS,objid)
 	
 ############################################################################################
 ####################################################

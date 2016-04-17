@@ -1,6 +1,6 @@
 #coding=utf-8
 from qtssecuinfo import *
-sys.path.append('../database')
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/database'))
 from qtsmysql import *
 
 class QtsSecuInfoDBToFile(object) :

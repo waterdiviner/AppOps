@@ -64,10 +64,8 @@ QTS_CFG_KEY_EXTYPE = 'qts_extype'
 QTS_CFG_KEY_USR = 'qts_usr'
 QTS_CFG_KEY_PSW = 'qts_psw'
 QTS_CFG_KEY_DATA_PATH = 'qts_dpath'
-QTS_CFG_KEY_BEGIN_DATE = 'qts_bdate'
-QTS_CFG_KEY_BEGIN_TIME = 'qts_btime'
-QTS_CFG_KEY_END_DATE = 'qts_edate'
-QTS_CFG_KEY_END_TIME = 'qts_etime'
+QTS_CFG_KEY_DATE = 'qts_date'
+QTS_CFG_KEY_TIME = 'qts_time'
 QTS_CFG_KEY_MATCH_MODE = 'qts_match_mode'
 QTS_CFG_KEY_MONITOR_TIME = 'qts_monitortime'
 QTS_CFG_KEY_THDMULTI = 'qts_thdmulti'
@@ -77,12 +75,21 @@ QTS_CFG_KEY_CHECKSECUID = 'qts_checksecuid'
 QTS_CFG_KEY_TESTMODE = 'qts_test_mode'
 QTS_CFG_KEY_TESTDELAY = 'qts_test_delay'
 QTS_CFG_KEY_TESTCOUNT = 'qts_test_count'
+QTS_CFG_KEY_DELAYCOUNT = 'qts_delay_count'
+QTS_CFG_KEY_SPLITCOUNT = 'qts_split_count'
+QTS_CFG_KEY_ORDERMARKET = 'qts_order_market'
 QTS_DATA_TO_GW = 'qts_data_to_gw'
 QTS_DATA_TO_GUI = 'qts_data_to_gui'
 QTS_RECORD_TO_REMOTE = 'qts_record_to_remote'
 QTS_POSITION_TO_REMOTE = 'qts_position_to_remote'
 QTS_ACCOUNT_TO_REMOTE = 'qts_account_to_remote'
 QTS_CFG_KEY_CSVFLAG = 'qts_csv_flag'
+QTS_CFG_KEY_SPEED='qts_speed'
+QTS_CFG_KEY_MODE='qts_mode'
+QTS_CFG_KEY_WAITTIME='qts_waittime'
+QTS_CFG_KEY_MARKETS='qts_markets'
+QTS_CFG_KEY_LEVEL='qts_level'
+QTS_CFG_KEY_STEP='qts_step'
 
 QTS_CFG_GROUP_CFG = 'QTS_Cfg'
 QTS_CFG_GROUP_APP = 'QTS_App'
@@ -181,11 +188,13 @@ QTS_CFG_START_SINGLE_APP='Qts_Cfg_Start_Single_App'
 QTS_CFG_APP_DS_NAME='DS'
 QTS_CFG_APP_GW_NAME='GW'
 QTS_CFG_APP_SS_NAME='SS'
+QTS_CFG_APP_DC_NAME='DC'
 QTS_CFG_APP_GUI_NAME='GUI'
 
 QTS_CFG_APP_DS_IP_NAME=QTS_CFG_APP_DS_NAME
 QTS_CFG_APP_GW_IP_NAME=QTS_CFG_APP_GW_NAME
 QTS_CFG_APP_SS_IP_NAME=QTS_CFG_APP_SS_NAME
+QTS_CFG_APP_DC_IP_NAME=QTS_CFG_APP_DC_NAME
 QTS_CFG_APP_GUI_IP_NAME=QTS_CFG_APP_GUI_NAME
 
 QTS_TRACE_MESSAGE='Qts_Trace_Message'
@@ -250,12 +259,8 @@ QTS_QUERY_CFG_FILE='qtsquery'
 QTS_GUI_CFG_FILE='qtsgui'
 QTS_SS_CFG_FILE='qtsss'
 QTS_DS_CFG_FILE='qtsds'
+QTS_DC_CFG_FILE='qtsdc'
 QTS_GW_CFG_FILE='qtsgw'
-
-QTS_REPLAY_START_DATE='Qts_Replay_Start_Date'
-QTS_REPLAY_END_DATE='Qts_Replay_End_Date'
-QTS_REPLAY_START_TIME='Qts_Replay_Start_Time'
-QTS_REPLAY_END_TIME='Qts_Replay_End_Time'
 
 QTS_TRUE_STR='true'
 QTS_FALSE_STR='false'
@@ -263,6 +268,10 @@ QTS_FALSE_STR='false'
 QTS_DATA_APP_FOLDER='QTS_DATA_APP_FOLDER'
 QTS_CFG_APP_FOLDER='QTS_CFG_APP_FOLDER'
 QTS_CSV_FLAG = ','
+QTS_ROOT_PATH='QTS_ROOT_PATH'
+
+QTS_REPLAY_DATE='Qts_Replay_Date'
+QTS_REPLAY_TIME='Qts_Replay_Time'
 
 ############################################################################
 QTS_LOADER_FILE_INFO_S = 'qtsinfo_s'
@@ -486,8 +495,6 @@ qts_instrument_table='qts_instrument'
 qts_parameter_table='qts_parameter'
 qts_comment_table='qts_comment'
 qts_command_table='qts_command'
-
-
 
 #database name
 qts_gw_backup_db='qts_gw_backup'

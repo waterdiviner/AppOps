@@ -1,5 +1,5 @@
 #coding=utf-8
-from qtsenvir import *
+from qtsbizfun import *
 
 #######################################################################
 #######################################################################	
@@ -188,6 +188,15 @@ def ToInt64(num) :
 #路径操作的函数
 #######################################################################
 
+####################################################
+#@brief 得到根目录
+#@param defpath		默认目录
+#@return  目录
+####################################################
+def GetRootPath(defpath) :
+	return os.getenv(QTS_ROOT_PATH,defpath)
+	
+	
 ####################################################
 #@brief 得到日期目录
 #@return  目录
@@ -1112,7 +1121,28 @@ def GetIPPort(app,flag) :
 	if ipport == 0 :
 		ipport = 10000
 	return ipport
-	
+
+####################################################
+#@brief 设置指定键值值
+#@param key 键值
+#@param value 值
+####################################################
+def SetValue(key,value) :
+	SetVarInMainDict(key,value)
+
+####################################################
+#@brief 获得指定键值值
+#@param key 键值
+#@param defvalue 缺省值
+#@return 返回值
+####################################################
+def GetValue(key,defvalue) :
+	value = GetVarInMainDict(key)
+	if value == None :
+		return defvalue
+	else :
+		return value
+
 ####################################################
 #@brief 设置是否支持屏幕输出信息消息
 #@param bprint True是支持，False不支持
@@ -1390,7 +1420,18 @@ def GetBasePath() :
 	if path=='' :
 		path = GetEnv(QTS_BASE_PATH_KEY,'')
 	return path
-	
+
+####################################################
+#@brief 得到应用的根路径
+#@return 应用的根路径
+####################################################
+def GetUserPath(upath) :
+	path = GetAppVersionStr()
+	if path == '' :
+		return CombinePath(GetBasePath(),upath)
+	else :
+		return CombinePath(CombinePath(GetBasePath(),upath),path)
+			
 ####################################################
 #@brief 得到应用可执行程序路径
 #@return 可执行程序路径
@@ -1582,6 +1623,13 @@ def GetSSPath() :
 ####################################################	
 def GetDSPath() :
 	return CombinePath(GetCfgPath(),'server/ds/')
+	
+####################################################
+#@brief 得到数据服务的路径
+#@return 数据服务的路径
+####################################################	
+def GetDCPath() :
+	return CombinePath(GetCfgPath(),'server/dc/')
 	
 ####################################################
 #@brief 得到交易通道服务的路径
@@ -2093,7 +2141,7 @@ def CreatePlugin(*args,**kwargs) :
 	AppendPluginForManager(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(2,'pluginsname','',*args,**kwargs),
 						'plugin_'+GetArgByIndexAndName(3,'pluginname','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs))
 	AppendMainDict(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs))
-	AppendPropertyForPlugin(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs),QTS_CFG_KEY_SECUID,GetArgByIndexAndName(5,'secuid',ALL_MARKET,*args,**kwargs))
+	AppendPropertyForPlugin(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs),QTS_CFG_KEY_SECUID,GetArgByIndexAndName(5,'secuid',MARKET.ALL,*args,**kwargs))
 	AppendPropertyForPlugin(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs),QTS_CFG_KEY_OBJID,GeneratorObjectIdByManager(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(1,'managername','',*args,**kwargs),GetArgByIndexAndName(4,'objid',0,*args,**kwargs)))
 	AppendPropertyForPlugin(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs),QTS_CFG_KEY_NAME,GetArgByIndexAndName(3,'pluginname','',*args,**kwargs))
 	AppendPropertyForPlugin(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs),QTS_CFG_KEY_LOG,GetAppGlobals(GetArgByIndexAndName(0,'module','',*args,**kwargs))[GetArgByIndexAndName(1,'managername','',*args,**kwargs)][QTS_CFG_KEY_LOG])
@@ -2122,7 +2170,7 @@ def CreatePluginHasLog(*args,**kwargs) :
 	AppendPluginForManager(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(2,'pluginsname','',*args,**kwargs),
 						'plugin_'+GetArgByIndexAndName(3,'pluginname','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs))
 	AppendMainDict(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs))
-	AppendPropertyForPlugin(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs),QTS_CFG_KEY_SECUID,GetArgByIndexAndName(5,'secuid',ALL_MARKET,*args,**kwargs))
+	AppendPropertyForPlugin(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs),QTS_CFG_KEY_SECUID,GetArgByIndexAndName(5,'secuid',MARKET.ALL,*args,**kwargs))
 	AppendPropertyForPlugin(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs),QTS_CFG_KEY_OBJID,GeneratorObjectIdByManager(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(1,'managername','',*args,**kwargs),GetArgByIndexAndName(4,'objid',0,*args,**kwargs)))
 	AppendPropertyForPlugin(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs),QTS_CFG_KEY_NAME,GetArgByIndexAndName(3,'pluginname','',*args,**kwargs))
 	AppendPropertyForPlugin(GetArgByIndexAndName(0,'module','',*args,**kwargs),GetArgByIndexAndName(3,'pluginname','',*args,**kwargs),QTS_CFG_KEY_LOG,GetArgByIndexAndName(6,'log',GetAppGlobals(GetArgByIndexAndName(0,'module','',*args,**kwargs))[GetArgByIndexAndName(1,'managername','',*args,**kwargs)][QTS_CFG_KEY_LOG],*args,**kwargs))

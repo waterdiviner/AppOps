@@ -26,7 +26,6 @@ def CStringToPyString(idata,size) :
 def ParseFromString(idata,size,rdata) :
 	if idata == 0 or size == 0 :
 		return False
-
 	oresult = True
 	try:
 		uion_code = CStringToPyString(idata,size)
@@ -46,7 +45,6 @@ def VoidPointerToString(idata,size) :
 def ParseFromPointer(idata,size,rdata) :
 	if idata == 0 or size == 0 :
 		return False
-
 	oresult = True
 	try:
 		pystr = VoidPointerToString(idata,size)

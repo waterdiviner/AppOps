@@ -1,6 +1,6 @@
 #coding=utf-8
 from qtssecuinfo import *
-sys.path.append('../database')
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/database'))
 from qtsmysql import *
 
 class QtsSecuInfoToDB(QtsSecuinfoConvert) :
@@ -9,16 +9,24 @@ class QtsSecuInfoToDB(QtsSecuinfoConvert) :
         self.ditems = dict()
         self.flag = _flag
         self.source = _source
-        self.reader = csv.reader(open(self.source,'rb'),delimiter=self.flag)
+        self.bopen = True
+        if os.path.isfile(self.source) :
+            self.reader = csv.reader(open(self.source,'rb'),delimiter=self.flag)
+        else :
+            self.bopen = False
+            TraceError('open file {0} is failed!'.format(self.source))
         self.db = None
 
     def Run(self,host,port,user,psw,dbname) :
-        self.db = QtsMySql(host,port,user,psw,dbname)
-        self.db.Clear(qts_secuinfo_s_table)
-        self.db.Clear(qts_secuinfo_d_table)
-        for row in self.reader :
-            self.HandleRow(row)
-        self.db.Commit()
+        if self.bopen :
+            self.db = QtsMySql(host,port,user,psw,dbname)
+            self.db.Clear(qts_secuinfo_s_table)
+            self.db.Clear(qts_secuinfo_d_table)
+            for row in self.reader :
+                self.HandleRow(row)
+            self.db.Commit()
+        else :
+            TraceError('file is not opened!')
 
     def HandleStaticRow(self,row):
         sql = ("INSERT INTO {0}({1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14})"

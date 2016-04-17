@@ -1,10 +1,11 @@
 import datetime
 import uuid
 import sys
+import os
 
 from qtsmonitorreceivers import QtsComponentReceiver
 
-sys.path.append('../utility')
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/utility'))
 from qtslockhelper import *
 from qtsrmqpublisher import *
 

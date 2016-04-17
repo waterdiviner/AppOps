@@ -1,6 +1,6 @@
 #coding=utf-8
 from qtsclearingposition import *
-sys.path.append('../database')
+sys.path.append(os.path.join(os.getenv('QTS_BASE_PATH','..'),'pylib/database'))
 from qtsmysql import *
 
 class QtsClearingAccountToDB(object) :
@@ -8,18 +8,26 @@ class QtsClearingAccountToDB(object) :
         self.items = dict()
         self.flag = _flag
         self.source = _source
-        self.reader = csv.reader(open(self.source,'rb'),delimiter=self.flag)
         self.db = None
         self.table = None
+        self.bopen = True
+        if os.path.isfile(self.source) :
+            self.reader = csv.reader(open(self.source,'rb'),delimiter=self.flag)
+        else :
+            self.bopen = False
+            TraceError('open file {0} is failed!'.format(self.source))
 
     def Run(self,host,port,user,psw,dbname,dbtable,date) :
-        self.table = dbtable
-        self.db = QtsMySql(host,port,user,psw,dbname)
-        self.db.Clear(self.table)
-        for row in self.reader :
-            self.HandleRow(row,date)
-        self.Save()
-        self.db.Commit()
+        if self.bopen :
+            self.table = dbtable
+            self.db = QtsMySql(host,port,user,psw,dbname)
+            self.db.Clear(self.table)
+            for row in self.reader :
+                self.HandleRow(row,date)
+            self.Save()
+            self.db.Commit()
+        else :
+            TraceError('file is not opened!')
 
     def HandleRow(self,row,date):
         pos_row = list()
