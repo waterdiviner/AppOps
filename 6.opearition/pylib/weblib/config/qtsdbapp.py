@@ -6,11 +6,11 @@ sys.path.append('../common')
 from qtswebdb import *
 
 #########################################################################################################################
-app_head_fields = [qts_autoid_field,qts_id_field,qts_name_field,qts_type_field,qts_path_field,qts_machineid_field,qts_position_field,qts_detail_field]
+app_head_fields = [qts_autoid_field,qts_id_field,qts_name_field,qts_type_field,qts_path_field,qts_machineid_field,qts_detail_field]
 app_head_dcit = {app_head_fields[0]:0,app_head_fields[1]:1,app_head_fields[2]:2,app_head_fields[3]:3,app_head_fields[4]:4,
-                     app_head_fields[5]:5,app_head_fields[6]:6,app_head_fields[7]:7}
+                     app_head_fields[5]:5,app_head_fields[6]:6}
 app_head_texts = [get_text(app_head_fields[0]),get_text(app_head_fields[1]),get_text(app_head_fields[2]),get_text(app_head_fields[3]),get_text(app_head_fields[4]),
-                     get_text(app_head_fields[5]),get_text(app_head_fields[6]),get_text(app_head_fields[7])]
+                     get_text(app_head_fields[5]),get_text(app_head_fields[6])]
 
 def get_app_head_fields() :
     return app_head_fields

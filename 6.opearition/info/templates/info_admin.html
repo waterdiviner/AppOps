@@ -14,8 +14,8 @@
 
         <div title="{{ reses['operator'] }}" style="padding:10px">
             {% set styles = {fields[8]:"height:60px"} %}
-            {% set classes = {fields[6]:"easyui-combobox"} %}
-            {% set options = {fields[8]:"multiline:true",fields[6]:"url:'" + url_for('static',filename=machine_type_url) + "',method:'get',valueField:'id',textField:'text',panelHeight:'auto',onLoadSuccess:onLoadSuccess"} %}
+            
+            
             {{ qts_forms.qts_form_table("ff",fields,texts,reses,colsize,addurl=addurl,options=options,styles=styles,classes=classes,types=types) }}
         </div>
 
@@ -27,11 +27,8 @@
                                 fields[2]:"width:80,align:'right',editor:'text',sortable:'true'",
                                 fields[3]:"width:80,align:'right',editor:'text'",
                                 fields[4]:"width:80,align:'right',editor:'text'",
-                                fields[5]:"width:80,align:'right',editor:'text'",
-                                fields[6]:"width:80,align:'right',
-                                            formatter:onFormatter,
-                                            editor:{type:'combobox',options:{valueField:'id',textField:'text',method:'get',url:'" +
-                                            url_for('static',filename=machine_type_url) + "',required:true}}"
+                                fields[5]:"width:80,align:'right',editor:'text'"
+                                
                             }
             %}
 

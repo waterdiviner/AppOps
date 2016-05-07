@@ -4,11 +4,11 @@ sys.path.append('../common')
 from qtswebdb import *
 
 #########################################################################################################################
-admin_head_fields = [qts_autoid_field,qts_id_field,qts_name_field,qts_parentid_field,qts_type_field,qts_subtype_field,qts_password_field,qts_detail_field]
+admin_head_fields = [qts_autoid_field,qts_id_field,qts_name_field,qts_parentid_field,qts_type_field,qts_subtype_field,qts_password_field,qts_againpassword_field,qts_detail_field]
 admin_head_dcit = {admin_head_fields[0]:0,admin_head_fields[1]:1,admin_head_fields[2]:2,admin_head_fields[3]:3,admin_head_fields[4]:4,
-                     admin_head_fields[5]:5,admin_head_fields[6]:6,admin_head_fields[7]:7}
+                     admin_head_fields[5]:5,admin_head_fields[6]:6,admin_head_fields[7]:7,admin_head_fields[8]:8}
 admin_head_texts = [get_text(admin_head_fields[0]),get_text(admin_head_fields[1]),get_text(admin_head_fields[2]),get_text(admin_head_fields[3]),get_text(admin_head_fields[4]),
-                     get_text(admin_head_fields[5]),get_text(admin_head_fields[6]),get_text(admin_head_fields[7])]
+                     get_text(admin_head_fields[5]),get_text(admin_head_fields[6]),get_text(admin_head_fields[7]),get_text(admin_head_fields[8])]
 
 def get_admin_head_fields() :
     return admin_head_fields

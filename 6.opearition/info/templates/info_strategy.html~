@@ -1,5 +1,0 @@
-{% extends "info_layout.html" %}
-{% block body %}
-
-
-{% endblock %}

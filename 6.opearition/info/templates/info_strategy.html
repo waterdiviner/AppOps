@@ -7,13 +7,17 @@
     {% set addurl = 'info._insert_strategy' %}
     {% set upurl = 'info._update_strategy' %}
     {% set geturl = 'info.get_strategy' %}
+    {% set strategy_status_url = 'data/qts_strategy_status.json'%}
+    {% set strategy_account_url = 'data/qts_strategy_account.json'%}
     {{ qts_forms.qts_input_for_data("machine_ids",machine_ids) }}
     {{ qts_forms.qts_input_for_data("job_types",job_types) }}
 
     <div class="easyui-tabs" style="width:auto;height:auto">
 
         <div title="{{ reses['operator'] }}" style="padding:10px">
-            
+            {% set classes = {fields[3]:"easyui-combobox",fields[7]:"easyui-combobox" } %}
+            {% set options = {fields[3]:"url:'" + url_for('static',filename=strategy_account_url) + "' ,method:'get',valueField:'id',textField:'text',      multiple:true, panelHeight:'auto', onLoadSuccess:onAccountLoadSuccess", 
+                              fields[7]:"url:'" + url_for('static',filename=strategy_status_url) + "',method:'get',valueField:'id',textField:'text',panelHeight:'auto',onLoadSuccess:onStatusLoadSuccess"  } %}
             {{ qts_forms.qts_form_table("ff",fields,texts,reses,colsize,addurl=addurl,options=options,styles=styles,classes=classes,types=types) }}
         </div>
 
@@ -22,7 +26,11 @@
                 set hoptions={
                                 fields[0]:"width:80,align:'right',sortable:'true'",
                                 fields[1]:"width:80,align:'right',editor:'numberbox',sortable:'true'",
-                                fields[2]:"width:80,align:'right',editor:'text',sortable:'true'"
+                                fields[2]:"width:80,align:'right',editor:'text',sortable:'true'",
+                                fields[7]:"width:80,align:'right',
+                                            formatter:onStatusFormatter,
+                                            editor:{type:'combobox',options:{valueField:'id',textField:'text',method:'get',url:'" +
+                                            url_for('static',filename=strategy_status_url) + "',required:true}}"
                                
                             }
             %}
@@ -39,11 +47,15 @@
             }}
 
             <script type="text/javascript">
-                function onTypeFormatter(value,row){
+                function onStatusFormatter(value,row){
                     return get_json_value(value,get_job_types(),"id","text");
                 }
 
-                function onTypeLoadSuccess(){
+                function onAccountLoadSuccess(){
+                   onComboboxLoadSuccess($(this));
+                }
+
+                function onStatusLoadSuccess(){
                    onComboboxLoadSuccess($(this));
                 }
 

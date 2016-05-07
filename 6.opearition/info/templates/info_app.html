@@ -15,7 +15,7 @@
     <div class="easyui-tabs" style="width:auto;height:auto">
 
         <div title="{{ reses['operator'] }}" style="padding:10px">
-            {% set styles = {fields[7]:"height:60px"} %}
+            {% set styles = {fields[6]:"height:60px"} %}
             {% set classes = {fields[3]:"easyui-combobox",fields[5]:"easyui-combobox"} %}
             {% set options = {fields[7]:"multiline:true",fields[3]:"url:'" + url_for('static',filename=app_type_url) + "',method:'get',valueField:'id',textField:'text',panelHeight:'auto',onLoadSuccess:onTypeLoadSuccess",
                                 fields[5]:"url:'" + url_for(getmurl) + "',method:'get',valueField:'" + fields[1]  + "',textField:'" + fields[2] + "',panelHeight:'auto',onLoadSuccess:onMachineLoadSuccess"} %}

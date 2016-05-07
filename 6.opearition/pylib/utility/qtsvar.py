@@ -438,6 +438,7 @@ qts_bdate_field='qts_bdate'
 qts_edate_field='qts_edate'
 qts_productid_field='qts_productid'
 
+qts_againpassword_field='qts_againpassword'
 #add by lay end
 
 qts_json_id_field='id'

@@ -98,7 +98,7 @@ def get_instrument_type(file) :
 
 ####################################################################################################################################################
 
-parameter_head_fields = [qts_autoid_field,qts_strategyid_field,qts_key_field,qts_name_field,qts_value_field,qts_vardecimal_field,qts_index_field,qts_level_field,
+parameter_head_fields = [qts_autoid_field,qts_strategyid_field,qts_key_field,qts_name_field,qts_value_field,qts_decimal_field,qts_index_field,qts_level_field,
                         qts_save_field,qts_status_field,qts_mode_field,qts_component_field,qts_style_field]
 parameter_head_dcit = {parameter_head_fields[0]:0,parameter_head_fields[1]:1,parameter_head_fields[2]:2,parameter_head_fields[3]:3,parameter_head_fields[4]:4,parameter_head_fields[5]:5,parameter_head_fields[6]:6,parameter_head_fields[7]:7,parameter_head_fields[8]:8,parameter_head_fields[9]:9,parameter_head_fields[10]:10,parameter_head_fields[11]:11,parameter_head_fields[12]:12}
 parameter_head_texts = [get_text(parameter_head_fields[0]),get_text(parameter_head_fields[1]),get_text(parameter_head_fields[2]),get_text(parameter_head_fields[3]),get_text(parameter_head_fields[4]),get_text(parameter_head_fields[5]),get_text(parameter_head_fields[6]),get_text(parameter_head_fields[7]),get_text(parameter_head_fields[8]),get_text(parameter_head_fields[9]),get_text(parameter_head_fields[10]),get_text(parameter_head_fields[11]),get_text(parameter_head_fields[12])]
