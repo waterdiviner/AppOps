@@ -11,7 +11,7 @@ dist
 build
 
 # Temp
-*~
+*.*~
 
 # Folder config file
 Desktop.ini
